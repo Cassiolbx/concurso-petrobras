@@ -8,9 +8,9 @@
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #1a080c;
-      --bg-surface: rgba(45, 15, 22, 0.75);
-      --bg-surface-solid: #2d0f16;
+      --bg-dark: #1f0b0b;
+      --bg-surface: rgba(45, 16, 16, 0.75);
+      --bg-surface-solid: #2d1010;
       --border-panel: rgba(244, 63, 94, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
@@ -21,7 +21,7 @@
       
       --text-primary: #fff1f2;
       --text-secondary: #fecdd3;
-      --text-muted: #71717a;
+      --text-muted: #64748b;
       
       --correct: #10b981;
       --correct-bg: rgba(16, 185, 129, 0.14);
@@ -123,13 +123,7 @@
       box-shadow: 0 10px 24px var(--accent-glow);
       position: relative;
       overflow: hidden;
-    }
-    .brand-badge::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 60%);
-      pointer-events: none;
+      font-size: 1.5rem;
     }
 
     .brand-title h1 {
@@ -239,7 +233,7 @@
 
     .grid-options {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
     }
 
@@ -512,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(26, 8, 12, 0.82);
+      background: rgba(31, 11, 11, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -585,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(26, 8, 12, 0.88);
+      background: rgba(31, 11, 11, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -656,22 +650,10 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <!-- VECTOR SVG BADGE FOR INFORMATION SECURITY -->
-        <div class="brand-badge" title="Segurança da Informação">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 3L5 7V15C5 21.8 9.7 28.1 16 29.8C22.3 28.1 27 21.8 27 15V7L16 3Z" stroke="#ffffff" stroke-width="2" fill="url(#sec-grad-1)"/>
-            <path d="M12 15L15 18L20 13" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs>
-              <linearGradient id="sec-grad-1" x1="5" y1="3" x2="27" y2="30" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#ffffff" stop-opacity="0.3"/>
-                <stop offset="1" stop-color="#ffffff" stop-opacity="0.05"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <div class="brand-badge" title="Segurança da Informação">🛡️</div>
         <div class="brand-title">
           <h1>Segurança da Informação</h1>
-          <p>Concurso Petrobras — Criptografia, ISO 27001, Malwares & Gestão de Incidentes</p>
+          <p>Concurso Petrobras — Criptografia, ISO 27001, Gestão de Acessos & LGPD</p>
         </div>
       </div>
 
@@ -716,7 +698,7 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
@@ -726,19 +708,19 @@
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
-              <div style="display: flex; gap: 6px;" id="thinking-selector">
-                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
-              </div>
+              <select id="ai-thinking-select" class="input-field" style="cursor: pointer;">
+                <option value="Low">🟢 Low</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="High" selected>🔴 High</option>
+              </select>
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
-              <div style="display: flex; gap: 6px;" id="difficulty-selector">
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
-              </div>
+              <select id="ai-difficulty-select" class="input-field" style="cursor: pointer;">
+                <option value="Fácil">🟢 Fácil</option>
+                <option value="Médio" selected>🟡 Médio</option>
+                <option value="Difícil">🔴 Difícil</option>
+              </select>
             </div>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
@@ -772,21 +754,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Prática & Normas)</p>
+              <p>Certo / Errado (Casos de Ataques & Normas)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Gestão de Incidentes)</p>
+              <p>Múltipla Escolha (LGPD & Criptografia Avançada)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Criptografia & PKI)</p>
+              <p>Múltipla Escolha (Normas ISO & Firewalls)</p>
             </div>
           </label>
         </div>
@@ -971,53 +953,53 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "principios-iso27001", label: "Confidencialidade, Integridade, Disponibilidade & Norma ISO 27001/27002" },
-      { id: "criptografia-pki", label: "Criptografia Simétrica, Assimétrica, Hash (SHA/MD5) & Infraestrutura PKI-Brasil" },
-      { id: "malwares-ataques", label: "Malwares (Ransomware, Trojan, Worm, Phishing) & Ataques (DDoS, Man-in-the-Middle)" },
-      { id: "redes-firewall-ids", label: "Segurança de Redes (Firewall Stateful, IDS/IPS, VPN, TLS/SSL & WAF)" },
-      { id: "lgpd-autenticacao", label: "Autenticacao Forte (MFA), Controle de Acesso (RBAC) & LGPD" }
+      { id: "criptografia-assimetrica-pki", label: "Criptografia Simétrica, Assimétrica, Encriptação, Hashing (SHA-256) & PKI" },
+      { id: "normas-iso-27001-27002", label: "Gestão de Segurança da Informação (ISO/IEC 27001, 27002, 27005 & SGSI)" },
+      { id: "ataques-malwares-mitigacao", label: "Ataques (Ransomware, Phishing, DDoS, SQL Injection, Man-in-the-Middle) & Malwares" },
+      { id: "seguranca-redes-firewalls", label: "Segurança de Redes (Firewalls, IDS/IPS, VPN, Zero Trust & WAF)" },
+      { id: "lgpd-privacidade-gestao-riscos", label: "LGPD (Lei Geral de Proteção de Dados), Privacidade & Análise de Riscos" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
           id: "sec-ces-01",
-          topicId: "criptografia-pki",
-          statement: "Em sistemas de criptografia de chave pública (assimétrica), como o algoritmo RSA, quando o remetente cifra uma mensagem utilizando a CHAVE PRIVADA dele próprio, o principal objetivo dessa operação criptográfica é garantir a:",
+          topicId: "criptografia-assimetrica-pki",
+          statement: "Para garantir o não-repúdio (autenticidade e integridade) em um documento digital assinado por um engenheiro da Petrobras, qual mecanismo de criptografia de chave pública deve ser empregado na assinatura?",
           options: [
-            { label: "A", text: "Confidencialidade estrita da mensagem" },
-            { label: "B", text: "Autenticidade da origem e Não-Repúdio (Assinatura Digital)" },
-            { label: "C", text: "Disponibilidade dos dados no servidor" },
-            { label: "D", text: "Ofuscação simples para economia de largura de banda" },
-            { label: "E", text: "Recuperação automática em caso de ransomware" }
+            { label: "A", text: "Criptografar o hash do documento com a chave PRIVADA do remetente" },
+            { label: "B", text: "Criptografar o documento inteiro com a chave PÚBLICA do destinatário" },
+            { label: "C", text: "Gerar um hash SHA-256 e transmiti-lo em texto claro via HTTPS" },
+            { label: "D", text: "Criptografar a chave simétrica com a chave pública do remetente" },
+            { label: "E", text: "Utilizar uma cifra de bloco AES-256 em modo CBC com IV estático" }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. A cifragem com a CHAVE PRIVADA do remetente produz uma Assinatura Digital. Como apenas o remetente possui sua chave privada, qualquer pessoa com sua chave pública pode verificar a autenticidade e o não-repúdio."
+          correctLabel: "A",
+          explanation: "Alternativa A correta. A assinatura digital consiste em cifrar o hash do documento com a CHAVE PRIVADA do remetente. Como apenas o remetente possui sua chave privada, qualquer pessoa com a chave pública correspondente pode decifrar e verificar que ele assinou, garantindo o não-repúdio."
         },
         {
           id: "sec-ces-02",
-          topicId: "malwares-ataques",
-          statement: "Qual tipo de código malicioso sequestra os dados do usuário cifrando os arquivos do sistema e exigindo o pagamento de um resgate (geralmente em criptomoedas) para fornecer a chave de decifragem?",
+          topicId: "normas-iso-27001-27002",
+          statement: "A norma ABNT NBR ISO/IEC 27001 especifica os requisitos para estabelecer, implementar, manter e melhorar continuamente um:",
           options: [
-            { label: "A", text: "Spyware" },
-            { label: "B", text: "Ransomware" },
-            { label: "C", text: "Keylogger" },
-            { label: "D", text: "Adware" },
-            { label: "E", text: "Rootkit" }
+            { label: "A", text: "Sistema de Gestão da Qualidade de Software (SGQS)" },
+            { label: "B", text: "Sistema de Gestão de Segurança da Informação (SGSI)" },
+            { label: "C", text: "Plano de Continuidade de Negócios Offshore (PCNO)" },
+            { label: "D", text: "Protocolo de Resposta a Incidentes Físicos (PRIF)" },
+            { label: "E", text: "Framework de Governança de TI baseado em COBIT 2019" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. Ransomware é o malware especializado em criptografar dados da vítima e cobrar resgate (ransom)."
+          explanation: "Alternativa B correta. A ISO/IEC 27001 é o padrão internacional que especifica os requisitos formais para um SGSI (Sistema de Gestão de Segurança da Informação)."
         }
       ],
 
       CEBRASPE: [
         {
           id: "sec-ceb-01",
-          topicId: "principios-iso27001",
-          statement: "O princípio da Irretratabilidade (ou Não-Repúdio) garante que o emissor de uma mensagem ou realizador de uma transação eletrônica não possa negar posteriormente a autoria da ação.",
+          topicId: "seguranca-redes-firewalls",
+          statement: "O modelo de segurança Zero Trust baseia-se no princípio 'nunca confie, sempre verifique', exigindo autenticação e autorização rígidas para cada solicitação de acesso, independentemente de ela se originar dentro ou fora do perímetro de rede corporativo.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
           correctLabel: "A",
-          explanation: "CERTO. Não-repúdio impede que o autor de um ato ou mensagem negue sua autoria, garantido por mecanismos como assinaturas digitais."
+          explanation: "CERTO. O paradigma Zero Trust elimina a confiança implícita baseada na localização da rede, validando rigorosamente a identidade e o contexto de cada conexão."
         }
       ]
     };
@@ -1103,47 +1085,13 @@
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
 
-      document.querySelectorAll(".think-btn").forEach(btn => {
-        const t = btn.dataset.think;
-        if (t === (savedSettings.thinkingLevel || "High")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
+      const aiThinkingSelect = document.getElementById("ai-thinking-select");
+      aiThinkingSelect.value = savedSettings.thinkingLevel || "High";
+      aiThinkingSelect.addEventListener("change", saveCurrentSettings);
 
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".think-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
-
-      document.querySelectorAll(".diff-btn").forEach(btn => {
-        const d = btn.dataset.diff;
-        if (d === (savedSettings.difficulty || "Médio")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
-
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".diff-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
+      const aiDifficultySelect = document.getElementById("ai-difficulty-select");
+      aiDifficultySelect.value = savedSettings.difficulty || "Médio";
+      aiDifficultySelect.addEventListener("change", saveCurrentSettings);
 
       const btnConfigKey = document.getElementById("btn-config-key");
       if (btnConfigKey) {
@@ -1220,10 +1168,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
-      const thinkBtn = document.querySelector('.think-btn.btn-primary');
-      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
-      const diffBtn = document.querySelector('.diff-btn.btn-primary');
-      const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
+      const thinkingLevel = document.getElementById("ai-thinking-select").value;
+      const difficulty = document.getElementById("ai-difficulty-select").value;
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
       const selectedTopics = Array.from(document.querySelectorAll('#topics-selector input:checked')).map(cb => cb.value);
       const selectedBanca = document.querySelector('input[name="banca"]:checked').value;
@@ -1253,7 +1199,7 @@
         ? "Formato CEBRASPE: Certo ou Errado. Cada questão DEVE ter exatamente 2 opções: A) Certo, B) Errado."
         : `Formato ${banca}: Múltipla Escolha. Cada questão DEVE ter 5 opções marcadas como A, B, C, D, E.`;
 
-      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
+      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Segurança da Informação).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
 - Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).

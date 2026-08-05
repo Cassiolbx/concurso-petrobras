@@ -8,19 +8,19 @@
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #0f0a1e;
-      --bg-surface: rgba(28, 18, 52, 0.75);
-      --bg-surface-solid: #1c1234;
-      --border-panel: rgba(168, 85, 247, 0.22);
+      --bg-dark: #06191d;
+      --bg-surface: rgba(16, 42, 46, 0.75);
+      --bg-surface-solid: #102a2e;
+      --border-panel: rgba(20, 184, 166, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
-      --accent: #a855f7;
-      --accent-light: #c084fc;
-      --accent-dark: #9333ea;
-      --accent-glow: rgba(168, 85, 247, 0.25);
+      --accent: #14b8a6;
+      --accent-light: #2dd4bf;
+      --accent-dark: #0d9488;
+      --accent-glow: rgba(20, 184, 166, 0.25);
       
-      --text-primary: #faf5ff;
-      --text-secondary: #e9d5ff;
+      --text-primary: #f0fdfa;
+      --text-secondary: #ccfbf1;
       --text-muted: #64748b;
       
       --correct: #10b981;
@@ -39,18 +39,18 @@
     }
 
     :root[data-theme="light"] {
-      --bg-dark: #faf5ff;
+      --bg-dark: #f0fdfa;
       --bg-surface: rgba(255, 255, 255, 0.88);
       --bg-surface-solid: #ffffff;
-      --border-panel: rgba(168, 85, 247, 0.35);
+      --border-panel: rgba(20, 184, 166, 0.35);
       --border-subtle: rgba(0, 0, 0, 0.08);
       
-      --accent: #9333ea;
-      --accent-light: #7e22ce;
-      --accent-dark: #6b21a8;
-      --accent-glow: rgba(147, 51, 234, 0.15);
+      --accent: #0d9488;
+      --accent-light: #0f766e;
+      --accent-dark: #115e59;
+      --accent-glow: rgba(13, 148, 136, 0.15);
       
-      --text-primary: #3b0764;
+      --text-primary: #042f2e;
       --text-secondary: #334155;
       --text-muted: #64748b;
       
@@ -62,7 +62,7 @@
       --wrong-bg: rgba(244, 63, 94, 0.14);
       --wrong-border: rgba(244, 63, 94, 0.45);
       
-      --statement-bg: rgba(250, 245, 255, 0.85);
+      --statement-bg: rgba(240, 253, 250, 0.85);
       --card-bg: rgba(255, 255, 255, 0.6);
       --card-hover: rgba(255, 255, 255, 0.95);
       
@@ -79,8 +79,8 @@
       line-height: 1.6;
       transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 45%),
-        radial-gradient(at 100% 100%, rgba(147, 51, 234, 0.06) 0px, transparent 45%);
+        radial-gradient(at 0% 0%, rgba(20, 184, 166, 0.12) 0px, transparent 45%),
+        radial-gradient(at 100% 100%, rgba(13, 148, 136, 0.06) 0px, transparent 45%);
     }
 
     .container {
@@ -233,7 +233,7 @@
 
     .grid-options {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
     }
 
@@ -506,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(15, 10, 30, 0.82);
+      background: rgba(6, 25, 29, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -579,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(15, 10, 30, 0.88);
+      background: rgba(6, 25, 29, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -653,7 +653,7 @@
         <div class="brand-badge" title="Língua Inglesa">🌐</div>
         <div class="brand-title">
           <h1>Língua Inglesa</h1>
-          <p>Concurso Petrobras — Compreensão de Textos Técnicos & Vocabulário</p>
+          <p>Concurso Petrobras — Technical English, Comprehension, Vocabulary & Grammar</p>
         </div>
       </div>
 
@@ -698,7 +698,7 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
@@ -708,19 +708,19 @@
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
-              <div style="display: flex; gap: 6px;" id="thinking-selector">
-                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
-              </div>
+              <select id="ai-thinking-select" class="input-field" style="cursor: pointer;">
+                <option value="Low">🟢 Low</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="High" selected>🔴 High</option>
+              </select>
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
-              <div style="display: flex; gap: 6px;" id="difficulty-selector">
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
-              </div>
+              <select id="ai-difficulty-select" class="input-field" style="cursor: pointer;">
+                <option value="Fácil">🟢 Fácil</option>
+                <option value="Médio" selected>🟡 Médio</option>
+                <option value="Difícil">🔴 Difícil</option>
+              </select>
             </div>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
@@ -747,28 +747,28 @@
             <input type="radio" name="banca" value="CESGRANRIO" checked>
             <div class="tile-content">
               <strong>CESGRANRIO</strong>
-              <p>Múltipla Escolha (Padrão Petrobras)</p>
+              <p>Múltipla Escolha (Textos da Indústria de Energia)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Textos Técnicos)</p>
+              <p>Certo / Errado (Interpretação e Vocabulário Técnico)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Vocabulário Avançado)</p>
+              <p>Múltipla Escolha (Leitura Crítica & Gramática Avançada)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Gramática Aplicada)</p>
+              <p>Múltipla Escolha (Referência Pronominal & Sinônimos)</p>
             </div>
           </label>
         </div>
@@ -953,53 +953,53 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "compreensao-textos-ti", label: "Compreensão de Textos Técnicos em TI & Engenharia" },
-      { id: "vocabulario-tecnico", label: "Vocabulário Técnico (Cloud, Data, Security & Software)" },
-      { id: "conectivos-coesao", label: "Conectivos (Linking Words, Discourse Markers & Coesão)" },
-      { id: "gramatica-aplicada", label: "Gramática Aplicada (Modal Verbs, Passive Voice, Conditionals)" },
-      { id: "referencia-pronominal", label: "Referência Pronomial & Inferência Contextual" }
+      { id: "reading-comprehension-energy", label: "Reading Comprehension & Inference (Energy, IT & Offshore Oil Tech)" },
+      { id: "technical-vocabulary-jargon", label: "Technical IT & Engineering Vocabulary (Cloud, Cybersecurity, Databases)" },
+      { id: "grammar-connectors-cohesion", label: "Grammar & Discourse Markers (Connectors, Conjunctions, Relative Pronouns)" },
+      { id: "verb-tenses-conditionals", label: "Verb Tenses, Passive Voice & Conditionals in Technical Contexts" },
+      { id: "synonyms-antonyms-paraphrasing", label: "Synonyms, Antonyms & Paraphrasing in Academic/Corporate Texts" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
           id: "ing-ces-01",
-          topicId: "conectivos-coesao",
-          statement: "Consider the following excerpt from a technical article: 'The legacy database experienced high latency during peak hours; HOWEVER, the new distributed architecture resolved the performance bottlenecks.' The discourse marker 'HOWEVER' introduces a relation of:",
+          topicId: "grammar-connectors-cohesion",
+          statement: "Read the excerpt from an article on offshore drilling automation:\n'Automated safety systems rapidly isolate gas leaks; HOWEVER, legacy offshore platforms still rely on manual override protocols.'\nThe word 'HOWEVER' in the sentence expresses a relationship of:",
           options: [
-            { label: "A", text: "Addition of similar ideas" },
-            { label: "B", text: "Contrast or concession" },
-            { label: "C", text: "Cause and effect" },
-            { label: "D", text: "Chronological sequence" },
-            { label: "E", text: "Condition" }
+            { label: "A", text: "Contrast / Concession" },
+            { label: "B", text: "Addition / Extension" },
+            { label: "C", text: "Cause and Effect" },
+            { label: "D", text: "Exemplification" },
+            { label: "E", text: "Chronological Sequence" }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. O conectivo 'however' (no entanto, contudo) introduz uma relação de contraste, oposição ou concessão entre a alta latência do sistema legado e a solução trazida pela nova arquitetura distribuída."
+          correctLabel: "A",
+          explanation: "Option A is correct. The connector 'However' is a discourse marker used to introduce a statement that contrasts with or seems to contradict what has just been mentioned."
         },
         {
           id: "ing-ces-02",
-          topicId: "gramatica-aplicada",
-          statement: "In the sentence 'Database backups MUST BE ENCRYPTED at rest to comply with corporate security policies', the verbal structure 'MUST BE ENCRYPTED' expresses:",
+          topicId: "technical-vocabulary-jargon",
+          statement: "In the context of enterprise cloud architecture, the term 'SCALABILITY' most accurately refers to the ability of a system to:",
           options: [
-            { label: "A", text: "A past habit that is no longer performed" },
-            { label: "B", text: "A strong obligation or requirement in the passive voice" },
-            { label: "C", text: "A remote possibility in the future" },
-            { label: "D", text: "A polite suggestion" },
-            { label: "E", text: "An unfulfilled conditional action" }
+            { label: "A", text: "Encrypt data at rest using advanced cryptographic algorithms" },
+            { label: "B", text: "Handle an increasing workload by adding compute resources seamlessly" },
+            { label: "C", text: "Prevent unauthorized physical access to deep-water drilling rigs" },
+            { label: "D", text: "Recover from critical hardware failures in under one millisecond" },
+            { label: "E", text: "Translate legacy source code into modern programming frameworks" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. O verbo modal 'must' indica uma obrigação forte ou exigência de conformidade, e a estrutura 'be encrypted' está na voz passiva."
+          explanation: "Option B is correct. Scalability is the property of a system to handle a growing amount of work, or its potential to be enlarged to accommodate that growth by adding resources (hardware, memory, nodes)."
         }
       ],
 
       CEBRASPE: [
         {
           id: "ing-ceb-01",
-          topicId: "compreensao-textos-ti",
-          statement: "In technical documentation, the term 'scalability' refers to a system's capability to handle a growing amount of work or its potential to be enlarged to accommodate that growth.",
+          topicId: "reading-comprehension-energy",
+          statement: "Based on the sentence 'The transition toward renewable energy sources requires substantial upfront capital expenditure', it is correct to infer that adopting clean energy involves minimal initial financial investment.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
-          correctLabel: "A",
-          explanation: "CERTO. Scalability (escalabilidade) refere-se exatamente à capacidade do sistema suportar o aumento de carga mantendo o desempenho."
+          correctLabel: "B",
+          explanation: "ERRADO. O texto afirma que exige 'substantial upfront capital expenditure' (gasto inicial substancial de capital), o que contradiz frontalmente a afirmação 'minimal initial financial investment'."
         }
       ]
     };
@@ -1085,47 +1085,13 @@
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
 
-      document.querySelectorAll(".think-btn").forEach(btn => {
-        const t = btn.dataset.think;
-        if (t === (savedSettings.thinkingLevel || "High")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
+      const aiThinkingSelect = document.getElementById("ai-thinking-select");
+      aiThinkingSelect.value = savedSettings.thinkingLevel || "High";
+      aiThinkingSelect.addEventListener("change", saveCurrentSettings);
 
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".think-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
-
-      document.querySelectorAll(".diff-btn").forEach(btn => {
-        const d = btn.dataset.diff;
-        if (d === (savedSettings.difficulty || "Médio")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
-
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".diff-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
+      const aiDifficultySelect = document.getElementById("ai-difficulty-select");
+      aiDifficultySelect.value = savedSettings.difficulty || "Médio";
+      aiDifficultySelect.addEventListener("change", saveCurrentSettings);
 
       const btnConfigKey = document.getElementById("btn-config-key");
       if (btnConfigKey) {
@@ -1202,10 +1168,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
-      const thinkBtn = document.querySelector('.think-btn.btn-primary');
-      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
-      const diffBtn = document.querySelector('.diff-btn.btn-primary');
-      const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
+      const thinkingLevel = document.getElementById("ai-thinking-select").value;
+      const difficulty = document.getElementById("ai-difficulty-select").value;
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
       const selectedTopics = Array.from(document.querySelectorAll('#topics-selector input:checked')).map(cb => cb.value);
       const selectedBanca = document.querySelector('input[name="banca"]:checked').value;
@@ -1235,7 +1199,7 @@
         ? "Formato CEBRASPE: Certo ou Errado. Cada questão DEVE ter exatamente 2 opções: A) Certo, B) Errado."
         : `Formato ${banca}: Múltipla Escolha. Cada questão DEVE ter 5 opções marcadas como A, B, C, D, E.`;
 
-      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
+      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Língua Inglesa Técnica).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
 - Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
@@ -1244,21 +1208,21 @@ CONFIGURAÇÕES ESTRITAS DA PROVA:
 
 Regras de Formato:
 1. ${formatDesc}
-2. O enunciado deve ser técnico, bem contextualizado e sem ambiguidade.
-3. Forneça uma explicação técnica minuciosa justificando o gabarito.
+2. O enunciado deve ser em inglês técnico, bem contextualizado e sem ambiguidade.
+3. Forneça uma explicação técnica em português detalhando a gramática/interpretação e justificando o gabarito.
 4. Retorne EXCLUSIVAMENTE um objeto JSON válido sem Markdown fora do JSON, no seguinte esquema:
 {
   "items": [
     {
       "id": "ai-q-1",
       "topicId": "${topics[0] || ''}",
-      "statement": "Texto do enunciado da questão...",
+      "statement": "Texto do enunciado da questão em inglês...",
       "options": [
         { "label": "A", "text": "Texto da opção A" },
         { "label": "B", "text": "Texto da opção B" }
       ],
       "correctLabel": "A",
-      "explanation": "Explicação técnica detalhada..."
+      "explanation": "Explicação em português..."
     }
   ]
 }`;
