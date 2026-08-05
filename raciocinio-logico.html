@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raciocínio Lógico — Concurso Petrobras</title>
+  <style>
+    :root[data-theme="dark"] {
+      --bg-dark: #0a0b10;
+      --bg-surface: rgba(18, 20, 30, 0.75);
+      --bg-surface-solid: #12141e;
+      --border-panel: rgba(138, 130, 184, 0.18);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --accent: #9d93d3;
+      --text-primary: #f4f4f8;
+      --text-secondary: #a0a2b6;
+      --text-muted: #6c6e85;
+      --correct: #10b981;
+      --correct-bg: rgba(16, 185, 129, 0.12);
+      --correct-border: rgba(16, 185, 129, 0.35);
+      --wrong: #f43f5e;
+      --wrong-bg: rgba(244, 63, 94, 0.12);
+      --wrong-border: rgba(244, 63, 94, 0.35);
+      --statement-bg: rgba(0, 0, 0, 0.35);
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --card-hover: rgba(255, 255, 255, 0.05);
+      --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+    }
+    :root[data-theme="light"] {
+      --bg-dark: #f0f2f8;
+      --bg-surface: rgba(255, 255, 255, 0.85);
+      --bg-surface-solid: #ffffff;
+      --border-panel: rgba(138, 130, 184, 0.35);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      --accent: #6f63b8;
+      --accent-light: #594db0;
+      --accent-dark: #473c94;
+      --accent-glow: rgba(111, 99, 184, 0.15);
+      --text-primary: #1e202c;
+      --text-secondary: #4b4e63;
+      --text-muted: #787b92;
+      --correct: #059669;
+      --correct-bg: rgba(16, 185, 129, 0.14);
+      --correct-border: rgba(16, 185, 129, 0.45);
+      --wrong: #e11d48;
+      --wrong-bg: rgba(244, 63, 94, 0.14);
+      --wrong-border: rgba(244, 63, 94, 0.45);
+      --statement-bg: rgba(238, 241, 250, 0.8);
+      --card-bg: rgba(255, 255, 255, 0.6);
+      --card-hover: rgba(255, 255, 255, 0.95);
+      --shadow-premium: 0 15px 35px -10px rgba(0, 0, 0, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: "Segoe UI Variable Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 32px 20px 60px; }
+    header { background: var(--bg-surface); border: 1px solid var(--border-panel); backdrop-filter: blur(16px); border-radius: 20px; padding: 22px 28px; margin-bottom: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; box-shadow: var(--shadow-premium); }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .brand-badge { width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 24px var(--accent-glow); position: relative; overflow: hidden; }
+    .brand-title h1 { font-size: 1.35rem; font-weight: 700; color: var(--text-primary); }
+    .brand-title p { font-size: 0.82rem; color: var(--text-secondary); }
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .header-stats { display: flex; gap: 10px; flex-wrap: wrap; }
+    .stat-pill { background: var(--card-bg); border: 1px solid var(--border-subtle); padding: 8px 14px; border-radius: 10px; font-size: 0.82rem; color: var(--text-secondary); }
+    .stat-pill strong { color: var(--accent); font-weight: 700; }
+    .theme-toggle-btn { background: var(--card-bg); border: 1px solid var(--border-panel); color: var(--text-primary); padding: 8px 14px; border-radius: 10px; font-size: 0.85rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .panel { background: var(--bg-surface); border: 1px solid var(--border-panel); backdrop-filter: blur(16px); border-radius: 20px; padding: 32px; margin-bottom: 28px; box-shadow: var(--shadow-premium); }
+    .panel-header { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid var(--border-subtle); }
+    .step-tag { background: var(--accent-glow); color: var(--accent); border: 1px solid var(--border-panel); padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+    .panel-title { font-size: 1.15rem; font-weight: 700; color: var(--text-primary); }
+    .form-group { margin-bottom: 28px; }
+    .form-label { font-size: 0.88rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .grid-options { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+    .tile-card { display: flex; align-items: flex-start; gap: 12px; background: var(--card-bg); border: 1px solid var(--border-subtle); padding: 14px 16px; border-radius: 14px; cursor: pointer; }
+    .tile-card input { accent-color: var(--accent); width: 17px; height: 17px; margin-top: 2px; }
+    .tile-selected { background: var(--accent-glow) !important; border-color: var(--accent) !important; }
+    .tile-content strong { display: block; font-size: 0.92rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+    .tile-content p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.4; }
+    .input-field { width: 100%; background: var(--statement-bg); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 10px 14px; color: var(--text-primary); font-family: monospace; font-size: 0.85rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; border-radius: 14px; font-size: 0.92rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; white-space: nowrap; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%); color: #ffffff; }
+    .btn-secondary { background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-subtle); }
+    .actions-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+    .ws-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px; }
+    .badges-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .badge { background: var(--card-bg); border: 1px solid var(--border-subtle); padding: 5px 12px; border-radius: 8px; font-size: 0.78rem; font-weight: 600; color: var(--text-secondary); }
+    .badge-banca { background: var(--accent-glow); color: var(--accent); border-color: var(--border-panel); }
+    .progress-bar-bg { width: 100%; height: 6px; background: var(--border-subtle); border-radius: 99px; overflow: hidden; margin-bottom: 28px; }
+    .progress-bar-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.4s ease; }
+    .statement-card { background: var(--statement-bg); border: 1px solid var(--border-subtle); border-left: 4px solid var(--accent); padding: 24px; border-radius: 14px; font-size: 1.08rem; line-height: 1.7; color: var(--text-primary); margin-bottom: 28px; white-space: pre-line; }
+    .options-grid { display: grid; gap: 12px; margin-bottom: 28px; }
+    .option-card { display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 16px; background: var(--card-bg); border: 1px solid var(--border-subtle); padding: 16px 20px; border-radius: 14px; cursor: pointer; }
+    .option-tag { width: 36px; height: 36px; border-radius: 10px; background: var(--statement-bg); border: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; color: var(--text-secondary); }
+    .option-selected { border-color: var(--accent) !important; background: var(--accent-glow) !important; }
+    .option-correct { border-color: var(--correct) !important; background: var(--correct-bg) !important; }
+    .option-wrong { border-color: var(--wrong) !important; background: var(--wrong-bg) !important; }
+    .feedback-banner { margin-top: 28px; padding: 24px; border-radius: 14px; border: 1px solid transparent; }
+    .feedback-correct { background: var(--correct-bg); border-color: var(--correct-border); }
+    .feedback-wrong { background: var(--wrong-bg); border-color: var(--wrong-border); }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(10, 11, 16, 0.82); backdrop-filter: blur(12px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .modal-card { background: var(--bg-surface-solid); border: 1px solid var(--border-panel); border-radius: 20px; max-width: 520px; width: 100%; padding: 28px; box-shadow: var(--shadow-premium); }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border-subtle); }
+    .modal-close { background: none; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer; }
+    .backup-option-box { background: var(--statement-bg); border: 1px solid var(--border-subtle); border-radius: 14px; padding: 16px; margin-bottom: 16px; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-badge" title="Raciocínio Lógico">🧠</div>
+        <div class="brand-title">
+          <h1>Raciocínio Lógico</h1>
+          <p>Concurso Petrobras — Analista de Sistemas</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="header-stats">
+          <div class="stat-pill">Sessões: <strong id="stat-sessions">0</strong></div>
+          <div class="stat-pill">Acurácia: <strong id="stat-accuracy">0%</strong></div>
+          <div class="stat-pill">Erros Pendentes: <strong id="stat-wrong-count">0</strong></div>
+        </div>
+        <button type="button" id="theme-toggle-btn" class="theme-toggle-btn"><span id="theme-icon">🌙</span> <span id="theme-label">Escuro</span></button>
+      </div>
+    </header>
+    <main id="view-setup" class="panel">
+      <div class="panel-header"><span class="step-tag">Passo a Passo</span><h2 class="panel-title">Configuração da Sessão de Estudo</h2></div>
+      <div class="form-group" style="background: var(--statement-bg); padding: 20px; border-radius: 14px;">
+        <label class="form-label">⚡ 1. Escolha o Motor de Perguntas:</label>
+        <div class="grid-options" id="engine-selector">
+          <label class="tile-card tile-selected"><input type="radio" name="engine" value="offline" checked><div class="tile-content"><strong>📦 Banco Interno Offline</strong><p>Questões prontas no HTML</p></div></label>
+          <label class="tile-card"><input type="radio" name="engine" value="openrouter"><div class="tile-content"><strong>🤖 Motor IA (OpenRouter API)</strong><p>Gera questões em tempo real</p></div></label>
+        </div>
+        <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+            <div><label class="form-label">Modelo de IA:</label><select id="ai-model-select" class="input-field"><option value="google/gemma-4-31b-it">google/gemma-4-31b-it</option><option value="deepseek/deepseek-v4-flash-0731">deepseek/deepseek-v4-flash-0731</option></select></div>
+            <div><label class="form-label">Chave API OpenRouter:</label><input type="password" id="ai-api-key" class="input-field" value="" placeholder="sk-or-v1-..."></div>
+          </div>
+        </div>
+      </div>
+      <div class="actions-row">
+        <button type="button" id="btn-start-session" class="btn btn-primary">▶ Iniciar Treino</button>
+        <button type="button" id="btn-start-review" class="btn btn-secondary">🔄 Revisar Erros (<span id="review-badge-count">0</span>)</button>
+        <button type="button" id="btn-open-backup-modal" class="btn btn-secondary">☁️ Backup Google Drive</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
