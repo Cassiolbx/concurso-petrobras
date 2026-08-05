@@ -8,10 +8,10 @@
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #0f172a;
-      --bg-surface: rgba(30, 41, 59, 0.75);
-      --bg-surface-solid: #1e293b;
-      --border-panel: rgba(56, 189, 248, 0.2);
+      --bg-dark: #09131d;
+      --bg-surface: rgba(18, 32, 47, 0.75);
+      --bg-surface-solid: #12202f;
+      --border-panel: rgba(56, 189, 248, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
       --accent: #38bdf8;
@@ -19,8 +19,8 @@
       --accent-dark: #0284c7;
       --accent-glow: rgba(56, 189, 248, 0.25);
       
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
+      --text-primary: #f0f9ff;
+      --text-secondary: #bae6fd;
       --text-muted: #64748b;
       
       --correct: #10b981;
@@ -31,16 +31,16 @@
       --wrong-bg: rgba(244, 63, 94, 0.12);
       --wrong-border: rgba(244, 63, 94, 0.35);
       
-      --statement-bg: rgba(15, 23, 42, 0.6);
+      --statement-bg: rgba(0, 0, 0, 0.35);
       --card-bg: rgba(255, 255, 255, 0.02);
       --card-hover: rgba(255, 255, 255, 0.05);
       
-      --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05);
     }
 
     :root[data-theme="light"] {
-      --bg-dark: #f8fafc;
-      --bg-surface: rgba(255, 255, 255, 0.85);
+      --bg-dark: #f0f9ff;
+      --bg-surface: rgba(255, 255, 255, 0.88);
       --bg-surface-solid: #ffffff;
       --border-panel: rgba(56, 189, 248, 0.35);
       --border-subtle: rgba(0, 0, 0, 0.08);
@@ -50,7 +50,7 @@
       --accent-dark: #075985;
       --accent-glow: rgba(2, 132, 199, 0.15);
       
-      --text-primary: #0f172a;
+      --text-primary: #0c4a6e;
       --text-secondary: #334155;
       --text-muted: #64748b;
       
@@ -62,7 +62,7 @@
       --wrong-bg: rgba(244, 63, 94, 0.14);
       --wrong-border: rgba(244, 63, 94, 0.45);
       
-      --statement-bg: rgba(241, 245, 249, 0.85);
+      --statement-bg: rgba(240, 249, 255, 0.85);
       --card-bg: rgba(255, 255, 255, 0.6);
       --card-hover: rgba(255, 255, 255, 0.95);
       
@@ -79,8 +79,8 @@
       line-height: 1.6;
       transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 45%),
+        radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.06) 0px, transparent 45%);
     }
 
     .container {
@@ -123,13 +123,7 @@
       box-shadow: 0 10px 24px var(--accent-glow);
       position: relative;
       overflow: hidden;
-    }
-    .brand-badge::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 60%);
-      pointer-events: none;
+      font-size: 1.5rem;
     }
 
     .brand-title h1 {
@@ -239,7 +233,7 @@
 
     .grid-options {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
     }
 
@@ -512,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.82);
+      background: rgba(9, 19, 29, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -585,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.88);
+      background: rgba(9, 19, 29, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -656,23 +650,10 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <!-- VECTOR SVG BADGE FOR DATABASE -->
-        <div class="brand-badge" title="Banco de Dados">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 4C22.6274 4 28 6.68629 28 10C28 13.3137 22.6274 16 16 16C9.37258 16 4 13.3137 4 10C4 6.68629 9.37258 4 16 4Z" fill="url(#db-grad-1)" stroke="#ffffff" stroke-width="1.8"/>
-            <path d="M4 10V16C4 19.3137 9.37258 22 16 22C22.6274 22 28 19.3137 28 16V10" stroke="#ffffff" stroke-width="1.8"/>
-            <path d="M4 16V22C4 25.3137 9.37258 28 16 28C22.6274 28 28 25.3137 28 22V16" stroke="#ffffff" stroke-width="1.8"/>
-            <defs>
-              <linearGradient id="db-grad-1" x1="4" y1="4" x2="28" y2="16" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#ffffff" stop-opacity="0.35"/>
-                <stop offset="1" stop-color="#ffffff" stop-opacity="0.1"/>
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
+        <div class="brand-badge" title="Banco de Dados">🗄️</div>
         <div class="brand-title">
           <h1>Banco de Dados</h1>
-          <p>Concurso Petrobras — Modelagem, SQL, NoSQL & Governança de Dados</p>
+          <p>Concurso Petrobras — Modelagem, SQL, Transações ACID & NoSQL</p>
         </div>
       </div>
 
@@ -717,7 +698,7 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
@@ -773,21 +754,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Prática & Normas)</p>
+              <p>Certo / Errado (Casos Práticos)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Cenários Complexos)</p>
+              <p>Múltipla Escolha (Casos de Alta Complexidade)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Teórico-Prático)</p>
+              <p>Múltipla Escolha (Conceitos Diretos & SQL)</p>
             </div>
           </label>
         </div>
@@ -972,10 +953,10 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "modelagem-conceitual", label: "Modelagem ER, Relacional & Normalização (1FN a 5FN)" },
-      { id: "sql-ddl-dml", label: "Linguagem SQL (DDL, DML, DCL, Window Functions, CTEs & Subqueries)" },
-      { id: "transacoes-acid", label: "Transações, Propriedades ACID, Isolamento & Controle de Concorrência" },
-      { id: "nosql-bigdata", label: "Bancos NoSQL (Documento, Chave-Valor, Grafos, Colunar) & Big Data" },
+      { id: "modelagem-er-normalizacao", label: "Modelagem ER, Relacional & Normalização (1FN a 5FN)" },
+      { id: "linguagem-sql-avancada", label: "Linguagem SQL (DDL, DML, DCL, Window Functions, CTEs & Subqueries)" },
+      { id: "transacoes-acid-concorrencia", label: "Transações, Propriedades ACID, Isolamento & Controle de Concorrência" },
+      { id: "bancos-nosql-bigdata", label: "Bancos NoSQL (Documento, Chave-Valor, Grafos, Colunar) & Big Data" },
       { id: "data-warehouse-bi", label: "Data Warehouse, Modelagem Dimensional (Star/Snowflake), ETL & BI" }
     ];
 
@@ -983,8 +964,8 @@
       CESGRANRIO: [
         {
           id: "bd-ces-01",
-          topicId: "modelagem-conceitual",
-          statement: "Considere uma tabela R no modelo relacional que possui uma chave primária composta (A, B) e os atributos não-chave C e D. Se o atributo C depende funcionalmente apenas do atributo A (parte da chave primária), diz-se que essa tabela viola a seguinte Forma Normal:",
+          topicId: "modelagem-er-normalizacao",
+          statement: "Em um banco de dados relacional para monitoramento de refinarias, uma tabela 'Manutencao' possui a chave primária composta (ID_Refinaria, ID_Equipamento, Data). O atributo 'Nome_Equipamento' depende apenas de 'ID_Equipamento'. Essa tabela viola qual forma normal?",
           options: [
             { label: "A", text: "Primeira Forma Normal (1FN)" },
             { label: "B", text: "Segunda Forma Normal (2FN)" },
@@ -993,32 +974,32 @@
             { label: "E", text: "Quarta Forma Normal (4FN)" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. A 2FN exige que a tabela esteja na 1FN e que nenhum atributo não-chave seja dependente funcionalmente de PARTE da chave primária (dependência parcial). Como C depende apenas de A (parte de A, B), viola a 2FN."
+          explanation: "Alternativa B correta. A 2FN exige que a tabela esteja na 1FN e que todo atributo não-chave dependa TOTALMENTE de toda a chave primária. Como Nome_Equipamento depende apenas de parte da chave (ID_Equipamento), há uma dependência parcial, violando a 2FN."
         },
         {
           id: "bd-ces-02",
-          topicId: "sql-ddl-dml",
-          statement: "Deseja-se selecionar o nome do funcionário e o salário médio do seu respectivo departamento, exibindo apenas os funcionários que ganham ACIMA da média de seu departamento. A funcionalidade SQL mais recomendada para realizar esse cálculo mantendo o detalhamento de cada linha é:",
+          topicId: "linguagem-sql-avancada",
+          statement: "Considere a necessidade de calcular a média móvel de produção de barris de petróleo dos últimos 3 dias para cada poço. Qual recurso do SQL ANSI é o mais adequado para realizar essa consulta de forma performática?",
           options: [
-            { label: "A", text: "GROUP BY com a cláusula HAVING" },
-            { label: "B", text: "Funções de Janela (Window Functions OVER (PARTITION BY ...))" },
-            { label: "C", text: "Subquery no WHERE com operador EXISTS" },
-            { label: "D", text: "Cláusula CROSS JOIN implícita" },
-            { label: "E", text: "Operador PIVOT em conjunto com UNION ALL" }
+            { label: "A", text: "Subquery correlacionada no WHERE com GROUP BY" },
+            { label: "B", text: "Window Function com a cláusula OVER (PARTITION BY ... ORDER BY ... ROWS BETWEEN)" },
+            { label: "C", text: "CROSS JOIN com tabela temporária de datas" },
+            { label: "D", text: "Cláusula HAVING com contagem agregada" },
+            { label: "E", text: "UNION ALL entre três selects distintos" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. As Window Functions (OVER PARTITION BY) permitem agregar dados (como a média do departamento) sem agrupar as linhas em uma única saída, possibilitando comparar cada funcionário com a média departamental."
+          explanation: "Alternativa B correta. As Window Functions (Funções de Janela) com especificação de quadro de linhas (ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) são a ferramenta nativa e mais eficiente do SQL para médias móveis e agregações deslizantes."
         }
       ],
 
       CEBRASPE: [
         {
           id: "bd-ceb-01",
-          topicId: "transacoes-acid",
-          statement: "No contexto do controle de concorrência em bancos de dados relacionais, o nível de isolamento 'Read Committed' impede a ocorrência de leituras sujas (Dirty Reads), mas ainda permite a ocorrência de leituras não repetíveis (Non-repeatable Reads).",
+          topicId: "transacoes-acid-concorrencia",
+          statement: "O nível de isolamento 'READ COMMITTED' em SGBDs relacionais impede o fenômeno das leituras sujas (dirty reads), mas permite a ocorrência de leituras não repetíveis.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
           correctLabel: "A",
-          explanation: "CERTO. No nível Read Committed, uma transação só lê dados já commitados (evita Dirty Reads). Porém, se outra transação alterar e commitar os dados enquanto a primeira ainda está rodando, leituras subsequentes mostrarão dados alterados (Non-repeatable Reads)."
+          explanation: "CERTO. No nível READ COMMITTED, uma transação só lê dados já commitados (evitando dirty reads). Contudo, se outra transação alterar e commitar o dado durante a execução da primeira, leituras subsequentes da mesma linha retornarão valores diferentes (leituras não repetíveis)."
         }
       ]
     };
