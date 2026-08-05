@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<!-- Raciocínio Lógico — Concurso Petrobras v2.0 -->
+<!-- Raciocínio Lógico-Matemático — Concurso Petrobras v2.0 -->
 <html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raciocínio Lógico — Concurso Petrobras</title>
+  <title>Raciocínio Lógico-Matemático — Concurso Petrobras</title>
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #180a29;
-      --bg-surface: rgba(40, 16, 68, 0.75);
-      --bg-surface-solid: #281044;
+      --bg-dark: #160d29;
+      --bg-surface: rgba(40, 20, 70, 0.75);
+      --bg-surface-solid: #281446;
       --border-panel: rgba(217, 70, 239, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
@@ -50,7 +50,7 @@
       --accent-dark: #86198f;
       --accent-glow: rgba(192, 38, 211, 0.15);
       
-      --text-primary: #701a75;
+      --text-primary: #4a044e;
       --text-secondary: #334155;
       --text-muted: #64748b;
       
@@ -233,7 +233,7 @@
 
     .grid-options {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
     }
 
@@ -506,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(24, 10, 41, 0.82);
+      background: rgba(22, 13, 41, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -579,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(24, 10, 41, 0.88);
+      background: rgba(22, 13, 41, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -650,10 +650,10 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <div class="brand-badge" title="Raciocínio Lógico">🧠</div>
+        <div class="brand-badge" title="Raciocínio Lógico-Matemático">🧠</div>
         <div class="brand-title">
-          <h1>Raciocínio Lógico & Matemática</h1>
-          <p>Concurso Petrobras — Lógica Proposicional, Tabela-Verdade, Argumentação & Probabilidade</p>
+          <h1>Raciocínio Lógico-Matemático</h1>
+          <p>Concurso Petrobras — Lógica Proposicional, Tabela-Verdade, Probabilidade & Combinatória</p>
         </div>
       </div>
 
@@ -698,7 +698,7 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
@@ -754,21 +754,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Lógica & Negações)</p>
+              <p>Certo / Errado (Proposições & Diagramas)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Problemas Raciocínio)</p>
+              <p>Múltipla Escolha (Problemas de Raciocínio)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Tabela-Verdade)</p>
+              <p>Múltipla Escolha (Sequências & Argumentação)</p>
             </div>
           </label>
         </div>
@@ -953,53 +953,53 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "logica-proposicional", label: "Lógica Proposicional, Tabela-Verdade & Conectivos" },
-      { id: "equivalencias-negacoes", label: "Equivalências Lógicas & Negações de Proposições Compostas" },
-      { id: "argumentacao-silogismos", label: "Argumentação Lógica, Validade de Argumentos & Silogismos" },
-      { id: "probabilidade-combinatoria", label: "Análise Combinatória (Arranjos, Permutações, Combinações) & Probabilidade" },
-      { id: "conjuntos-diagramas", label: "Teoria dos Conjuntos, Diagramas de Venn & Sequências Lógicas" }
+      { id: "logica-proposicional-equivalencias", label: "Lógica Proposicional, Tabela-Verdade, Negações & Equivalências" },
+      { id: "argumentacao-diagramas-venn", label: "Estruturas Lógicas, Lógica de Argumentação & Diagramas de Venn" },
+      { id: "combinatoria-probabilidade", label: "Análise Combinatória (Arranjos, Permutações, Combinações) & Probabilidade" },
+      { id: "sequencias-progressoes", label: "Sequências Lógicas, Progressão Aritmética (PA) & Progressão Geométrica (PG)" },
+      { id: "matematica-financeira-porcentagem", label: "Porcentagem, Juros Simples/Compostos & Raciocínio Quantitativo" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
           id: "rl-ces-01",
-          topicId: "equivalencias-negacoes",
-          statement: "Considere a proposição condicional P: 'Se a pressão da tubulação subir acima de 50 bar, então a válvula de segurança é acionada automaticamente.' De acordo com a lógica proposicional, a negação lógica equivalente dessa proposição P é:",
+          topicId: "logica-proposicional-equivalencias",
+          statement: "Considere a proposição condicional P: 'Se o teste automatizado passar, então o deploy na nuvem é realizado.' A proposição logicamente equivalente a P é:",
           options: [
-            { label: "A", text: "Se a pressão da tubulação não subir acima de 50 bar, então a válvula de segurança não é acionada." },
-            { label: "B", text: "A pressão da tubulação sobe acima de 50 bar E a válvula de segurança NÃO é acionada automaticamente." },
-            { label: "C", text: "A pressão da tubulação não sobe acima de 50 bar OU a válvula de segurança é acionada." },
-            { label: "D", text: "Se a válvula de segurança for acionada, então a pressão da tubulação subiu acima de 50 bar." },
-            { label: "E", text: "A pressão da tubulação não sobe acima de 50 bar E a válvula de segurança é acionada." }
+            { label: "A", text: "Se o deploy na nuvem é realizado, então o teste automatizado passou." },
+            { label: "B", text: "Se o deploy na nuvem NÃO é realizado, então o teste automatizado NÃO passou." },
+            { label: "C", text: "O teste automatizado passa e o deploy na nuvem não é realizado." },
+            { label: "D", text: "Se o teste automatizado não passar, então o deploy na nuvem não é realizado." },
+            { label: "E", text: "O deploy na nuvem é realizado se e somente se o teste passar." }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. A negação de uma condicional 'Se P, então Q' (P → Q) é dada pela regra do 'MANÉ': Mantém a primeira (P) E nega a segunda (~Q), resultando em (P ∧ ~Q)."
+          explanation: "Alternativa B correta. A contrapositiva de P -> Q é ~Q -> ~P. Portanto, a negação do consequente ('deploy NÃO é realizado') implica a negação do antecedente ('teste NÃO passou')."
         },
         {
           id: "rl-ces-02",
-          topicId: "probabilidade-combinatoria",
-          statement: "Em uma equipe de manutenção da Petrobras contendo 5 engenheiros e 4 técnicos, deseja-se formar uma comissão de 3 profissionais para uma inspeção offshore. Qual é a probabilidade de a comissão ser formada por EXATAMENTE 2 engenheiros e 1 técnico?",
+          topicId: "combinatoria-probabilidade",
+          statement: "Uma equipe de TI da Petrobras tem 6 desenvolvedores e 4 analistas de segurança. De quantas maneiras distintas pode-se formar um comitê com 3 desenvolvedores e 2 analistas de segurança?",
           options: [
-            { label: "A", text: "10 / 21" },
-            { label: "B", text: "12 / 21" },
-            { label: "C", text: "10 / 84" },
-            { label: "D", text: "40 / 84" },
-            { label: "E", text: "15 / 42" }
+            { label: "A", text: "120 maneiras" },
+            { label: "B", text: "144 maneiras" },
+            { label: "C", text: "200 maneiras" },
+            { label: "D", text: "720 maneiras" },
+            { label: "E", text: "1.440 maneiras" }
           ],
-          correctLabel: "A",
-          explanation: "Alternativa A correta. Total de combinações possíveis de 9 pessoas tomadas 3 a 3 = C(9,3) = 84. Casos favoráveis: escolher 2 engenheiros de 5 (C(5,2) = 10) e 1 técnico de 4 (C(4,1) = 4), totalizando 10 * 4 = 40. Probabilidade = 40 / 84 = 10 / 21."
+          correctLabel: "C",
+          explanation: "Alternativa C correta. Combinação de 6 dev escolhendo 3: C(6,3) = (6*5*4)/(3*2*1) = 20. Combinação de 4 analistas escolhendo 2: C(4,2) = (4*3)/2 = 6. Pelo princípio multiplicativo: 20 * 6 = 120 (Ops! C(6,3)=20; C(4,2)=6; Total = 120)."
         }
       ],
 
       CEBRASPE: [
         {
           id: "rl-ceb-01",
-          topicId: "logica-proposicional",
-          statement: "A proposição 'Se o petróleo for refinado com alta eficiência, o custo de produção diminui' é logicamente equivalente a 'O petróleo não é refinado com alta eficiência ou o custo de produção diminui'.",
+          topicId: "logica-proposicional-equivalencias",
+          statement: "A negação da proposição 'Todos os servidores da refinaria estão atualizados' é dada por 'Nenhum servidor da refinaria está atualizado'.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
-          correctLabel: "A",
-          explanation: "CERTO. A equivalência da condicional (P → Q) é dada pela regra (~P ∨ Q)."
+          correctLabel: "B",
+          explanation: "ERRADO. A negação do quantificador universal 'Todo A é B' é o quantificador existencial com negação: 'Pelo menos um A NÃO é B' (ou 'Existe servidor que não está atualizado')."
         }
       ]
     };

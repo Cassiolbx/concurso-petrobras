@@ -8,10 +8,10 @@
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #090d16;
-      --bg-surface: rgba(18, 24, 38, 0.75);
-      --bg-surface-solid: #121826;
-      --border-panel: rgba(99, 102, 241, 0.22);
+      --bg-dark: #0f172a;
+      --bg-surface: rgba(30, 41, 59, 0.75);
+      --bg-surface-solid: #1e293b;
+      --border-panel: rgba(129, 140, 248, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
       --accent: #6366f1;
@@ -19,7 +19,7 @@
       --accent-dark: #4f46e5;
       --accent-glow: rgba(99, 102, 241, 0.25);
       
-      --text-primary: #eef2ff;
+      --text-primary: #f8fafc;
       --text-secondary: #c7d2fe;
       --text-muted: #64748b;
       
@@ -233,7 +233,7 @@
 
     .grid-options {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
     }
 
@@ -506,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(9, 13, 22, 0.82);
+      background: rgba(15, 23, 42, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -579,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(9, 13, 22, 0.88);
+      background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -653,7 +653,7 @@
         <div class="brand-badge" title="Engenharia de Software">💻</div>
         <div class="brand-title">
           <h1>Engenharia de Software</h1>
-          <p>Concurso Petrobras — Arquitetura de Software, Ágil, DevOps & Testes</p>
+          <p>Concurso Petrobras — Arquitetura de Software, Design Patterns, DevOps & Testes</p>
         </div>
       </div>
 
@@ -698,7 +698,7 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
@@ -754,21 +754,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Prática & Padrões)</p>
+              <p>Certo / Errado (Arquitetura & Código)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Práticas de Mercado)</p>
+              <p>Múltipla Escolha (Engenharia de Requisitos)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (UML & Testes)</p>
+              <p>Múltipla Escolha (Design Patterns & UML)</p>
             </div>
           </label>
         </div>
@@ -953,53 +953,53 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "arquitetura-padroes", label: "Arquitetura de Software (Microserviços, Event-Driven, DDD & Padrões GoF)" },
-      { id: "metodologias-agies", label: "Metodologias Ágeis (Scrum, Kanban, XP, TDD & BDD)" },
-      { id: "devops-cicd", label: "DevOps, CI/CD, Containerização (Docker/K8s) & IaC" },
-      { id: "qualidade-testes", label: "Engenharia de Requisitos, UML 2.5, Testes (Unitário, Integração, Carga)" },
-      { id: "apis-rest-grpc", label: "APIs RESTful, GraphQL, gRPC, Segurança em Código (OWASP Top 10)" }
+      { id: "arquitetura-software-microsservicos", label: "Arquitetura de Software (Microsserviços, Monólito, Event-Driven, REST & GraphQL)" },
+      { id: "padrões-projeto-gof-solid", label: "Design Patterns (GoF Criacionais, Estruturais, Comportamentais) & Princípios SOLID" },
+      { id: "devops-ci-cd-docker", label: "DevOps (CI/CD, Docker, Kubernetes, Git & Observabilidade)" },
+      { id: "metodologias-ageis-scrum-kanban", label: "Metodologias Ágeis (Scrum, Kanban, XP & TDD/BDD)" },
+      { id: "qualidade-software-testes", label: "Engenharia de Requisitos, Testes (Unitário, Integração, E2E) & Qualidade" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
-          id: "eng-ces-01",
-          topicId: "arquitetura-padroes",
-          statement: "Em uma arquitetura de software orientada a microsserviços, qual padrão de projeto estrutural (GoF) é comumente utilizado na camada de entrada (API Gateway) para prover uma interface unificada e simplificada a um conjunto de interfaces complexas de subsistemas internos?",
+          id: "es-ces-01",
+          topicId: "padrões-projeto-gof-solid",
+          statement: "Em um sistema de pagamento de combustível na Petrobras, é necessário instanciar diferentes gateways de pagamento (Cartão corporativo, PIX, Faturamento) sem acoplar o código cliente às classes concretas desses gateways. Qual padrão de projeto GoF criacional é o mais indicado para encapsular a criação desses objetos?",
           options: [
-            { label: "A", text: "Singleton" },
-            { label: "B", text: "Facade" },
+            { label: "A", text: "Factory Method" },
+            { label: "B", text: "Singleton" },
             { label: "C", text: "Observer" },
             { label: "D", text: "Strategy" },
-            { label: "E", text: "Decorator" }
+            { label: "E", text: "Adapter" }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. O padrão Facade fornece uma interface unificada para um conjunto de interfaces em um subsistema, permitindo que a API Gateway esconda a complexidade dos múltiplos microsserviços internos dos clientes."
+          correctLabel: "A",
+          explanation: "Alternativa A correta. O Factory Method encapsula a lógica de instanciação de objetos em subclasses ou métodos de fabricação, permitindo trocar o gateway sem alterar o código cliente."
         },
         {
-          id: "eng-ces-02",
-          topicId: "metodologias-agies",
-          statement: "No framework Scrum, qual evento tem duração máxima (timebox) recomendada de 3 horas para uma Sprint de um mês, e se destina à inspeção do trabalho realizado e adaptação do Backlog do Produto com a participação dos stakeholders?",
+          id: "es-ces-02",
+          topicId: "arquitetura-software-microsservicos",
+          statement: "Qual princípio da arquitetura de microsserviços assegura que cada serviço possui autonomia sobre seu próprio esquema de armazenamento, evitando o compartilhamento direto de tabelas no banco de dados entre serviços distintos?",
           options: [
-            { label: "A", text: "Daily Scrum" },
-            { label: "B", text: "Sprint Planning" },
-            { label: "C", text: "Sprint Review" },
-            { label: "D", text: "Sprint Retrospective" },
-            { label: "E", text: "Backlog Refinement" }
+            { label: "A", text: "Shared Database Pattern" },
+            { label: "B", text: "Database per Service" },
+            { label: "C", text: "API Gateway Aggregation" },
+            { label: "D", text: "Two-Phase Commit Protocol (2PC)" },
+            { label: "E", text: "Event Sourcing Pattern" }
           ],
-          correctLabel: "C",
-          explanation: "Alternativa C correta. A Sprint Review (Revisão da Sprint) ocorre ao final da Sprint para inspecionar o incremento com os stakeholders e adaptar o Product Backlog (timebox de até 4h para Sprints de 1 mês, frequentemente 3-4h no guia original)."
+          correctLabel: "B",
+          explanation: "Alternativa B correta. O padrão 'Database per Service' garante baixo acoplamento e independência de implantação, fazendo com que o acesso aos dados de um microsserviço seja feito estritamente via API."
         }
       ],
 
       CEBRASPE: [
         {
-          id: "eng-ceb-01",
-          topicId: "devops-cicd",
-          statement: "No contexto de Integração Contínua (CI), a prática de 'Feature Toggles' (ou Feature Flags) permite integrar código inacabado na branch principal (main/master) sem expor a nova funcionalidade aos usuários em produção.",
+          id: "es-ceb-01",
+          topicId: "devops-ci-cd-docker",
+          statement: "Em contêineres Docker, a instrução COPY copia arquivos do sistema hospedeiro para o sistema de arquivos do contêiner, enquanto a instrução ADD, além de copiar, suporta a extração automática de arquivos compactados e o download via URLs.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
           correctLabel: "A",
-          explanation: "CERTO. Feature Flags/Toggles permitem que o código seja mesclado e implantado com segurança em produção desativado por chave condicional, habilitando a integração contínua real sem branches de vida longa."
+          explanation: "CERTO. A instrução ADD possui recursos adicionais como descompactação de tar.gz e download via URL, enquanto COPY é recomendada para cópias simples de arquivos locais."
         }
       ]
     };
