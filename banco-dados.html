@@ -8,20 +8,20 @@
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #171008;
-      --bg-surface: rgba(38, 24, 12, 0.75);
-      --bg-surface-solid: #26180c;
-      --border-panel: rgba(245, 158, 11, 0.22);
+      --bg-dark: #0f172a;
+      --bg-surface: rgba(30, 41, 59, 0.75);
+      --bg-surface-solid: #1e293b;
+      --border-panel: rgba(56, 189, 248, 0.2);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
-      --accent: #f59e0b;
-      --accent-light: #fbbf24;
-      --accent-dark: #d97706;
-      --accent-glow: rgba(245, 158, 11, 0.25);
+      --accent: #38bdf8;
+      --accent-light: #7dd3fc;
+      --accent-dark: #0284c7;
+      --accent-glow: rgba(56, 189, 248, 0.25);
       
-      --text-primary: #fffbeb;
-      --text-secondary: #fde68a;
-      --text-muted: #71717a;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
       
       --correct: #10b981;
       --correct-bg: rgba(16, 185, 129, 0.14);
@@ -31,26 +31,26 @@
       --wrong-bg: rgba(244, 63, 94, 0.12);
       --wrong-border: rgba(244, 63, 94, 0.35);
       
-      --statement-bg: rgba(0, 0, 0, 0.35);
+      --statement-bg: rgba(15, 23, 42, 0.6);
       --card-bg: rgba(255, 255, 255, 0.02);
       --card-hover: rgba(255, 255, 255, 0.05);
       
-      --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+      --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05);
     }
 
     :root[data-theme="light"] {
-      --bg-dark: #fffbeb;
-      --bg-surface: rgba(255, 255, 255, 0.88);
+      --bg-dark: #f8fafc;
+      --bg-surface: rgba(255, 255, 255, 0.85);
       --bg-surface-solid: #ffffff;
-      --border-panel: rgba(245, 158, 11, 0.35);
+      --border-panel: rgba(56, 189, 248, 0.35);
       --border-subtle: rgba(0, 0, 0, 0.08);
       
-      --accent: #d97706;
-      --accent-light: #b45309;
-      --accent-dark: #92400e;
-      --accent-glow: rgba(217, 119, 6, 0.15);
+      --accent: #0284c7;
+      --accent-light: #0369a1;
+      --accent-dark: #075985;
+      --accent-glow: rgba(2, 132, 199, 0.15);
       
-      --text-primary: #451a03;
+      --text-primary: #0f172a;
       --text-secondary: #334155;
       --text-muted: #64748b;
       
@@ -62,7 +62,7 @@
       --wrong-bg: rgba(244, 63, 94, 0.14);
       --wrong-border: rgba(244, 63, 94, 0.45);
       
-      --statement-bg: rgba(254, 243, 199, 0.85);
+      --statement-bg: rgba(241, 245, 249, 0.85);
       --card-bg: rgba(255, 255, 255, 0.6);
       --card-hover: rgba(255, 255, 255, 0.95);
       
@@ -79,8 +79,8 @@
       line-height: 1.6;
       transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.12) 0px, transparent 45%),
-        radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.06) 0px, transparent 45%);
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(14, 165, 233, 0.05) 0px, transparent 50%);
     }
 
     .container {
@@ -512,7 +512,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(23, 16, 8, 0.82);
+      background: rgba(15, 23, 42, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -585,7 +585,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(23, 16, 8, 0.88);
+      background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -659,12 +659,12 @@
         <!-- VECTOR SVG BADGE FOR DATABASE -->
         <div class="brand-badge" title="Banco de Dados">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="16" cy="7" rx="11" ry="3.5" stroke="#ffffff" stroke-width="2" fill="url(#db-grad-1)"/>
-            <path d="M5 7V16C5 17.9 9.9 19.5 16 19.5C22.1 19.5 27 17.9 27 16V7" stroke="#ffffff" stroke-width="2" fill="none"/>
-            <path d="M5 16V25C5 26.9 9.9 28.5 16 28.5C22.1 28.5 27 26.9 27 25V16" stroke="#ffffff" stroke-width="2" fill="none"/>
+            <path d="M16 4C22.6274 4 28 6.68629 28 10C28 13.3137 22.6274 16 16 16C9.37258 16 4 13.3137 4 10C4 6.68629 9.37258 4 16 4Z" fill="url(#db-grad-1)" stroke="#ffffff" stroke-width="1.8"/>
+            <path d="M4 10V16C4 19.3137 9.37258 22 16 22C22.6274 22 28 19.3137 28 16V10" stroke="#ffffff" stroke-width="1.8"/>
+            <path d="M4 16V22C4 25.3137 9.37258 28 16 28C22.6274 28 28 25.3137 28 22V16" stroke="#ffffff" stroke-width="1.8"/>
             <defs>
-              <linearGradient id="db-grad-1" x1="5" y1="3.5" x2="27" y2="10.5" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#ffffff" stop-opacity="0.4"/>
+              <linearGradient id="db-grad-1" x1="4" y1="4" x2="28" y2="16" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ffffff" stop-opacity="0.35"/>
                 <stop offset="1" stop-color="#ffffff" stop-opacity="0.1"/>
               </linearGradient>
             </defs>
@@ -672,7 +672,7 @@
         </div>
         <div class="brand-title">
           <h1>Banco de Dados</h1>
-          <p>Concurso Petrobras — SQL, Modelagem ER, Normalização & Big Data</p>
+          <p>Concurso Petrobras — Modelagem, SQL, NoSQL & Governança de Dados</p>
         </div>
       </div>
 
@@ -717,17 +717,25 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA (Thinking: High):</label>
+              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
                 <option value="google/gemma-4-31b-it">Gemma 4 31B (Google)</option>
                 <option value="deepseek/deepseek-v4-flash-0731">DeepSeek V4 Flash 0731</option>
               </select>
             </div>
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🎯 Nível de Dificuldade:</label>
-              <div style="display: flex; gap: 8px;" id="difficulty-selector">
+              <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
+              <div style="display: flex; gap: 6px;" id="thinking-selector">
+                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
+              </div>
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
+              <div style="display: flex; gap: 6px;" id="difficulty-selector">
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
@@ -765,21 +773,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (SQL & Teoria)</p>
+              <p>Certo / Errado (Prática & Normas)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Queries & Joins)</p>
+              <p>Múltipla Escolha (Cenários Complexos)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Normalização)</p>
+              <p>Múltipla Escolha (Teórico-Prático)</p>
             </div>
           </label>
         </div>
@@ -964,67 +972,53 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "modelagem-er-relacional", label: "Modelagem Conceitual ER/EER & Modelo Relacional" },
-      { id: "linguagem-sql", label: "Linguagem SQL Avançada (DDL, DML, DCL, TCL & Subqueries)" },
-      { id: "normalizacao-dados", label: "Normalização de Dados (1FN, 2FN, 3FN & BCNF)" },
-      { id: "transacoes-acid", label: "Processamento de Transações (ACID, Concorrência & Logs)" },
-      { id: "bigdata-nosql-dw", label: "NoSQL, Big Data, Data Warehouse & ETL" }
+      { id: "modelagem-conceitual", label: "Modelagem ER, Relacional & Normalização (1FN a 5FN)" },
+      { id: "sql-ddl-dml", label: "Linguagem SQL (DDL, DML, DCL, Window Functions, CTEs & Subqueries)" },
+      { id: "transacoes-acid", label: "Transações, Propriedades ACID, Isolamento & Controle de Concorrência" },
+      { id: "nosql-bigdata", label: "Bancos NoSQL (Documento, Chave-Valor, Grafos, Colunar) & Big Data" },
+      { id: "data-warehouse-bi", label: "Data Warehouse, Modelagem Dimensional (Star/Snowflake), ETL & BI" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
           id: "bd-ces-01",
-          topicId: "linguagem-sql",
-          statement: "Considere a tabela 'Funcionarios' (id, nome, departamento_id, salario). Para selecionar os nomes dos departamentos e a média salarial apenas dos departamentos que possuem média salarial superior a R$ 10.000,00, a cláusula SQL apropriada para filtrar o resultado da agregação é:",
+          topicId: "modelagem-conceitual",
+          statement: "Considere uma tabela R no modelo relacional que possui uma chave primária composta (A, B) e os atributos não-chave C e D. Se o atributo C depende funcionalmente apenas do atributo A (parte da chave primária), diz-se que essa tabela viola a seguinte Forma Normal:",
           options: [
-            { label: "A", text: "WHERE AVG(salario) > 10000" },
-            { label: "B", text: "HAVING AVG(salario) > 10000" },
-            { label: "C", text: "GROUP BY AVG(salario) > 10000" },
-            { label: "D", text: "ORDER BY AVG(salario) > 10000" },
-            { label: "E", text: "WHERE salario > 10000" }
+            { label: "A", text: "Primeira Forma Normal (1FN)" },
+            { label: "B", text: "Segunda Forma Normal (2FN)" },
+            { label: "C", text: "Terceira Forma Normal (3FN)" },
+            { label: "D", text: "Forma Normal de Boyce-Codd (FNBC)" },
+            { label: "E", text: "Quarta Forma Normal (4FN)" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. Na sintaxe SQL, condições de filtro aplicadas sobre funções de agregação (como AVG, SUM, COUNT) DEVEM utilizar a cláusula HAVING após o GROUP BY, enquanto a cláusula WHERE filtra tuplas individuais antes do agrupamento."
+          explanation: "Alternativa B correta. A 2FN exige que a tabela esteja na 1FN e que nenhum atributo não-chave seja dependente funcionalmente de PARTE da chave primária (dependência parcial). Como C depende apenas de A (parte de A, B), viola a 2FN."
         },
         {
           id: "bd-ces-02",
-          topicId: "normalizacao-dados",
-          statement: "Uma tabela relacional está na Segunda Forma Normal (2FN) quando está na 1FN e:",
+          topicId: "sql-ddl-dml",
+          statement: "Deseja-se selecionar o nome do funcionário e o salário médio do seu respectivo departamento, exibindo apenas os funcionários que ganham ACIMA da média de seu departamento. A funcionalidade SQL mais recomendada para realizar esse cálculo mantendo o detalhamento de cada linha é:",
           options: [
-            { label: "A", text: "Não possui atributos multivalorados ou compostos." },
-            { label: "B", text: "Todos os seus atributos não-chave dependem totalmente da chave primária completa (não há dependências parciais)." },
-            { label: "C", text: "Não existem dependências transitivas entre atributos não-chave." },
-            { label: "D", text: "Todas as determinantes funcionais são chaves candidatas." },
-            { label: "E", text: "Todas as chaves estrangeiras possuem integridade referencial." }
+            { label: "A", text: "GROUP BY com a cláusula HAVING" },
+            { label: "B", text: "Funções de Janela (Window Functions OVER (PARTITION BY ...))" },
+            { label: "C", text: "Subquery no WHERE com operador EXISTS" },
+            { label: "D", text: "Cláusula CROSS JOIN implícita" },
+            { label: "E", text: "Operador PIVOT em conjunto com UNION ALL" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. A 2FN exige estar na 1FN e eliminar a dependência funcional parcial (onde um atributo não-chave depende de apenas parte de uma chave primária composta)."
-        },
-        {
-          id: "bd-ces-03",
-          topicId: "transacoes-acid",
-          statement: "Nas propriedades ACID de transações de Banco de Dados, a propriedade que garante que, se uma transação for confirmada (commit), seus efeitos persistem no sistema mesmo na ocorrência de falhas do servidor é a:",
-          options: [
-            { label: "A", text: "Atomicidade" },
-            { label: "B", text: "Consistência" },
-            { label: "C", text: "Isolamento" },
-            { label: "D", text: "Durabilidade (Durability)" },
-            { label: "E", text: "Disponibilidade" }
-          ],
-          correctLabel: "D",
-          explanation: "Alternativa D correta. Durabilidade garante que os dados gravados por uma transação confirmada (commit) fiquem permanentemente gravados no meio não-volátil."
+          explanation: "Alternativa B correta. As Window Functions (OVER PARTITION BY) permitem agregar dados (como a média do departamento) sem agrupar as linhas em uma única saída, possibilitando comparar cada funcionário com a média departamental."
         }
       ],
 
       CEBRASPE: [
         {
           id: "bd-ceb-01",
-          topicId: "bigdata-nosql-dw",
-          statement: "Os bancos de dados NoSQL do tipo chave-valor (Key-Value), como o Redis, priorizam altíssimo desempenho e escalabilidade horizontal, abdicando do suporte a consultas complexas em SQL tradicional.",
+          topicId: "transacoes-acid",
+          statement: "No contexto do controle de concorrência em bancos de dados relacionais, o nível de isolamento 'Read Committed' impede a ocorrência de leituras sujas (Dirty Reads), mas ainda permite a ocorrência de leituras não repetíveis (Non-repeatable Reads).",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
           correctLabel: "A",
-          explanation: "CERTO. NoSQL chave-valor armazena dados pareados (chave unívoca + valor binário/string/json), otimizado para operações em memória com acesso ultrarrápido por chave, sem joins relacionais."
+          explanation: "CERTO. No nível Read Committed, uma transação só lê dados já commitados (evita Dirty Reads). Porém, se outra transação alterar e commitar os dados enquanto a primeira ainda está rodando, leituras subsequentes mostrarão dados alterados (Non-repeatable Reads)."
         }
       ]
     };
@@ -1040,8 +1034,7 @@
     let pastSessions = loadStorage(KEYS.SESSIONS, []);
     let savedSettings = loadStorage(KEYS.SETTINGS, {
       engine: "offline",
-      aiModel: "google/gemma-4-31b-it",
-      difficulty: "Médio",
+      aiModel: "google/gemma-4-31b-it", thinkingLevel: "High", difficulty: "Médio",
       apiKey: localStorage.getItem("openrouter_api_key") || "",
       selectedTopics: TOPICS_CATALOG.map(t => t.id),
       banca: "CESGRANRIO",
@@ -1110,6 +1103,27 @@
       const aiModelSelect = document.getElementById("ai-model-select");
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
+
+      document.querySelectorAll(".think-btn").forEach(btn => {
+        const t = btn.dataset.think;
+        if (t === (savedSettings.thinkingLevel || "High")) {
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+        } else {
+          btn.classList.add("btn-secondary");
+          btn.classList.remove("btn-primary");
+        }
+
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".think-btn").forEach(b => {
+            b.classList.remove("btn-primary");
+            b.classList.add("btn-secondary");
+          });
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+          saveCurrentSettings();
+        });
+      });
 
       document.querySelectorAll(".diff-btn").forEach(btn => {
         const d = btn.dataset.diff;
@@ -1207,6 +1221,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
+      const thinkBtn = document.querySelector('.think-btn.btn-primary');
+      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
       const diffBtn = document.querySelector('.diff-btn.btn-primary');
       const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
@@ -1215,7 +1231,7 @@
       const selectedBtn = document.querySelector('.count-btn.btn-primary');
       const count = selectedBtn ? parseInt(selectedBtn.dataset.count, 10) : 5;
 
-      savedSettings = { engine, aiModel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
+      savedSettings = { engine, aiModel, thinkingLevel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
       saveStorage(KEYS.SETTINGS, savedSettings);
     }
 
@@ -1231,7 +1247,7 @@
       saveCurrentSettings();
     });
 
-    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio") {
+    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio", thinkingLevel = "High") {
       const topicObjList = TOPICS_CATALOG.filter(t => topics.includes(t.id));
       const topicLabels = topicObjList.map(t => t.label).join("; ");
       const formatDesc = banca === "CEBRASPE" 
@@ -1241,7 +1257,7 @@
       const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
-- Nível de Raciocínio / Thinking: HIGH (Ative raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
+- Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
 - Nível de Dificuldade da Questão: ${difficulty.toUpperCase()} (Fácil = conceitos fundamentais; Médio = aplicação prática e cenários reais; Difícil = casadinhas conceituais complexas, pegadinhas da banca e cenários críticos de arquitetura).
 - Assuntos Selecionados: Elabore as questões EXCLUSIVAMENTE focadas nos seguintes assuntos específicos: [${topicLabels}].
 
@@ -1277,7 +1293,7 @@ Regras de Formato:
         body: JSON.stringify({
           model: model,
           messages: [
-            { role: "system", content: "Você é um examinador especialista em TI de alto nível. Nível de pensamento: HIGH." },
+            { role: "system", content: `Você é um examinador especialista de alto nível. Nível de pensamento: ${thinkingLevel.toUpperCase()}.` },
             { role: "user", content: prompt }
           ],
           response_format: { type: "json_object" }
@@ -1344,7 +1360,7 @@ Regras de Formato:
           loadingOverlay.classList.remove("hidden");
 
           try {
-            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty);
+            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty, savedSettings.thinkingLevel);
             currentSession.questions = aiQuestions;
           } catch (err) {
             console.error(err);

@@ -8,9 +8,9 @@
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #0a0b1e;
-      --bg-surface: rgba(18, 20, 48, 0.75);
-      --bg-surface-solid: #121430;
+      --bg-dark: #090d16;
+      --bg-surface: rgba(18, 24, 38, 0.75);
+      --bg-surface-solid: #121826;
       --border-panel: rgba(99, 102, 241, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
@@ -80,7 +80,7 @@
       transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
         radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 45%),
-        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.06) 0px, transparent 45%);
+        radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.06) 0px, transparent 45%);
     }
 
     .container {
@@ -123,13 +123,7 @@
       box-shadow: 0 10px 24px var(--accent-glow);
       position: relative;
       overflow: hidden;
-    }
-    .brand-badge::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 60%);
-      pointer-events: none;
+      font-size: 1.5rem;
     }
 
     .brand-title h1 {
@@ -512,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10, 11, 30, 0.82);
+      background: rgba(9, 13, 22, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -585,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10, 11, 30, 0.88);
+      background: rgba(9, 13, 22, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -656,17 +650,10 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <!-- VECTOR SVG BADGE FOR SOFTWARE ENGINEERING -->
-        <div class="brand-badge" title="Engenharia de Software">
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 9L4 16L10 23" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M22 9L28 16L22 23" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18 7L14 25" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div class="brand-badge" title="Engenharia de Software">💻</div>
         <div class="brand-title">
           <h1>Engenharia de Software</h1>
-          <p>Concurso Petrobras — Scrum, Requisitos, UML & Testes</p>
+          <p>Concurso Petrobras — Arquitetura de Software, Ágil, DevOps & Testes</p>
         </div>
       </div>
 
@@ -711,17 +698,25 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA (Thinking: High):</label>
+              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
                 <option value="google/gemma-4-31b-it">Gemma 4 31B (Google)</option>
                 <option value="deepseek/deepseek-v4-flash-0731">DeepSeek V4 Flash 0731</option>
               </select>
             </div>
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🎯 Nível de Dificuldade:</label>
-              <div style="display: flex; gap: 8px;" id="difficulty-selector">
+              <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
+              <div style="display: flex; gap: 6px;" id="thinking-selector">
+                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
+              </div>
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
+              <div style="display: flex; gap: 6px;" id="difficulty-selector">
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
@@ -759,14 +754,14 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Prática Ágil)</p>
+              <p>Certo / Errado (Prática & Padrões)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Modelagem & Casos)</p>
+              <p>Múltipla Escolha (Práticas de Mercado)</p>
             </div>
           </label>
           <label class="tile-card">
@@ -958,75 +953,53 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "metodologias-ageis-scrum", label: "Metodologias Ágeis (Scrum, Kanban, XP, Papéis & Cerimônias)" },
-      { id: "engenharia-requisitos", label: "Engenharia de Requisitos (Funcionais, Não-Funcionais & Histórias)" },
-      { id: "analise-oo-uml", label: "Análise OO, Diagramas UML e Padrões de Projeto (Design Patterns GoF)" },
-      { id: "testes-software", label: "Testes de Software (Caixa Branca, Caixa Preta, TDD & Cobertura)" },
-      { id: "devops-usabilidade", label: "DevOps, CI/CD, Engenharia de Usabilidade & UX" }
+      { id: "arquitetura-padroes", label: "Arquitetura de Software (Microserviços, Event-Driven, DDD & Padrões GoF)" },
+      { id: "metodologias-agies", label: "Metodologias Ágeis (Scrum, Kanban, XP, TDD & BDD)" },
+      { id: "devops-cicd", label: "DevOps, CI/CD, Containerização (Docker/K8s) & IaC" },
+      { id: "qualidade-testes", label: "Engenharia de Requisitos, UML 2.5, Testes (Unitário, Integração, Carga)" },
+      { id: "apis-rest-grpc", label: "APIs RESTful, GraphQL, gRPC, Segurança em Código (OWASP Top 10)" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
-          id: "es-ces-01",
-          topicId: "metodologias-ageis-scrum",
-          statement: "No framework Scrum Guia Oficial, qual papel é a pessoa responsável por maximizar o valor do produto resultante do trabalho do Scrum Team e gerenciar de forma transparente o Product Backlog?",
+          id: "eng-ces-01",
+          topicId: "arquitetura-padroes",
+          statement: "Em uma arquitetura de software orientada a microsserviços, qual padrão de projeto estrutural (GoF) é comumente utilizado na camada de entrada (API Gateway) para prover uma interface unificada e simplificada a um conjunto de interfaces complexas de subsistemas internos?",
           options: [
-            { label: "A", text: "Scrum Master" },
-            { label: "B", text: "Product Owner (PO)" },
-            { label: "C", text: "Developers" },
-            { label: "D", text: "Agile Coach" },
-            { label: "E", text: "Stakeholder Lead" }
-          ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. O Product Owner é o único responsável por gerenciar o Product Backlog e otimizar o valor entregue pelo time."
-        },
-        {
-          id: "es-ces-02",
-          topicId: "analise-oo-uml",
-          statement: "Nos padrões de projeto GoF (Gang of Four), qual padrão de criação garante que uma classe tenha apenas uma instância em toda a aplicação e fornece um ponto global de acesso a ela?",
-          options: [
-            { label: "A", text: "Factory Method" },
-            { label: "B", text: "Singleton" },
+            { label: "A", text: "Singleton" },
+            { label: "B", text: "Facade" },
             { label: "C", text: "Observer" },
-            { label: "D", text: "Adapter" },
-            { label: "E", text: "Strategy" }
+            { label: "D", text: "Strategy" },
+            { label: "E", text: "Decorator" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. O Singleton garante uma única instância global de uma classe (ex: gerenciador de conexões ou configurações)."
+          explanation: "Alternativa B correta. O padrão Facade fornece uma interface unificada para um conjunto de interfaces em um subsistema, permitindo que a API Gateway esconda a complexidade dos múltiplos microsserviços internos dos clientes."
         },
         {
-          id: "es-ces-03",
-          topicId: "testes-software",
-          statement: "O teste de caixa-preta (black-box testing) baseia-se fundamentalmente em:",
+          id: "eng-ces-02",
+          topicId: "metodologias-agies",
+          statement: "No framework Scrum, qual evento tem duração máxima (timebox) recomendada de 3 horas para uma Sprint de um mês, e se destina à inspeção do trabalho realizado e adaptação do Backlog do Produto com a participação dos stakeholders?",
           options: [
-            { label: "A", text: "Análise detalhada do código-fonte e estruturas de controle de fluxo." },
-            { label: "B", text: "Verificação dos requisitos funcionais e entradas/saídas sem conhecimento da estrutura interna do código." },
-            { label: "C", text: "Inspeção manual do grafo de caminhos ciclomáticos do programa." },
-            { label: "D", text: "Medição do percentual de linhas de código executadas por testes unitários." },
-            { label: "E", text: "Compilação dinâmica com análise estática de ponteiros." }
+            { label: "A", text: "Daily Scrum" },
+            { label: "B", text: "Sprint Planning" },
+            { label: "C", text: "Sprint Review" },
+            { label: "D", text: "Sprint Retrospective" },
+            { label: "E", text: "Backlog Refinement" }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. O teste de caixa-preta foca nas especificações e requisitos externos (entradas/saídas) sem olhar para o código-fonte."
+          correctLabel: "C",
+          explanation: "Alternativa C correta. A Sprint Review (Revisão da Sprint) ocorre ao final da Sprint para inspecionar o incremento com os stakeholders e adaptar o Product Backlog (timebox de até 4h para Sprints de 1 mês, frequentemente 3-4h no guia original)."
         }
       ],
 
       CEBRASPE: [
         {
-          id: "es-ceb-01",
-          topicId: "engenharia-requisitos",
-          statement: "Requisitos não-funcionais descrevem restrições e qualidades do sistema, tais como desempenho, segurança, disponibilidade e usabilidade.",
+          id: "eng-ceb-01",
+          topicId: "devops-cicd",
+          statement: "No contexto de Integração Contínua (CI), a prática de 'Feature Toggles' (ou Feature Flags) permite integrar código inacabado na branch principal (main/master) sem expor a nova funcionalidade aos usuários em produção.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
           correctLabel: "A",
-          explanation: "CERTO. Requisitos funcionais definem O QUE o sistema faz. Requisitos não-funcionais definem COMO ou sob quais QUALIDADES/RESTRIÇÕES (desempenho, segurança, etc.) ele opera."
-        },
-        {
-          id: "es-ceb-02",
-          topicId: "metodologias-ageis-scrum",
-          statement: "Durante a execução de uma Sprint no Scrum, o Product Owner pode alterar a meta da Sprint (Sprint Goal) a qualquer momento sem consultar o time.",
-          options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
-          correctLabel: "B",
-          explanation: "ERRADO. Durante a Sprint, NENHUMA mudança deve ser feita que ponha em risco a Meta da Sprint (Sprint Goal). Cancelar uma Sprint é um evento excepcional de competência do PO caso a meta se torne obsoleta."
+          explanation: "CERTO. Feature Flags/Toggles permitem que o código seja mesclado e implantado com segurança em produção desativado por chave condicional, habilitando a integração contínua real sem branches de vida longa."
         }
       ]
     };
@@ -1042,8 +1015,7 @@
     let pastSessions = loadStorage(KEYS.SESSIONS, []);
     let savedSettings = loadStorage(KEYS.SETTINGS, {
       engine: "offline",
-      aiModel: "google/gemma-4-31b-it",
-      difficulty: "Médio",
+      aiModel: "google/gemma-4-31b-it", thinkingLevel: "High", difficulty: "Médio",
       apiKey: localStorage.getItem("openrouter_api_key") || "",
       selectedTopics: TOPICS_CATALOG.map(t => t.id),
       banca: "CESGRANRIO",
@@ -1112,6 +1084,27 @@
       const aiModelSelect = document.getElementById("ai-model-select");
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
+
+      document.querySelectorAll(".think-btn").forEach(btn => {
+        const t = btn.dataset.think;
+        if (t === (savedSettings.thinkingLevel || "High")) {
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+        } else {
+          btn.classList.add("btn-secondary");
+          btn.classList.remove("btn-primary");
+        }
+
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".think-btn").forEach(b => {
+            b.classList.remove("btn-primary");
+            b.classList.add("btn-secondary");
+          });
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+          saveCurrentSettings();
+        });
+      });
 
       document.querySelectorAll(".diff-btn").forEach(btn => {
         const d = btn.dataset.diff;
@@ -1209,6 +1202,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
+      const thinkBtn = document.querySelector('.think-btn.btn-primary');
+      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
       const diffBtn = document.querySelector('.diff-btn.btn-primary');
       const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
@@ -1217,7 +1212,7 @@
       const selectedBtn = document.querySelector('.count-btn.btn-primary');
       const count = selectedBtn ? parseInt(selectedBtn.dataset.count, 10) : 5;
 
-      savedSettings = { engine, aiModel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
+      savedSettings = { engine, aiModel, thinkingLevel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
       saveStorage(KEYS.SETTINGS, savedSettings);
     }
 
@@ -1233,7 +1228,7 @@
       saveCurrentSettings();
     });
 
-    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio") {
+    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio", thinkingLevel = "High") {
       const topicObjList = TOPICS_CATALOG.filter(t => topics.includes(t.id));
       const topicLabels = topicObjList.map(t => t.label).join("; ");
       const formatDesc = banca === "CEBRASPE" 
@@ -1243,7 +1238,7 @@
       const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
-- Nível de Raciocínio / Thinking: HIGH (Ative raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
+- Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
 - Nível de Dificuldade da Questão: ${difficulty.toUpperCase()} (Fácil = conceitos fundamentais; Médio = aplicação prática e cenários reais; Difícil = casadinhas conceituais complexas, pegadinhas da banca e cenários críticos de arquitetura).
 - Assuntos Selecionados: Elabore as questões EXCLUSIVAMENTE focadas nos seguintes assuntos específicos: [${topicLabels}].
 
@@ -1279,7 +1274,7 @@ Regras de Formato:
         body: JSON.stringify({
           model: model,
           messages: [
-            { role: "system", content: "Você é um examinador especialista em TI de alto nível. Nível de pensamento: HIGH." },
+            { role: "system", content: `Você é um examinador especialista de alto nível. Nível de pensamento: ${thinkingLevel.toUpperCase()}.` },
             { role: "user", content: prompt }
           ],
           response_format: { type: "json_object" }
@@ -1346,7 +1341,7 @@ Regras de Formato:
           loadingOverlay.classList.remove("hidden");
 
           try {
-            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty);
+            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty, savedSettings.thinkingLevel);
             currentSession.questions = aiQuestions;
           } catch (err) {
             console.error(err);

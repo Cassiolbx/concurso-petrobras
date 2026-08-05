@@ -8,24 +8,24 @@
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #0a0b10;
-      --bg-surface: rgba(18, 20, 30, 0.75);
-      --bg-surface-solid: #12141e;
-      --border-panel: rgba(138, 130, 184, 0.18);
+      --bg-dark: #180a29;
+      --bg-surface: rgba(40, 16, 68, 0.75);
+      --bg-surface-solid: #281044;
+      --border-panel: rgba(217, 70, 239, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
-      --accent: #9d93d3;
-      --accent-light: #b4abd9;
-      --accent-dark: #7a6eb8;
-      --accent-glow: rgba(157, 147, 211, 0.22);
+      --accent: #d946ef;
+      --accent-light: #e879f9;
+      --accent-dark: #c026d3;
+      --accent-glow: rgba(217, 70, 239, 0.25);
       
-      --text-primary: #f4f4f8;
-      --text-secondary: #a0a2b6;
-      --text-muted: #6c6e85;
+      --text-primary: #fdf4ff;
+      --text-secondary: #f5d0fe;
+      --text-muted: #64748b;
       
       --correct: #10b981;
-      --correct-bg: rgba(16, 185, 129, 0.12);
-      --correct-border: rgba(16, 185, 129, 0.35);
+      --correct-bg: rgba(16, 185, 129, 0.14);
+      --correct-border: rgba(16, 185, 129, 0.4);
       
       --wrong: #f43f5e;
       --wrong-bg: rgba(244, 63, 94, 0.12);
@@ -39,20 +39,20 @@
     }
 
     :root[data-theme="light"] {
-      --bg-dark: #f0f2f8;
-      --bg-surface: rgba(255, 255, 255, 0.85);
+      --bg-dark: #fdf4ff;
+      --bg-surface: rgba(255, 255, 255, 0.88);
       --bg-surface-solid: #ffffff;
-      --border-panel: rgba(138, 130, 184, 0.35);
+      --border-panel: rgba(217, 70, 239, 0.35);
       --border-subtle: rgba(0, 0, 0, 0.08);
       
-      --accent: #6f63b8;
-      --accent-light: #594db0;
-      --accent-dark: #473c94;
-      --accent-glow: rgba(111, 99, 184, 0.15);
+      --accent: #c026d3;
+      --accent-light: #a21caf;
+      --accent-dark: #86198f;
+      --accent-glow: rgba(192, 38, 211, 0.15);
       
-      --text-primary: #1e202c;
-      --text-secondary: #4b4e63;
-      --text-muted: #787b92;
+      --text-primary: #701a75;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
       
       --correct: #059669;
       --correct-bg: rgba(16, 185, 129, 0.14);
@@ -62,7 +62,7 @@
       --wrong-bg: rgba(244, 63, 94, 0.14);
       --wrong-border: rgba(244, 63, 94, 0.45);
       
-      --statement-bg: rgba(238, 241, 250, 0.8);
+      --statement-bg: rgba(253, 244, 255, 0.85);
       --card-bg: rgba(255, 255, 255, 0.6);
       --card-hover: rgba(255, 255, 255, 0.95);
       
@@ -79,8 +79,8 @@
       line-height: 1.6;
       transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(157, 147, 211, 0.12) 0px, transparent 45%),
-        radial-gradient(at 100% 100%, rgba(122, 110, 184, 0.06) 0px, transparent 45%);
+        radial-gradient(at 0% 0%, rgba(217, 70, 239, 0.12) 0px, transparent 45%),
+        radial-gradient(at 100% 100%, rgba(192, 38, 211, 0.06) 0px, transparent 45%);
     }
 
     .container {
@@ -506,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10, 11, 16, 0.82);
+      background: rgba(24, 10, 41, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -579,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10, 11, 16, 0.88);
+      background: rgba(24, 10, 41, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -652,8 +652,8 @@
       <div class="brand">
         <div class="brand-badge" title="Raciocínio Lógico">🧠</div>
         <div class="brand-title">
-          <h1>Raciocínio Lógico</h1>
-          <p>Concurso Petrobras — Proposições, Diagramas, Tabela Verdade & Lógica</p>
+          <h1>Raciocínio Lógico & Matemática</h1>
+          <p>Concurso Petrobras — Lógica Proposicional, Tabela-Verdade, Argumentação & Probabilidade</p>
         </div>
       </div>
 
@@ -698,17 +698,25 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA (Thinking: High):</label>
+              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
                 <option value="google/gemma-4-31b-it">Gemma 4 31B (Google)</option>
                 <option value="deepseek/deepseek-v4-flash-0731">DeepSeek V4 Flash 0731</option>
               </select>
             </div>
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🎯 Nível de Dificuldade:</label>
-              <div style="display: flex; gap: 8px;" id="difficulty-selector">
+              <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
+              <div style="display: flex; gap: 6px;" id="thinking-selector">
+                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
+              </div>
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
+              <div style="display: flex; gap: 6px;" id="difficulty-selector">
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
@@ -746,21 +754,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Lógica Quantitativa)</p>
+              <p>Certo / Errado (Lógica & Negações)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Desafios Lógicos)</p>
+              <p>Múltipla Escolha (Problemas Raciocínio)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Diagramas)</p>
+              <p>Múltipla Escolha (Tabela-Verdade)</p>
             </div>
           </label>
         </div>
@@ -945,11 +953,11 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "logica-proposicional", label: "Lógica Proposicional, Tabela-Verdade & Tautologias" },
-      { id: "equivalencias-negacoes", label: "Equivalências Lógicas, Leis de De Morgan & Negações" },
-      { id: "argumentacao-deducao", label: "Estrutura de Argumentos, Validade Lógica & Inferências" },
-      { id: "conjuntos-diagramas", label: "Teoria dos Conjuntos, Diagramas de Venn & Lógica de Primeira Ordem" },
-      { id: "raciocinio-analitico", label: "Raciocínio Analítico, Sequências, Padrões & Problemas de Associação" }
+      { id: "logica-proposicional", label: "Lógica Proposicional, Tabela-Verdade & Conectivos" },
+      { id: "equivalencias-negacoes", label: "Equivalências Lógicas & Negações de Proposições Compostas" },
+      { id: "argumentacao-silogismos", label: "Argumentação Lógica, Validade de Argumentos & Silogismos" },
+      { id: "probabilidade-combinatoria", label: "Análise Combinatória (Arranjos, Permutações, Combinações) & Probabilidade" },
+      { id: "conjuntos-diagramas", label: "Teoria dos Conjuntos, Diagramas de Venn & Sequências Lógicas" }
     ];
 
     const QUESTION_BANK = {
@@ -957,30 +965,30 @@
         {
           id: "rl-ces-01",
           topicId: "equivalencias-negacoes",
-          statement: "Considere a proposição condicional: 'Se o sistema de monitoramento detecta uma anomalia na pressão do duto, então a válvula de segurança é acionada automaticamente'. A proposição logicamente equivalente a essa condicional é:",
+          statement: "Considere a proposição condicional P: 'Se a pressão da tubulação subir acima de 50 bar, então a válvula de segurança é acionada automaticamente.' De acordo com a lógica proposicional, a negação lógica equivalente dessa proposição P é:",
           options: [
-            { label: "A", text: "Se a válvula de segurança não é acionada automaticamente, então o sistema de monitoramento não detecta uma anomalia na pressão do duto." },
-            { label: "B", text: "Se a válvula de segurança é acionada automaticamente, então o sistema de monitoramento detecta uma anomalia na pressão do duto." },
-            { label: "C", text: "O sistema de monitoramento não detecta uma anomalia na pressão do duto e a válvula de segurança não é acionada." },
-            { label: "D", text: "Se o sistema de monitoramento não detecta anomalia, então a válvula de segurança não é acionada." },
-            { label: "E", text: "A válvula de segurança é acionada se e somente se o sistema de monitoramento detecta uma anomalia." }
+            { label: "A", text: "Se a pressão da tubulação não subir acima de 50 bar, então a válvula de segurança não é acionada." },
+            { label: "B", text: "A pressão da tubulação sobe acima de 50 bar E a válvula de segurança NÃO é acionada automaticamente." },
+            { label: "C", text: "A pressão da tubulação não sobe acima de 50 bar OU a válvula de segurança é acionada." },
+            { label: "D", text: "Se a válvula de segurança for acionada, então a pressão da tubulação subiu acima de 50 bar." },
+            { label: "E", text: "A pressão da tubulação não sobe acima de 50 bar E a válvula de segurança é acionada." }
           ],
-          correctLabel: "A",
-          explanation: "Alternativa A correta. Pela regra de equivalência da contrapositiva: (P -> Q) <=> (~Q -> ~P). Negando a conseqüente ('a válvula não é acionada') implica na negação da antecedente ('o sistema não detecta anomalia')."
+          correctLabel: "B",
+          explanation: "Alternativa B correta. A negação de uma condicional 'Se P, então Q' (P → Q) é dada pela regra do 'MANÉ': Mantém a primeira (P) E nega a segunda (~Q), resultando em (P ∧ ~Q)."
         },
         {
           id: "rl-ces-02",
-          topicId: "equivalencias-negacoes",
-          statement: "A negação lógica da proposição composta 'O engenheiro inspecionou a plataforma E aprovou o relatório de auditoria' é:",
+          topicId: "probabilidade-combinatoria",
+          statement: "Em uma equipe de manutenção da Petrobras contendo 5 engenheiros e 4 técnicos, deseja-se formar uma comissão de 3 profissionais para uma inspeção offshore. Qual é a probabilidade de a comissão ser formada por EXATAMENTE 2 engenheiros e 1 técnico?",
           options: [
-            { label: "A", text: "O engenheiro não inspecionou a plataforma E não aprovou o relatório de auditoria." },
-            { label: "B", text: "O engenheiro não inspecionou a plataforma OU não aprovou o relatório de auditoria." },
-            { label: "C", text: "Se o engenheiro não inspecionou a plataforma, então não aprovou o relatório." },
-            { label: "D", text: "O engenheiro inspecionou a plataforma, mas não aprovou o relatório de auditoria." },
-            { label: "E", text: "O engenheiro aprovou o relatório de auditoria se e somente se inspecionou a plataforma." }
+            { label: "A", text: "10 / 21" },
+            { label: "B", text: "12 / 21" },
+            { label: "C", text: "10 / 84" },
+            { label: "D", text: "40 / 84" },
+            { label: "E", text: "15 / 42" }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. Pela 1ª Lei de De Morgan: ~(P E Q) <=> (~P OU ~Q). Para negar uma conjunção (E), nega-se a primeira parte, troca-se o 'E' pelo 'OU' e nega-se a segunda parte."
+          correctLabel: "A",
+          explanation: "Alternativa A correta. Total de combinações possíveis de 9 pessoas tomadas 3 a 3 = C(9,3) = 84. Casos favoráveis: escolher 2 engenheiros de 5 (C(5,2) = 10) e 1 técnico de 4 (C(4,1) = 4), totalizando 10 * 4 = 40. Probabilidade = 40 / 84 = 10 / 21."
         }
       ],
 
@@ -988,10 +996,10 @@
         {
           id: "rl-ceb-01",
           topicId: "logica-proposicional",
-          statement: "A proposição (P -> Q) v (Q -> P) é uma tautologia, ou seja, seu valor lógico é sempre verdadeiro, independentemente dos valores lógicos atribuídos às proposições P e Q.",
+          statement: "A proposição 'Se o petróleo for refinado com alta eficiência, o custo de produção diminui' é logicamente equivalente a 'O petróleo não é refinado com alta eficiência ou o custo de produção diminui'.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
           correctLabel: "A",
-          explanation: "CERTO. Construindo a tabela-verdade: quando P e Q são V -> V v V = V; quando P=V e Q=F -> F v V = V; quando P=F e Q=V -> V v F = V; quando P=F e Q=F -> V v V = V. Em todas as linhas o resultado é Verdadeiro (Tautologia)."
+          explanation: "CERTO. A equivalência da condicional (P → Q) é dada pela regra (~P ∨ Q)."
         }
       ]
     };
@@ -1007,8 +1015,7 @@
     let pastSessions = loadStorage(KEYS.SESSIONS, []);
     let savedSettings = loadStorage(KEYS.SETTINGS, {
       engine: "offline",
-      aiModel: "google/gemma-4-31b-it",
-      difficulty: "Médio",
+      aiModel: "google/gemma-4-31b-it", thinkingLevel: "High", difficulty: "Médio",
       apiKey: localStorage.getItem("openrouter_api_key") || "",
       selectedTopics: TOPICS_CATALOG.map(t => t.id),
       banca: "CESGRANRIO",
@@ -1077,6 +1084,27 @@
       const aiModelSelect = document.getElementById("ai-model-select");
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
+
+      document.querySelectorAll(".think-btn").forEach(btn => {
+        const t = btn.dataset.think;
+        if (t === (savedSettings.thinkingLevel || "High")) {
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+        } else {
+          btn.classList.add("btn-secondary");
+          btn.classList.remove("btn-primary");
+        }
+
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".think-btn").forEach(b => {
+            b.classList.remove("btn-primary");
+            b.classList.add("btn-secondary");
+          });
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+          saveCurrentSettings();
+        });
+      });
 
       document.querySelectorAll(".diff-btn").forEach(btn => {
         const d = btn.dataset.diff;
@@ -1174,6 +1202,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
+      const thinkBtn = document.querySelector('.think-btn.btn-primary');
+      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
       const diffBtn = document.querySelector('.diff-btn.btn-primary');
       const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
@@ -1182,7 +1212,7 @@
       const selectedBtn = document.querySelector('.count-btn.btn-primary');
       const count = selectedBtn ? parseInt(selectedBtn.dataset.count, 10) : 5;
 
-      savedSettings = { engine, aiModel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
+      savedSettings = { engine, aiModel, thinkingLevel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
       saveStorage(KEYS.SETTINGS, savedSettings);
     }
 
@@ -1198,7 +1228,7 @@
       saveCurrentSettings();
     });
 
-    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio") {
+    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio", thinkingLevel = "High") {
       const topicObjList = TOPICS_CATALOG.filter(t => topics.includes(t.id));
       const topicLabels = topicObjList.map(t => t.label).join("; ");
       const formatDesc = banca === "CEBRASPE" 
@@ -1208,7 +1238,7 @@
       const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
-- Nível de Raciocínio / Thinking: HIGH (Ative raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
+- Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
 - Nível de Dificuldade da Questão: ${difficulty.toUpperCase()} (Fácil = conceitos fundamentais; Médio = aplicação prática e cenários reais; Difícil = casadinhas conceituais complexas, pegadinhas da banca e cenários críticos de arquitetura).
 - Assuntos Selecionados: Elabore as questões EXCLUSIVAMENTE focadas nos seguintes assuntos específicos: [${topicLabels}].
 
@@ -1244,7 +1274,7 @@ Regras de Formato:
         body: JSON.stringify({
           model: model,
           messages: [
-            { role: "system", content: "Você é um examinador especialista em TI de alto nível. Nível de pensamento: HIGH." },
+            { role: "system", content: `Você é um examinador especialista de alto nível. Nível de pensamento: ${thinkingLevel.toUpperCase()}.` },
             { role: "user", content: prompt }
           ],
           response_format: { type: "json_object" }
@@ -1311,7 +1341,7 @@ Regras de Formato:
           loadingOverlay.classList.remove("hidden");
 
           try {
-            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty);
+            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty, savedSettings.thinkingLevel);
             currentSession.questions = aiQuestions;
           } catch (err) {
             console.error(err);
