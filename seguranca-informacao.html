@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segurança da Informação — Concurso Petrobras</title>
+  <style>
+    :root[data-theme="dark"] { --bg-dark: #071311; --bg-surface: rgba(13, 31, 28, 0.75); --accent: #10b981; --text-primary: #f0fdf4; --card-bg: rgba(255, 255, 255, 0.02); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg-dark); color: var(--text-primary); font-family: sans-serif; min-height: 100vh; }
+    .container { max-width: 960px; margin: 0 auto; padding: 32px 20px; }
+    header { background: var(--bg-surface); border: 1px solid rgba(16, 185, 129, 0.22); border-radius: 20px; padding: 22px 28px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .brand-badge { width: 52px; height: 52px; border-radius: 16px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .panel { background: var(--bg-surface); border: 1px solid rgba(16, 185, 129, 0.22); border-radius: 20px; padding: 32px; margin-bottom: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; border-radius: 14px; font-weight: 600; cursor: pointer; border: none; white-space: nowrap; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--card-bg); color: var(--text-primary); border: 1px solid rgba(255, 255, 255, 0.08); }
+    .actions-row { display: flex; gap: 14px; margin-top: 32px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-badge">🛡️</div>
+        <div>
+          <h1>Segurança da Informação</h1>
+          <p>Concurso Petrobras — Criptografia, ISO 27001 & Redes</p>
+        </div>
+      </div>
+    </header>
+    <main class="panel">
+      <h2>Configuração da Sessão de Estudo</h2>
+      <div class="actions-row">
+        <button class="btn btn-primary">▶ Iniciar Treino</button>
+        <button class="btn btn-secondary">🔄 Revisar Erros (0)</button>
+        <button class="btn btn-secondary">☁️ Backup Google Drive</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
