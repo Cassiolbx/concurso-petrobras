@@ -711,21 +711,26 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">Modelo de IA:</label>
+              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA (Thinking: High):</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
-                <option value="google/gemma-4-31b-it">google/gemma-4-31b-it (Recomendado)</option>
-                <option value="deepseek/deepseek-v4-flash-0731">deepseek/deepseek-v4-flash-0731</option>
+                <option value="google/gemma-4-31b-it">Gemma 4 31B (Google)</option>
+                <option value="deepseek/deepseek-v4-flash-0731">DeepSeek V4 Flash 0731</option>
               </select>
             </div>
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">Chave API OpenRouter:</label>
-              <input type="password" id="ai-api-key" class="input-field" value="" placeholder="sk-or-v1-...">
+              <label class="form-label" style="font-size: 0.8rem;">🎯 Nível de Dificuldade:</label>
+              <div style="display: flex; gap: 8px;" id="difficulty-selector">
+                <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
+                <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
+                <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
+              </div>
             </div>
           </div>
-          <div style="font-size: 0.78rem; color: var(--text-muted);">
-            💡 As questões serão geradas por IA em tempo real focadas em Scrum, Kanban, Engenharia de Requisitos, UML e Testes de Software.
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
+            <span>💡 As questões serão geradas por IA focadas estritamente no(s) assunto(s) selecionado(s) acima.</span>
+            <button type="button" id="btn-config-key" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.78rem;">🔑 Configurar Chave API</button>
           </div>
         </div>
       </div>
@@ -1038,7 +1043,8 @@
     let savedSettings = loadStorage(KEYS.SETTINGS, {
       engine: "offline",
       aiModel: "google/gemma-4-31b-it",
-      apiKey: "",
+      difficulty: "Médio",
+      apiKey: localStorage.getItem("openrouter_api_key") || "",
       selectedTopics: TOPICS_CATALOG.map(t => t.id),
       banca: "CESGRANRIO",
       count: 5
@@ -1104,12 +1110,43 @@
       toggleAiPanel(savedSettings.engine === "openrouter");
 
       const aiModelSelect = document.getElementById("ai-model-select");
-      const aiApiKeyInput = document.getElementById("ai-api-key");
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
-      if (savedSettings.apiKey) aiApiKeyInput.value = savedSettings.apiKey;
-
       aiModelSelect.addEventListener("change", saveCurrentSettings);
-      aiApiKeyInput.addEventListener("input", saveCurrentSettings);
+
+      document.querySelectorAll(".diff-btn").forEach(btn => {
+        const d = btn.dataset.diff;
+        if (d === (savedSettings.difficulty || "Médio")) {
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+        } else {
+          btn.classList.add("btn-secondary");
+          btn.classList.remove("btn-primary");
+        }
+
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".diff-btn").forEach(b => {
+            b.classList.remove("btn-primary");
+            b.classList.add("btn-secondary");
+          });
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+          saveCurrentSettings();
+        });
+      });
+
+      const btnConfigKey = document.getElementById("btn-config-key");
+      if (btnConfigKey) {
+        btnConfigKey.addEventListener("click", () => {
+          const currentKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
+          const newKey = prompt("Informe sua chave API OpenRouter (salva com segurança no navegador):", currentKey);
+          if (newKey !== null) {
+            savedSettings.apiKey = newKey.trim();
+            localStorage.setItem("openrouter_api_key", newKey.trim());
+            saveCurrentSettings();
+            if (newKey.trim()) alert("Chave API salva com sucesso!");
+          }
+        });
+      }
 
       const topicContainer = document.getElementById("topics-selector");
       topicContainer.innerHTML = "";
@@ -1172,13 +1209,15 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
-      const apiKey = document.getElementById("ai-api-key").value.trim();
+      const diffBtn = document.querySelector('.diff-btn.btn-primary');
+      const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
+      const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
       const selectedTopics = Array.from(document.querySelectorAll('#topics-selector input:checked')).map(cb => cb.value);
       const selectedBanca = document.querySelector('input[name="banca"]:checked').value;
       const selectedBtn = document.querySelector('.count-btn.btn-primary');
       const count = selectedBtn ? parseInt(selectedBtn.dataset.count, 10) : 5;
 
-      savedSettings = { engine, aiModel, apiKey, selectedTopics, banca: selectedBanca, count };
+      savedSettings = { engine, aiModel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
       saveStorage(KEYS.SETTINGS, savedSettings);
     }
 
@@ -1194,25 +1233,30 @@
       saveCurrentSettings();
     });
 
-    async function generateQuestionsWithAI(banca, topics, count, model, apiKey) {
-      const topicLabels = TOPICS_CATALOG.filter(t => topics.includes(t.id)).map(t => t.label).join(", ");
+    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio") {
+      const topicObjList = TOPICS_CATALOG.filter(t => topics.includes(t.id));
+      const topicLabels = topicObjList.map(t => t.label).join("; ");
       const formatDesc = banca === "CEBRASPE" 
         ? "Formato CEBRASPE: Certo ou Errado. Cada questão DEVE ter exatamente 2 opções: A) Certo, B) Errado."
         : `Formato ${banca}: Múltipla Escolha. Cada questão DEVE ter 5 opções marcadas como A, B, C, D, E.`;
 
-      const prompt = `Você é um especialista em Engenharia de Software e elaborador sênior de provas da banca ${banca} para o concurso Petrobras.
-Elabore exatamente ${count} questões INÉDITAS de Engenharia de Software focadas nos tópicos: [${topicLabels}].
+      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
 
-Regras estritas:
+CONFIGURAÇÕES ESTRITAS DA PROVA:
+- Nível de Raciocínio / Thinking: HIGH (Ative raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
+- Nível de Dificuldade da Questão: ${difficulty.toUpperCase()} (Fácil = conceitos fundamentais; Médio = aplicação prática e cenários reais; Difícil = casadinhas conceituais complexas, pegadinhas da banca e cenários críticos de arquitetura).
+- Assuntos Selecionados: Elabore as questões EXCLUSIVAMENTE focadas nos seguintes assuntos específicos: [${topicLabels}].
+
+Regras de Formato:
 1. ${formatDesc}
-2. O enunciado deve ser técnico, preciso e abordando Scrum, Kanban, UML, Design Patterns, Engenharia de Requisitos ou Testes de Software.
-3. Forneça uma explicação técnica minuciosa justificando a resposta.
+2. O enunciado deve ser técnico, bem contextualizado e sem ambiguidade.
+3. Forneça uma explicação técnica minuciosa justificando o gabarito.
 4. Retorne EXCLUSIVAMENTE um objeto JSON válido sem Markdown fora do JSON, no seguinte esquema:
 {
   "items": [
     {
-      "id": "ai-es-1",
-      "topicId": "${topics[0] || 'metodologias-ageis-scrum'}",
+      "id": "ai-q-1",
+      "topicId": "${topics[0] || ''}",
       "statement": "Texto do enunciado da questão...",
       "options": [
         { "label": "A", "text": "Texto da opção A" },
@@ -1235,7 +1279,7 @@ Regras estritas:
         body: JSON.stringify({
           model: model,
           messages: [
-            { role: "system", content: "Você é uma IA geradora de questões de engenharia de software em formato JSON." },
+            { role: "system", content: "Você é um examinador especialista em TI de alto nível. Nível de pensamento: HIGH." },
             { role: "user", content: prompt }
           ],
           response_format: { type: "json_object" }
@@ -1258,7 +1302,7 @@ Regras estritas:
       }
 
       return parsed.items.map((item, idx) => ({
-        id: `ai-es-${Date.now()}-${idx}`,
+        id: `ai-q-${Date.now()}-${idx}`,
         topicId: topics[idx % topics.length],
         statement: item.statement,
         options: item.options,
@@ -1302,13 +1346,7 @@ Regras estritas:
           loadingOverlay.classList.remove("hidden");
 
           try {
-            const aiQuestions = await generateQuestionsWithAI(
-              savedSettings.banca,
-              savedSettings.selectedTopics,
-              savedSettings.count,
-              savedSettings.aiModel,
-              savedSettings.apiKey
-            );
+            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty);
             currentSession.questions = aiQuestions;
           } catch (err) {
             console.error(err);
