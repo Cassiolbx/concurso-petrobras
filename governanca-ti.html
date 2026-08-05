@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<!-- Governança de TI — Concurso Petrobras v2.0 -->
+<!-- Língua Portuguesa — Concurso Petrobras v2.0 -->
 <html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Governança de TI — Concurso Petrobras</title>
+  <title>Língua Portuguesa — Concurso Petrobras</title>
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #08121a;
-      --bg-surface: rgba(15, 34, 48, 0.75);
-      --bg-surface-solid: #0f2230;
-      --border-panel: rgba(14, 165, 233, 0.22);
+      --bg-dark: #071714;
+      --bg-surface: rgba(15, 41, 36, 0.75);
+      --bg-surface-solid: #0f2924;
+      --border-panel: rgba(16, 185, 129, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
-      --accent: #0ea5e9;
-      --accent-light: #38bdf8;
-      --accent-dark: #0284c7;
-      --accent-glow: rgba(14, 165, 233, 0.25);
+      --accent: #10b981;
+      --accent-light: #34d399;
+      --accent-dark: #059669;
+      --accent-glow: rgba(16, 185, 129, 0.25);
       
-      --text-primary: #f0f9ff;
-      --text-secondary: #bae6fd;
+      --text-primary: #ecfdf5;
+      --text-secondary: #a7f3d0;
       --text-muted: #64748b;
       
       --correct: #10b981;
@@ -39,18 +39,18 @@
     }
 
     :root[data-theme="light"] {
-      --bg-dark: #f0f9ff;
+      --bg-dark: #ecfdf5;
       --bg-surface: rgba(255, 255, 255, 0.88);
       --bg-surface-solid: #ffffff;
-      --border-panel: rgba(14, 165, 233, 0.35);
+      --border-panel: rgba(16, 185, 129, 0.35);
       --border-subtle: rgba(0, 0, 0, 0.08);
       
-      --accent: #0284c7;
-      --accent-light: #0369a1;
-      --accent-dark: #075985;
-      --accent-glow: rgba(2, 132, 199, 0.15);
+      --accent: #059669;
+      --accent-light: #047857;
+      --accent-dark: #065f46;
+      --accent-glow: rgba(5, 150, 105, 0.15);
       
-      --text-primary: #0c4a6e;
+      --text-primary: #064e3b;
       --text-secondary: #334155;
       --text-muted: #64748b;
       
@@ -62,7 +62,7 @@
       --wrong-bg: rgba(244, 63, 94, 0.14);
       --wrong-border: rgba(244, 63, 94, 0.45);
       
-      --statement-bg: rgba(240, 249, 255, 0.85);
+      --statement-bg: rgba(236, 253, 245, 0.85);
       --card-bg: rgba(255, 255, 255, 0.6);
       --card-hover: rgba(255, 255, 255, 0.95);
       
@@ -79,8 +79,8 @@
       line-height: 1.6;
       transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.12) 0px, transparent 45%),
-        radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.06) 0px, transparent 45%);
+        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 45%),
+        radial-gradient(at 100% 100%, rgba(5, 150, 105, 0.06) 0px, transparent 45%);
     }
 
     .container {
@@ -506,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(8, 18, 26, 0.82);
+      background: rgba(7, 23, 20, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -579,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(8, 18, 26, 0.88);
+      background: rgba(7, 23, 20, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -650,10 +650,10 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <div class="brand-badge" title="Governança de TI">🏛️</div>
+        <div class="brand-badge" title="Língua Portuguesa">✍️</div>
         <div class="brand-title">
-          <h1>Governança de TI</h1>
-          <p>Concurso Petrobras — COBIT 2019, ITIL 4, PMBOK 7 & Gestão Estratégica</p>
+          <h1>Língua Portuguesa</h1>
+          <p>Concurso Petrobras — Sintaxe, Concordância, Regência & Crase</p>
         </div>
       </div>
 
@@ -698,17 +698,25 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA (Thinking: High):</label>
+              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
                 <option value="google/gemma-4-31b-it">Gemma 4 31B (Google)</option>
                 <option value="deepseek/deepseek-v4-flash-0731">DeepSeek V4 Flash 0731</option>
               </select>
             </div>
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🎯 Nível de Dificuldade:</label>
-              <div style="display: flex; gap: 8px;" id="difficulty-selector">
+              <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
+              <div style="display: flex; gap: 6px;" id="thinking-selector">
+                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
+              </div>
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
+              <div style="display: flex; gap: 6px;" id="difficulty-selector">
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
@@ -746,21 +754,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Processos & Governança)</p>
+              <p>Certo / Errado (Reescrita & Gramática)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Gestão Estratégica)</p>
+              <p>Múltipla Escolha (Interpretação Sutil)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (ITIL & COBIT)</p>
+              <p>Múltipla Escolha (Concordância & Regência)</p>
             </div>
           </label>
         </div>
@@ -809,7 +817,7 @@
 
         <div class="backup-option-box">
           <h4>📥 2. Baixar Arquivo de Backup</h4>
-          <p>Exporta o arquivo <code>backup-governanca-ti.json</code> para você salvar na pasta do Google Drive.</p>
+          <p>Exporta o arquivo <code>backup-portugues.json</code> para você salvar na pasta do Google Drive.</p>
           <button type="button" id="btn-export-file" class="btn btn-primary" style="width: 100%;">
             Salvar Backup (.json)
           </button>
@@ -917,7 +925,7 @@
 
   <script>
     /* TEMAS DE CORES CONTROLLER */
-    const THEME_KEY = "flashcards:governanca-ti:theme";
+    const THEME_KEY = "flashcards:portugues:theme";
     let currentTheme = localStorage.getItem(THEME_KEY) || "dark";
 
     function applyTheme(theme) {
@@ -945,58 +953,58 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "cobit2019-principios", label: "COBIT 2019 (Princípios, Sistema de Governança & Domínios EDM/APO/BAI/DSS/MEA)" },
-      { id: "itil4-sistema-valor", label: "ITIL 4 (Sistema de Valor de Serviço, 7 Princípios Orientadores & Práticas)" },
-      { id: "pmbok7-gestao-projetos", label: "PMBOK 7ª Edição (Domínios de Desempenho, Princípios & Métodos Ágeis)" },
-      { id: "peti-alinhameto-estrategico", label: "Plano Diretor de TI (PDTI), PETI, Alinhamento Estratégico & OKRs" },
-      { id: "governança-dados-dama", label: "Governança de Dados (DAMA-DMBOK), Qualidade & Gestão de Riscos" }
+      { id: "sintaxe-concordancia", label: "Sintaxe da Oração & Concordância Verbal e Nominal" },
+      { id: "regencia-crase", label: "Regência Verbal/Nominal & Emprego do Sinal Indicativo de Crase" },
+      { id: "colocacao-pronominal", label: "Colocação Pronomial (Próclise, Mesóclise & Énclise)" },
+      { id: "pontuacao-pontos", label: "Pontuação (Uso da Vírgula, Dois-Pontos & Travessão)" },
+      { id: "compreensao-coesao", label: "Compreensão de Texto, Coesão & Nexos Oracionais" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
-          id: "gov-ces-01",
-          topicId: "cobit2019-principios",
-          statement: "No COBIT 2019, o sistema de governança distingue claramente as atividades de Governança das atividades de Gestão. A responsabilidade primária das atividades de Governança, resumida pela sigla EDM, compreende:",
+          id: "por-ces-01",
+          topicId: "regencia-crase",
+          statement: "Assinale a opção em que o uso do sinal indicativo de crase está empregado rigorosamente de acordo com a norma-padrão da língua portuguesa:",
           options: [
-            { label: "A", text: "Executar, Desenvolver e Monitorar" },
-            { label: "B", text: "Avaliar (Evaluate), Dirigir (Direct) e Monitorar (Monitor)" },
-            { label: "C", text: "Alinhar, Planejar e Organizar" },
-            { label: "D", text: "Construir, Adquirir e Implementar" },
-            { label: "E", text: "Entregar, Serviço e Suporte" }
+            { label: "A", text: "O diretor referiu-se à decisões tomadas pelo conselho." },
+            { label: "B", text: "O técnico prestou assistência à equipe de engenharia durante o teste." },
+            { label: "C", text: "Ela começou à elaborar o novo manual de procedimentos." },
+            { label: "D", text: "Entregou o relatório à um supervisor de operações." },
+            { label: "E", text: "Ficamos à caminhar pela refinaria ao final do expediente." }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. O domínio de Governança no COBIT 2019 é o EDM (Evaluate, Direct and Monitor / Avaliar, Dirigir e Monitorar), responsável por definir diretrizes estratégicas enquanto a Gestão executa (APO, BAI, DSS, MEA)."
+          explanation: "Alternativa B correta. O verbo prestar rege a preposição 'a' (prestar assistência a algo/alguém) e o substantivo feminino 'equipe' admite artigo definido 'a', resultando em crase legítima (a + a = à). Nas demais: A (plural sem artigo), C e E (antes de verbo), D (antes de artigo indefinido)."
         },
         {
-          id: "gov-ces-02",
-          topicId: "itil4-sistema-valor",
-          statement: "Dentre os 7 Princípios Orientadores do ITIL 4, aquele que recomenda que as organizações não comecem algo do zero sem antes considerar o que já está disponível e funcionando é:",
+          id: "por-ces-02",
+          topicId: "sintaxe-concordancia",
+          statement: "Quanto à concordância verbal, a frase que respeita a norma-padrão gramatical é:",
           options: [
-            { label: "A", text: "Foco no valor (Focus on value)" },
-            { label: "B", text: "Começar de onde você está (Start where you are)" },
-            { label: "C", text: "Progredir iterativamente com feedback (Progress iteratively with feedback)" },
-            { label: "D", text: "Manter de forma simples e prática (Keep it simple and practical)" },
-            { label: "E", text: "Pensar e trabalhar holisticamente (Think and work holistically)" }
+            { label: "A", text: "Houveram muitos incidentes durante a fase de testes do sistema." },
+            { label: "B", text: "Faziam três anos que a equipe trabalhava no projeto da plataforma." },
+            { label: "C", text: "Devem haver soluções mais eficientes para o gargalo da rede." },
+            { label: "D", text: "Deve haver soluções mais eficientes para o gargalo da rede." },
+            { label: "E", text: "Tratam-se de questões fundamentais de arquitetura." }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. O princípio 'Start where you are' orienta a analisar e reaproveitar serviços, processos e dados existentes antes de tentar reconstruir do zero."
+          correctLabel: "D",
+          explanation: "Alternativa D correta. O verbo 'haver' no sentido de existir é impessoal e fica no singular; quando acompanhado de verbo auxiliar ('deve'), transmite sua impessoalidade ao auxiliar ('Deve haver')."
         }
       ],
 
       CEBRASPE: [
         {
-          id: "gov-ceb-01",
-          topicId: "pmbok7-gestao-projetos",
-          statement: "O PMBOK 7ª Edição substituiu a abordagem tradicional baseada estritamente em 10 Áreas de Conhecimento por um modelo baseado em 12 Princípios de Entrega de Projetos e 8 Domínios de Desempenho.",
+          id: "por-ceb-01",
+          topicId: "compreensao-coesao",
+          statement: "A substituição do elemento coesivo 'porquanto' por 'portanto' mantém a correção gramatical e a coerência original do texto.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
-          correctLabel: "A",
-          explanation: "CERTO. O PMBOK 7 deu um salto conceitual focando em princípios orientadores e domínios de desempenho orientados a entrega de valor, abrangendo abordagens preditivas, híbridas e ágeis."
+          correctLabel: "B",
+          explanation: "ERRADO. 'Porquanto' é uma conjunção explicativa/causal (equivalente a 'pois', 'já que'), enquanto 'portanto' é uma conjunção conclusiva. A substituição altera o sentido do texto."
         }
       ]
     };
 
-    const SUBJECT_ID = "governanca-ti";
+    const SUBJECT_ID = "portugues";
     const KEYS = {
       WRONG: `flashcards:${SUBJECT_ID}:wrong-questions`,
       SESSIONS: `flashcards:${SUBJECT_ID}:sessions`,
@@ -1007,8 +1015,7 @@
     let pastSessions = loadStorage(KEYS.SESSIONS, []);
     let savedSettings = loadStorage(KEYS.SETTINGS, {
       engine: "offline",
-      aiModel: "google/gemma-4-31b-it",
-      difficulty: "Médio",
+      aiModel: "google/gemma-4-31b-it", thinkingLevel: "High", difficulty: "Médio",
       apiKey: localStorage.getItem("openrouter_api_key") || "",
       selectedTopics: TOPICS_CATALOG.map(t => t.id),
       banca: "CESGRANRIO",
@@ -1077,6 +1084,27 @@
       const aiModelSelect = document.getElementById("ai-model-select");
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
+
+      document.querySelectorAll(".think-btn").forEach(btn => {
+        const t = btn.dataset.think;
+        if (t === (savedSettings.thinkingLevel || "High")) {
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+        } else {
+          btn.classList.add("btn-secondary");
+          btn.classList.remove("btn-primary");
+        }
+
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".think-btn").forEach(b => {
+            b.classList.remove("btn-primary");
+            b.classList.add("btn-secondary");
+          });
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+          saveCurrentSettings();
+        });
+      });
 
       document.querySelectorAll(".diff-btn").forEach(btn => {
         const d = btn.dataset.diff;
@@ -1174,6 +1202,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
+      const thinkBtn = document.querySelector('.think-btn.btn-primary');
+      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
       const diffBtn = document.querySelector('.diff-btn.btn-primary');
       const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
@@ -1182,7 +1212,7 @@
       const selectedBtn = document.querySelector('.count-btn.btn-primary');
       const count = selectedBtn ? parseInt(selectedBtn.dataset.count, 10) : 5;
 
-      savedSettings = { engine, aiModel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
+      savedSettings = { engine, aiModel, thinkingLevel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
       saveStorage(KEYS.SETTINGS, savedSettings);
     }
 
@@ -1198,7 +1228,7 @@
       saveCurrentSettings();
     });
 
-    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio") {
+    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio", thinkingLevel = "High") {
       const topicObjList = TOPICS_CATALOG.filter(t => topics.includes(t.id));
       const topicLabels = topicObjList.map(t => t.label).join("; ");
       const formatDesc = banca === "CEBRASPE" 
@@ -1208,7 +1238,7 @@
       const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
-- Nível de Raciocínio / Thinking: HIGH (Ative raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
+- Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
 - Nível de Dificuldade da Questão: ${difficulty.toUpperCase()} (Fácil = conceitos fundamentais; Médio = aplicação prática e cenários reais; Difícil = casadinhas conceituais complexas, pegadinhas da banca e cenários críticos de arquitetura).
 - Assuntos Selecionados: Elabore as questões EXCLUSIVAMENTE focadas nos seguintes assuntos específicos: [${topicLabels}].
 
@@ -1244,7 +1274,7 @@ Regras de Formato:
         body: JSON.stringify({
           model: model,
           messages: [
-            { role: "system", content: "Você é um examinador especialista em TI de alto nível. Nível de pensamento: HIGH." },
+            { role: "system", content: `Você é um examinador especialista de alto nível. Nível de pensamento: ${thinkingLevel.toUpperCase()}.` },
             { role: "user", content: prompt }
           ],
           response_format: { type: "json_object" }
@@ -1311,7 +1341,7 @@ Regras de Formato:
           loadingOverlay.classList.remove("hidden");
 
           try {
-            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty);
+            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty, savedSettings.thinkingLevel);
             currentSession.questions = aiQuestions;
           } catch (err) {
             console.error(err);
