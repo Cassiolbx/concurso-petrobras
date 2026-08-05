@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco de Dados — Concurso Petrobras</title>
+  <style>
+    :root[data-theme="dark"] {
+      --bg-dark: #171008;
+      --bg-surface: rgba(38, 24, 12, 0.75);
+      --bg-surface-solid: #26180c;
+      --border-panel: rgba(245, 158, 11, 0.22);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --accent: #f59e0b;
+      --text-primary: #fffbeb;
+      --text-secondary: #fde68a;
+      --text-muted: #71717a;
+      --correct: #10b981;
+      --wrong: #f43f5e;
+      --statement-bg: rgba(0, 0, 0, 0.35);
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg-dark); color: var(--text-primary); font-family: sans-serif; min-height: 100vh; }
+    .container { max-width: 960px; margin: 0 auto; padding: 32px 20px; }
+    header { background: var(--bg-surface); border: 1px solid var(--border-panel); border-radius: 20px; padding: 22px 28px; margin-bottom: 28px; display: flex; justify-content: space-between; align-items: center; }
+    .brand { display: flex; align-items: center; gap: 16px; }
+    .brand-badge { width: 52px; height: 52px; border-radius: 16px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .panel { background: var(--bg-surface); border: 1px solid var(--border-panel); border-radius: 20px; padding: 32px; margin-bottom: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; border-radius: 14px; font-weight: 600; cursor: pointer; border: none; white-space: nowrap; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--card-bg); color: var(--text-primary); border: 1px solid var(--border-panel); }
+    .actions-row { display: flex; gap: 14px; margin-top: 32px; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="brand-badge">🛢️</div>
+        <div>
+          <h1>Banco de Dados</h1>
+          <p>Concurso Petrobras — SQL, ER, Normalização & Big Data</p>
+        </div>
+      </div>
+    </header>
+    <main class="panel">
+      <h2>Configuração da Sessão de Estudo</h2>
+      <div class="actions-row">
+        <button class="btn btn-primary">▶ Iniciar Treino</button>
+        <button class="btn btn-secondary">🔄 Revisar Erros (0)</button>
+        <button class="btn btn-secondary">☁️ Backup Google Drive</button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
