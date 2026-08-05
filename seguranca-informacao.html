@@ -716,17 +716,25 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA (Thinking: High):</label>
+              <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
                 <option value="google/gemma-4-31b-it">Gemma 4 31B (Google)</option>
                 <option value="deepseek/deepseek-v4-flash-0731">DeepSeek V4 Flash 0731</option>
               </select>
             </div>
             <div>
-              <label class="form-label" style="font-size: 0.8rem;">🎯 Nível de Dificuldade:</label>
-              <div style="display: flex; gap: 8px;" id="difficulty-selector">
+              <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
+              <div style="display: flex; gap: 6px;" id="thinking-selector">
+                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
+                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
+              </div>
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
+              <div style="display: flex; gap: 6px;" id="difficulty-selector">
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
                 <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
@@ -1025,8 +1033,7 @@
     let pastSessions = loadStorage(KEYS.SESSIONS, []);
     let savedSettings = loadStorage(KEYS.SETTINGS, {
       engine: "offline",
-      aiModel: "google/gemma-4-31b-it",
-      difficulty: "Médio",
+      aiModel: "google/gemma-4-31b-it", thinkingLevel: "High", difficulty: "Médio",
       apiKey: localStorage.getItem("openrouter_api_key") || "",
       selectedTopics: TOPICS_CATALOG.map(t => t.id),
       banca: "CESGRANRIO",
@@ -1095,6 +1102,27 @@
       const aiModelSelect = document.getElementById("ai-model-select");
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
+
+      document.querySelectorAll(".think-btn").forEach(btn => {
+        const t = btn.dataset.think;
+        if (t === (savedSettings.thinkingLevel || "High")) {
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+        } else {
+          btn.classList.add("btn-secondary");
+          btn.classList.remove("btn-primary");
+        }
+
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".think-btn").forEach(b => {
+            b.classList.remove("btn-primary");
+            b.classList.add("btn-secondary");
+          });
+          btn.classList.add("btn-primary");
+          btn.classList.remove("btn-secondary");
+          saveCurrentSettings();
+        });
+      });
 
       document.querySelectorAll(".diff-btn").forEach(btn => {
         const d = btn.dataset.diff;
@@ -1192,6 +1220,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
+      const thinkBtn = document.querySelector('.think-btn.btn-primary');
+      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
       const diffBtn = document.querySelector('.diff-btn.btn-primary');
       const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
@@ -1200,7 +1230,7 @@
       const selectedBtn = document.querySelector('.count-btn.btn-primary');
       const count = selectedBtn ? parseInt(selectedBtn.dataset.count, 10) : 5;
 
-      savedSettings = { engine, aiModel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
+      savedSettings = { engine, aiModel, thinkingLevel, difficulty, apiKey, selectedTopics, banca: selectedBanca, count };
       saveStorage(KEYS.SETTINGS, savedSettings);
     }
 
@@ -1216,7 +1246,7 @@
       saveCurrentSettings();
     });
 
-    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio") {
+    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio", thinkingLevel = "High") {
       const topicObjList = TOPICS_CATALOG.filter(t => topics.includes(t.id));
       const topicLabels = topicObjList.map(t => t.label).join("; ");
       const formatDesc = banca === "CEBRASPE" 
@@ -1226,7 +1256,7 @@
       const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
-- Nível de Raciocínio / Thinking: HIGH (Ative raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
+- Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
 - Nível de Dificuldade da Questão: ${difficulty.toUpperCase()} (Fácil = conceitos fundamentais; Médio = aplicação prática e cenários reais; Difícil = casadinhas conceituais complexas, pegadinhas da banca e cenários críticos de arquitetura).
 - Assuntos Selecionados: Elabore as questões EXCLUSIVAMENTE focadas nos seguintes assuntos específicos: [${topicLabels}].
 
@@ -1262,7 +1292,7 @@ Regras de Formato:
         body: JSON.stringify({
           model: model,
           messages: [
-            { role: "system", content: "Você é um examinador especialista em TI de alto nível. Nível de pensamento: HIGH." },
+            { role: "system", content: `Você é um examinador especialista de alto nível. Nível de pensamento: ${thinkingLevel.toUpperCase()}.` },
             { role: "user", content: prompt }
           ],
           response_format: { type: "json_object" }
@@ -1329,7 +1359,7 @@ Regras de Formato:
           loadingOverlay.classList.remove("hidden");
 
           try {
-            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty);
+            const aiQuestions = await generateQuestionsWithAI(savedSettings.banca, savedSettings.selectedTopics, savedSettings.count, savedSettings.aiModel, savedSettings.apiKey, savedSettings.difficulty, savedSettings.thinkingLevel);
             currentSession.questions = aiQuestions;
           } catch (err) {
             console.error(err);
