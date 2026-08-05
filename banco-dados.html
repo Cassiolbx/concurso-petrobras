@@ -708,19 +708,19 @@
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
-              <div style="display: flex; gap: 6px;" id="thinking-selector">
-                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
-              </div>
+              <select id="ai-thinking-select" class="input-field" style="cursor: pointer;">
+                <option value="Low">🟢 Low</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="High" selected>🔴 High</option>
+              </select>
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
-              <div style="display: flex; gap: 6px;" id="difficulty-selector">
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
-              </div>
+              <select id="ai-difficulty-select" class="input-field" style="cursor: pointer;">
+                <option value="Fácil">🟢 Fácil</option>
+                <option value="Médio" selected>🟡 Médio</option>
+                <option value="Difícil">🔴 Difícil</option>
+              </select>
             </div>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
@@ -1085,47 +1085,13 @@
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
 
-      document.querySelectorAll(".think-btn").forEach(btn => {
-        const t = btn.dataset.think;
-        if (t === (savedSettings.thinkingLevel || "High")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
+      const aiThinkingSelect = document.getElementById("ai-thinking-select");
+      aiThinkingSelect.value = savedSettings.thinkingLevel || "High";
+      aiThinkingSelect.addEventListener("change", saveCurrentSettings);
 
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".think-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
-
-      document.querySelectorAll(".diff-btn").forEach(btn => {
-        const d = btn.dataset.diff;
-        if (d === (savedSettings.difficulty || "Médio")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
-
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".diff-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
+      const aiDifficultySelect = document.getElementById("ai-difficulty-select");
+      aiDifficultySelect.value = savedSettings.difficulty || "Médio";
+      aiDifficultySelect.addEventListener("change", saveCurrentSettings);
 
       const btnConfigKey = document.getElementById("btn-config-key");
       if (btnConfigKey) {
@@ -1202,10 +1168,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
-      const thinkBtn = document.querySelector('.think-btn.btn-primary');
-      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
-      const diffBtn = document.querySelector('.diff-btn.btn-primary');
-      const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
+      const thinkingLevel = document.getElementById("ai-thinking-select").value;
+      const difficulty = document.getElementById("ai-difficulty-select").value;
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
       const selectedTopics = Array.from(document.querySelectorAll('#topics-selector input:checked')).map(cb => cb.value);
       const selectedBanca = document.querySelector('input[name="banca"]:checked').value;
