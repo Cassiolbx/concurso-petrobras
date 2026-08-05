@@ -8,9 +8,9 @@
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #071714;
-      --bg-surface: rgba(15, 41, 36, 0.75);
-      --bg-surface-solid: #0f2924;
+      --bg-dark: #0f1c14;
+      --bg-surface: rgba(22, 45, 30, 0.75);
+      --bg-surface-solid: #162d1e;
       --border-panel: rgba(16, 185, 129, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
@@ -50,7 +50,7 @@
       --accent-dark: #065f46;
       --accent-glow: rgba(5, 150, 105, 0.15);
       
-      --text-primary: #064e3b;
+      --text-primary: #022c22;
       --text-secondary: #334155;
       --text-muted: #64748b;
       
@@ -233,7 +233,7 @@
 
     .grid-options {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
     }
 
@@ -506,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(7, 23, 20, 0.82);
+      background: rgba(15, 28, 20, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -579,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(7, 23, 20, 0.88);
+      background: rgba(15, 28, 20, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -653,7 +653,7 @@
         <div class="brand-badge" title="Língua Portuguesa">✍️</div>
         <div class="brand-title">
           <h1>Língua Portuguesa</h1>
-          <p>Concurso Petrobras — Sintaxe, Concordância, Regência & Crase</p>
+          <p>Concurso Petrobras — Interpretação de Texto, Sintaxe, Crase, Regência & Concordância</p>
         </div>
       </div>
 
@@ -698,7 +698,7 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
@@ -708,19 +708,19 @@
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
-              <div style="display: flex; gap: 6px;" id="thinking-selector">
-                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
-              </div>
+              <select id="ai-thinking-select" class="input-field" style="cursor: pointer;">
+                <option value="Low">🟢 Low</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="High" selected>🔴 High</option>
+              </select>
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
-              <div style="display: flex; gap: 6px;" id="difficulty-selector">
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
-              </div>
+              <select id="ai-difficulty-select" class="input-field" style="cursor: pointer;">
+                <option value="Fácil">🟢 Fácil</option>
+                <option value="Médio" selected>🟡 Médio</option>
+                <option value="Difícil">🔴 Difícil</option>
+              </select>
             </div>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
@@ -761,14 +761,14 @@
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Interpretação Sutil)</p>
+              <p>Múltipla Escolha (Interpretação Fina & Semântica)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Concordância & Regência)</p>
+              <p>Múltipla Escolha (Vozes Verbais & Pontuação)</p>
             </div>
           </label>
         </div>
@@ -953,53 +953,53 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "sintaxe-concordancia", label: "Sintaxe da Oração & Concordância Verbal e Nominal" },
-      { id: "regencia-crase", label: "Regência Verbal/Nominal & Emprego do Sinal Indicativo de Crase" },
-      { id: "colocacao-pronominal", label: "Colocação Pronomial (Próclise, Mesóclise & Énclise)" },
-      { id: "pontuacao-pontos", label: "Pontuação (Uso da Vírgula, Dois-Pontos & Travessão)" },
-      { id: "compreensao-coesao", label: "Compreensão de Texto, Coesão & Nexos Oracionais" }
+      { id: "compreensao-interpretacao-textos", label: "Compreensão, Interpretação de Textos & Coesão Textual" },
+      { id: "sintaxe-concordancia-regencia", label: "Sintaxe da Oração e do Período, Concordância Verbal/Nominal & Regência" },
+      { id: "emprego-sinal-indicativo-crase", label: "Emprego do Sinal Indicativo de Crase" },
+      { id: "pontuacao-colocacao-pronominal", label: "Pontuação (Vírgula, Ponto e Vírgula) & Colocação Pronominal (Próclise, Éclise, Mesóclise)" },
+      { id: "ortografia-acentuacao-classes-palavras", label: "Ortografia Oficial, Acentuação Gráfica & Classes de Palavras" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
           id: "por-ces-01",
-          topicId: "regencia-crase",
-          statement: "Assinale a opção em que o uso do sinal indicativo de crase está empregado rigorosamente de acordo com a norma-padrão da língua portuguesa:",
+          topicId: "emprego-sinal-indicativo-crase",
+          statement: "Considere a frase extraída de um relatório operacional: 'A diretoria da refinaria encaminhou o memorando ____ todas as equipes técnicas, no intuito de atender ____ exigências da ANP.'\nAssinale a opção que preenche correta e respectivamente as lacunas acima:",
           options: [
-            { label: "A", text: "O diretor referiu-se à decisões tomadas pelo conselho." },
-            { label: "B", text: "O técnico prestou assistência à equipe de engenharia durante o teste." },
-            { label: "C", text: "Ela começou à elaborar o novo manual de procedimentos." },
-            { label: "D", text: "Entregou o relatório à um supervisor de operações." },
-            { label: "E", text: "Ficamos à caminhar pela refinaria ao final do expediente." }
+            { label: "A", text: "a — às" },
+            { label: "B", text: "à — as" },
+            { label: "C", text: "à — às" },
+            { label: "D", text: "a — as" },
+            { label: "E", text: "há — às" }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. O verbo prestar rege a preposição 'a' (prestar assistência a algo/alguém) e o substantivo feminino 'equipe' admite artigo definido 'a', resultando em crase legítima (a + a = à). Nas demais: A (plural sem artigo), C e E (antes de verbo), D (antes de artigo indefinido)."
+          correctLabel: "A",
+          explanation: "Alternativa A correta. Na 1ª lacuna, 'todas' é pronome indefinido que não admite artigo definido 'a', portanto usa-se apenas a preposição simples 'a'. Na 2ª lacuna, o verbo 'atender' rege preposição 'a' e 'exigências' admite artigo 'as', formando a fusão com crase 'às'."
         },
         {
           id: "por-ces-02",
-          topicId: "sintaxe-concordancia",
-          statement: "Quanto à concordância verbal, a frase que respeita a norma-padrão gramatical é:",
+          topicId: "sintaxe-concordancia-regencia",
+          statement: "Assinale a opção em que a concordância verbal atende rigorosamente à norma-padrão da língua portuguesa:",
           options: [
-            { label: "A", text: "Houveram muitos incidentes durante a fase de testes do sistema." },
-            { label: "B", text: "Faziam três anos que a equipe trabalhava no projeto da plataforma." },
-            { label: "C", text: "Devem haver soluções mais eficientes para o gargalo da rede." },
-            { label: "D", text: "Deve haver soluções mais eficientes para o gargalo da rede." },
-            { label: "E", text: "Tratam-se de questões fundamentais de arquitetura." }
+            { label: "A", text: "Faziam três anos que a plataforma de perfuração não passava por auditoria." },
+            { label: "B", text: "Fazia três anos que a plataforma de perfuração não passava por auditoria." },
+            { label: "C", text: "Houveram muitos incidentes operacionais no setor durante a tempestade." },
+            { label: "D", text: "Alugam-se salas de treinamento se haverem candidatos inscritos." },
+            { label: "E", text: "Mais de um engenheiro assinaram o laudo técnico da refinaria." }
           ],
-          correctLabel: "D",
-          explanation: "Alternativa D correta. O verbo 'haver' no sentido de existir é impessoal e fica no singular; quando acompanhado de verbo auxiliar ('deve'), transmite sua impessoalidade ao auxiliar ('Deve haver')."
+          correctLabel: "B",
+          explanation: "Alternativa B correta. O verbo 'fazer' indicando tempo decorrido é impessoal e deve permanecer no singular ('Fazia três anos')."
         }
       ],
 
       CEBRASPE: [
         {
           id: "por-ceb-01",
-          topicId: "compreensao-coesao",
-          statement: "A substituição do elemento coesivo 'porquanto' por 'portanto' mantém a correção gramatical e a coerência original do texto.",
+          topicId: "compreensao-interpretacao-textos",
+          statement: "A substituição do elemento 'portanto' por 'porquanto' em um texto argumentativo mantém o sentido original de conclusão do enunciado.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
           correctLabel: "B",
-          explanation: "ERRADO. 'Porquanto' é uma conjunção explicativa/causal (equivalente a 'pois', 'já que'), enquanto 'portanto' é uma conjunção conclusiva. A substituição altera o sentido do texto."
+          explanation: "ERRADO. 'Portanto' é uma conjunção conclusiva (expressa consequência/conclusão), enquanto 'porquanto' é uma conjunção explicativa/causal (equivale a 'pois', 'já que'). A substituição altera o sentido sintático e semântico."
         }
       ]
     };
@@ -1085,47 +1085,13 @@
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
 
-      document.querySelectorAll(".think-btn").forEach(btn => {
-        const t = btn.dataset.think;
-        if (t === (savedSettings.thinkingLevel || "High")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
+      const aiThinkingSelect = document.getElementById("ai-thinking-select");
+      aiThinkingSelect.value = savedSettings.thinkingLevel || "High";
+      aiThinkingSelect.addEventListener("change", saveCurrentSettings);
 
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".think-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
-
-      document.querySelectorAll(".diff-btn").forEach(btn => {
-        const d = btn.dataset.diff;
-        if (d === (savedSettings.difficulty || "Médio")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
-
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".diff-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
+      const aiDifficultySelect = document.getElementById("ai-difficulty-select");
+      aiDifficultySelect.value = savedSettings.difficulty || "Médio";
+      aiDifficultySelect.addEventListener("change", saveCurrentSettings);
 
       const btnConfigKey = document.getElementById("btn-config-key");
       if (btnConfigKey) {
@@ -1202,10 +1168,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
-      const thinkBtn = document.querySelector('.think-btn.btn-primary');
-      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
-      const diffBtn = document.querySelector('.diff-btn.btn-primary');
-      const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
+      const thinkingLevel = document.getElementById("ai-thinking-select").value;
+      const difficulty = document.getElementById("ai-difficulty-select").value;
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
       const selectedTopics = Array.from(document.querySelectorAll('#topics-selector input:checked')).map(cb => cb.value);
       const selectedBanca = document.querySelector('input[name="banca"]:checked').value;
@@ -1235,7 +1199,7 @@
         ? "Formato CEBRASPE: Certo ou Errado. Cada questão DEVE ter exatamente 2 opções: A) Certo, B) Errado."
         : `Formato ${banca}: Múltipla Escolha. Cada questão DEVE ter 5 opções marcadas como A, B, C, D, E.`;
 
-      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
+      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Língua Portuguesa).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
 - Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).

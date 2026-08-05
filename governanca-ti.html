@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<!-- Língua Portuguesa — Concurso Petrobras v2.0 -->
+<!-- Governança de TI & Gestão — Concurso Petrobras v2.0 -->
 <html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Língua Portuguesa — Concurso Petrobras</title>
+  <title>Governança de TI & Gestão — Concurso Petrobras</title>
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #071714;
-      --bg-surface: rgba(15, 41, 36, 0.75);
-      --bg-surface-solid: #0f2924;
-      --border-panel: rgba(16, 185, 129, 0.22);
+      --bg-dark: #1a1608;
+      --bg-surface: rgba(45, 38, 14, 0.75);
+      --bg-surface-solid: #2d260e;
+      --border-panel: rgba(234, 179, 8, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
-      --accent: #10b981;
-      --accent-light: #34d399;
-      --accent-dark: #059669;
-      --accent-glow: rgba(16, 185, 129, 0.25);
+      --accent: #eab308;
+      --accent-light: #fde047;
+      --accent-dark: #ca8a04;
+      --accent-glow: rgba(234, 179, 8, 0.25);
       
-      --text-primary: #ecfdf5;
-      --text-secondary: #a7f3d0;
+      --text-primary: #fefce8;
+      --text-secondary: #fef08a;
       --text-muted: #64748b;
       
       --correct: #10b981;
@@ -39,18 +39,18 @@
     }
 
     :root[data-theme="light"] {
-      --bg-dark: #ecfdf5;
+      --bg-dark: #fefce8;
       --bg-surface: rgba(255, 255, 255, 0.88);
       --bg-surface-solid: #ffffff;
-      --border-panel: rgba(16, 185, 129, 0.35);
+      --border-panel: rgba(234, 179, 8, 0.35);
       --border-subtle: rgba(0, 0, 0, 0.08);
       
-      --accent: #059669;
-      --accent-light: #047857;
-      --accent-dark: #065f46;
-      --accent-glow: rgba(5, 150, 105, 0.15);
+      --accent: #ca8a04;
+      --accent-light: #a16207;
+      --accent-dark: #854d0e;
+      --accent-glow: rgba(202, 138, 4, 0.15);
       
-      --text-primary: #064e3b;
+      --text-primary: #422006;
       --text-secondary: #334155;
       --text-muted: #64748b;
       
@@ -62,7 +62,7 @@
       --wrong-bg: rgba(244, 63, 94, 0.14);
       --wrong-border: rgba(244, 63, 94, 0.45);
       
-      --statement-bg: rgba(236, 253, 245, 0.85);
+      --statement-bg: rgba(254, 252, 232, 0.85);
       --card-bg: rgba(255, 255, 255, 0.6);
       --card-hover: rgba(255, 255, 255, 0.95);
       
@@ -79,8 +79,8 @@
       line-height: 1.6;
       transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 45%),
-        radial-gradient(at 100% 100%, rgba(5, 150, 105, 0.06) 0px, transparent 45%);
+        radial-gradient(at 0% 0%, rgba(234, 179, 8, 0.12) 0px, transparent 45%),
+        radial-gradient(at 100% 100%, rgba(202, 138, 4, 0.06) 0px, transparent 45%);
     }
 
     .container {
@@ -233,7 +233,7 @@
 
     .grid-options {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
     }
 
@@ -506,7 +506,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(7, 23, 20, 0.82);
+      background: rgba(26, 22, 8, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -579,7 +579,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(7, 23, 20, 0.88);
+      background: rgba(26, 22, 8, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -650,10 +650,10 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <div class="brand-badge" title="Língua Portuguesa">✍️</div>
+        <div class="brand-badge" title="Governança de TI & Gestão">🏛️</div>
         <div class="brand-title">
-          <h1>Língua Portuguesa</h1>
-          <p>Concurso Petrobras — Sintaxe, Concordância, Regência & Crase</p>
+          <h1>Governança de TI & Gestão</h1>
+          <p>Concurso Petrobras — COBIT 2019, ITIL v4, PMBOK 7 & Gestão de Riscos</p>
         </div>
       </div>
 
@@ -698,7 +698,7 @@
 
         <!-- Painel da IA -->
         <div id="ai-config-panel" class="hidden" style="margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--border-subtle);">
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 12px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 12px;">
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🤖 Modelo de IA:</label>
               <select id="ai-model-select" class="input-field" style="cursor: pointer;">
@@ -708,19 +708,19 @@
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🧠 Nível de Pensamento:</label>
-              <div style="display: flex; gap: 6px;" id="thinking-selector">
-                <button type="button" class="btn btn-secondary think-btn" data-think="Low">🟢 Low</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="Medium">🟡 Medium</button>
-                <button type="button" class="btn btn-secondary think-btn" data-think="High">🔴 High</button>
-              </div>
+              <select id="ai-thinking-select" class="input-field" style="cursor: pointer;">
+                <option value="Low">🟢 Low</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="High" selected>🔴 High</option>
+              </select>
             </div>
             <div>
               <label class="form-label" style="font-size: 0.8rem;">🎯 Dificuldade da Questão:</label>
-              <div style="display: flex; gap: 6px;" id="difficulty-selector">
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Fácil">🟢 Fácil</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Médio">🟡 Médio</button>
-                <button type="button" class="btn btn-secondary diff-btn" data-diff="Difícil">🔴 Difícil</button>
-              </div>
+              <select id="ai-difficulty-select" class="input-field" style="cursor: pointer;">
+                <option value="Fácil">🟢 Fácil</option>
+                <option value="Médio" selected>🟡 Médio</option>
+                <option value="Difícil">🔴 Difícil</option>
+              </select>
             </div>
           </div>
           <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-muted); flex-wrap: wrap; gap: 8px;">
@@ -754,21 +754,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Reescrita & Gramática)</p>
+              <p>Certo / Errado (Frameworks & Processos)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Interpretação Sutil)</p>
+              <p>Múltipla Escolha (Alinhamento Estratégico & Projetos)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Concordância & Regência)</p>
+              <p>Múltipla Escolha (Conceitos ITIL & COBIT)</p>
             </div>
           </label>
         </div>
@@ -817,7 +817,7 @@
 
         <div class="backup-option-box">
           <h4>📥 2. Baixar Arquivo de Backup</h4>
-          <p>Exporta o arquivo <code>backup-portugues.json</code> para você salvar na pasta do Google Drive.</p>
+          <p>Exporta o arquivo <code>backup-governanca-ti.json</code> para você salvar na pasta do Google Drive.</p>
           <button type="button" id="btn-export-file" class="btn btn-primary" style="width: 100%;">
             Salvar Backup (.json)
           </button>
@@ -925,7 +925,7 @@
 
   <script>
     /* TEMAS DE CORES CONTROLLER */
-    const THEME_KEY = "flashcards:portugues:theme";
+    const THEME_KEY = "flashcards:governanca-ti:theme";
     let currentTheme = localStorage.getItem(THEME_KEY) || "dark";
 
     function applyTheme(theme) {
@@ -953,58 +953,58 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "sintaxe-concordancia", label: "Sintaxe da Oração & Concordância Verbal e Nominal" },
-      { id: "regencia-crase", label: "Regência Verbal/Nominal & Emprego do Sinal Indicativo de Crase" },
-      { id: "colocacao-pronominal", label: "Colocação Pronomial (Próclise, Mesóclise & Énclise)" },
-      { id: "pontuacao-pontos", label: "Pontuação (Uso da Vírgula, Dois-Pontos & Travessão)" },
-      { id: "compreensao-coesao", label: "Compreensão de Texto, Coesão & Nexos Oracionais" }
+      { id: "cobit-2019-objetivos-governanca", label: "COBIT 2019 (Princípios, Objetivos de Governança e Gestão, Cascata de Objetivos)" },
+      { id: "itil-v4-sistema-valor-servico", label: "ITIL v4 (Sistema de Valor de Serviço, Princípios Orientadores & Práticas)" },
+      { id: "pmbok-7-gestao-projetos", label: "PMBOK 7 (Domínios de Desempenho, Princípios & Gestão Ágil de Projetos)" },
+      { id: "gestao-riscos-continuidade-negocios", label: "Gestão de Riscos de TI, Análise de Impacto (BIA) & Continuidade de Negócios" },
+      { id: "legislacao-ti-contratacao-publica", label: "Legislação de TI & Governança Pública (Instruções Normativas, Leis de Licitação)" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
-          id: "por-ces-01",
-          topicId: "regencia-crase",
-          statement: "Assinale a opção em que o uso do sinal indicativo de crase está empregado rigorosamente de acordo com a norma-padrão da língua portuguesa:",
+          id: "gov-ces-01",
+          topicId: "cobit-2019-objetivos-governanca",
+          statement: "No COBIT 2019, qual é a diferença fundamental entre Governança e Gestão em uma grande empresa estatal como a Petrobras?",
           options: [
-            { label: "A", text: "O diretor referiu-se à decisões tomadas pelo conselho." },
-            { label: "B", text: "O técnico prestou assistência à equipe de engenharia durante o teste." },
-            { label: "C", text: "Ela começou à elaborar o novo manual de procedimentos." },
-            { label: "D", text: "Entregou o relatório à um supervisor de operações." },
-            { label: "E", text: "Ficamos à caminhar pela refinaria ao final do expediente." }
+            { label: "A", text: "Governança avalia, direciona e monitora (EDM); Gestão planeja, constrói, executa e monitora (PBIEM)." },
+            { label: "B", text: "Governança é de responsabilidade da equipe técnica; Gestão é restrita à diretoria executiva." },
+            { label: "C", text: "Governança trata exclusivamente de código-fonte; Gestão trata da compra de hardware." },
+            { label: "D", text: "Governança foca no atendimento telefônico; Gestão cuida dos servidores de banco de dados." },
+            { label: "E", text: "Não há diferença técnica entre os dois conceitos no COBIT 2019." }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. O verbo prestar rege a preposição 'a' (prestar assistência a algo/alguém) e o substantivo feminino 'equipe' admite artigo definido 'a', resultando em crase legítima (a + a = à). Nas demais: A (plural sem artigo), C e E (antes de verbo), D (antes de artigo indefinido)."
+          correctLabel: "A",
+          explanation: "Alternativa A correta. No COBIT 2019, a Governança (geralmente sob responsabilidade do Conselho de Administração) foca em Avaliar, Direcionar e Monitorar (EDM). A Gestão (sob responsabilidade da diretoria executiva) cuida do planejamento, construção, execução e monitoramento das atividades alinhadas ao direcionamento estratégico."
         },
         {
-          id: "por-ces-02",
-          topicId: "sintaxe-concordancia",
-          statement: "Quanto à concordância verbal, a frase que respeita a norma-padrão gramatical é:",
+          id: "gov-ces-02",
+          topicId: "itil-v4-sistema-valor-servico",
+          statement: "De acordo com o ITIL v4, qual das alternativas apresenta um dos 7 Princípios Orientadores (Guiding Principles)?",
           options: [
-            { label: "A", text: "Houveram muitos incidentes durante a fase de testes do sistema." },
-            { label: "B", text: "Faziam três anos que a equipe trabalhava no projeto da plataforma." },
-            { label: "C", text: "Devem haver soluções mais eficientes para o gargalo da rede." },
-            { label: "D", text: "Deve haver soluções mais eficientes para o gargalo da rede." },
-            { label: "E", text: "Tratam-se de questões fundamentais de arquitetura." }
+            { label: "A", text: "Foco no Valor (Focus on Value)" },
+            { label: "B", text: "Isolamento de Processos (Isolate Processes)" },
+            { label: "C", text: "Desenvolvimento Cascata Obrigatório (Mandatory Waterfall)" },
+            { label: "D", text: "Centralização de Decisões Técnicas (Centralize Decisions)" },
+            { label: "E", text: "Maximização de Custos Operacionais (Maximize Expenditure)" }
           ],
-          correctLabel: "D",
-          explanation: "Alternativa D correta. O verbo 'haver' no sentido de existir é impessoal e fica no singular; quando acompanhado de verbo auxiliar ('deve'), transmite sua impessoalidade ao auxiliar ('Deve haver')."
+          correctLabel: "A",
+          explanation: "Alternativa A correta. 'Foco no valor' (Focus on Value) é o primeiro e mais fundamental Princípio Orientador do ITIL v4."
         }
       ],
 
       CEBRASPE: [
         {
-          id: "por-ceb-01",
-          topicId: "compreensao-coesao",
-          statement: "A substituição do elemento coesivo 'porquanto' por 'portanto' mantém a correção gramatical e a coerência original do texto.",
+          id: "gov-ceb-01",
+          topicId: "pmbok-7-gestao-projetos",
+          statement: "O PMBOK 7ª edição migrou de uma abordagem baseada estritamente em áreas de conhecimento para uma estrutura orientada a princípios e domínios de desempenho do projeto.",
           options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
-          correctLabel: "B",
-          explanation: "ERRADO. 'Porquanto' é uma conjunção explicativa/causal (equivalente a 'pois', 'já que'), enquanto 'portanto' é uma conjunção conclusiva. A substituição altera o sentido do texto."
+          correctLabel: "A",
+          explanation: "CERTO. O PMBOK 7ª edição foca na entrega de valor, estabelecendo 12 princípios de gestão de projetos e 8 domínios de desempenho, flexibilizando abordagens preditivas, híbridas e ágeis."
         }
       ]
     };
 
-    const SUBJECT_ID = "portugues";
+    const SUBJECT_ID = "governanca-ti";
     const KEYS = {
       WRONG: `flashcards:${SUBJECT_ID}:wrong-questions`,
       SESSIONS: `flashcards:${SUBJECT_ID}:sessions`,
@@ -1085,47 +1085,13 @@
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
       aiModelSelect.addEventListener("change", saveCurrentSettings);
 
-      document.querySelectorAll(".think-btn").forEach(btn => {
-        const t = btn.dataset.think;
-        if (t === (savedSettings.thinkingLevel || "High")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
+      const aiThinkingSelect = document.getElementById("ai-thinking-select");
+      aiThinkingSelect.value = savedSettings.thinkingLevel || "High";
+      aiThinkingSelect.addEventListener("change", saveCurrentSettings);
 
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".think-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
-
-      document.querySelectorAll(".diff-btn").forEach(btn => {
-        const d = btn.dataset.diff;
-        if (d === (savedSettings.difficulty || "Médio")) {
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-        } else {
-          btn.classList.add("btn-secondary");
-          btn.classList.remove("btn-primary");
-        }
-
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".diff-btn").forEach(b => {
-            b.classList.remove("btn-primary");
-            b.classList.add("btn-secondary");
-          });
-          btn.classList.add("btn-primary");
-          btn.classList.remove("btn-secondary");
-          saveCurrentSettings();
-        });
-      });
+      const aiDifficultySelect = document.getElementById("ai-difficulty-select");
+      aiDifficultySelect.value = savedSettings.difficulty || "Médio";
+      aiDifficultySelect.addEventListener("change", saveCurrentSettings);
 
       const btnConfigKey = document.getElementById("btn-config-key");
       if (btnConfigKey) {
@@ -1202,10 +1168,8 @@
     function saveCurrentSettings() {
       const engine = document.querySelector('input[name="engine"]:checked').value;
       const aiModel = document.getElementById("ai-model-select").value;
-      const thinkBtn = document.querySelector('.think-btn.btn-primary');
-      const thinkingLevel = thinkBtn ? thinkBtn.dataset.think : "High";
-      const diffBtn = document.querySelector('.diff-btn.btn-primary');
-      const difficulty = diffBtn ? diffBtn.dataset.diff : "Médio";
+      const thinkingLevel = document.getElementById("ai-thinking-select").value;
+      const difficulty = document.getElementById("ai-difficulty-select").value;
       const apiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
       const selectedTopics = Array.from(document.querySelectorAll('#topics-selector input:checked')).map(cb => cb.value);
       const selectedBanca = document.querySelector('input[name="banca"]:checked').value;
@@ -1235,7 +1199,7 @@
         ? "Formato CEBRASPE: Certo ou Errado. Cada questão DEVE ter exatamente 2 opções: A) Certo, B) Errado."
         : `Formato ${banca}: Múltipla Escolha. Cada questão DEVE ter 5 opções marcadas como A, B, C, D, E.`;
 
-      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
+      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Governança de TI e Gestão).
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
 - Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
