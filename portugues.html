@@ -302,6 +302,15 @@
       gap: 12px;
     }
 
+    #engine-selector {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      #engine-selector {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .tile-card {
       display: flex;
       align-items: flex-start;
@@ -1067,28 +1076,53 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "compreensao-interpretacao", label: "Compreensão, Interpretação de Texto & Coesão Textual" },
-      { id: "ortografia-acentuacao-crase", label: "Ortografia Oficial, Acentuação Gráfica & Emprego do Sinal Indicativo de Crase" },
-      { id: "sintaxe-regencia-concordancia", label: "Sintaxe da Oração e do Período, Regência (Verbal/Nominal) & Concordância" },
-      { id: "morfossintaxe-classes", label: "Classes de Palavras (Substantivos, Adjetivos, Pronomes, Conjunções, Pontuação)" },
-      { id: "semantica-paronimos-homonimos", label: "Semântica, Significação das Palavras, Sinonímia, Antonímia, Parônimos & Homônimos" }
+      { id: "compreensao-interpretacao-textos", label: "Compreensão, Interpretação de Textos & Coesão Textual" },
+      { id: "sintaxe-concordancia-regencia", label: "Sintaxe da Oração e do Período, Concordância Verbal/Nominal & Regência" },
+      { id: "emprego-sinal-indicativo-crase", label: "Emprego do Sinal Indicativo de Crase" },
+      { id: "pontuacao-colocacao-pronominal", label: "Pontuação (Vírgula, Ponto e Vírgula) & Colocação Pronominal (Próclise, Éclise, Mesóclise)" },
+      { id: "ortografia-acentuacao-classes-palavras", label: "Ortografia Oficial, Acentuação Gráfica & Classes de Palavras" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
           id: "por-ces-01",
-          topicId: "compreensao-interpretacao",
-          statement: "No texto argumentativo sobre a transição energética na Petrobras, o autor utiliza a expressão 'em contrapartida' no início do terceiro parágrafo. Qual o valor semântico-discursivo dessa locução no contexto?",
+          topicId: "emprego-sinal-indicativo-crase",
+          statement: "Considere a frase extraída de um relatório operacional: 'A diretoria da refinaria encaminhou o memorando ____ todas as equipes técnicas, no intuito de atender ____ exigências da ANP.'\nAssinale a opção que preenche correta e respectivamente as lacunas acima:",
           options: [
-            { label: "A", text: "Introduzir uma relação de causa e efeito entre os investimentos." },
-            { label: "B", text: "Estabelecer uma oposição ou contraste em relação à ideia apresentada anteriormente." },
-            { label: "C", text: "Adicionar uma nova comprovação estatística sem alteração de sentido." },
-            { label: "D", text: "Explicar conclusivamente o motivo da paralisação das plataformas." },
-            { label: "E", text: "Expressar uma condição indispensável para a eficiência operacional." }
+            { label: "A", text: "a — às" },
+            { label: "B", text: "à — as" },
+            { label: "C", text: "à — às" },
+            { label: "D", text: "a — as" },
+            { label: "E", text: "há — às" }
+          ],
+          correctLabel: "A",
+          explanation: "Alternativa A correta. Na 1ª lacuna, 'todas' é pronome indefinido que não admite artigo definido 'a', portanto usa-se apenas a preposição simples 'a'. Na 2ª lacuna, o verbo 'atender' rege preposição 'a' e 'exigências' admite artigo 'as', formando a fusão com crase 'às'."
+        },
+        {
+          id: "por-ces-02",
+          topicId: "sintaxe-concordancia-regencia",
+          statement: "Assinale a opção em que a concordância verbal atende rigorosamente à norma-padrão da língua portuguesa:",
+          options: [
+            { label: "A", text: "Faziam três anos que a plataforma de perfuração não passava por auditoria." },
+            { label: "B", text: "Fazia três anos que a plataforma de perfuração não passava por auditoria." },
+            { label: "C", text: "Houveram muitos incidentes operacionais no setor durante a tempestade." },
+            { label: "D", text: "Alugam-se salas de treinamento se haverem candidatos inscritos." },
+            { label: "E", text: "Mais de um engenheiro assinaram o laudo técnico da refinaria." }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. A locução 'em contrapartida' possui valor adversativo/contrastivo, servindo para opor ou contrapor argumentos em relação ao postulado no parágrafo anterior."
+          explanation: "Alternativa B correta. O verbo 'fazer' indicando tempo decorrido é impessoal e deve permanecer no singular ('Fazia três anos')."
+        }
+      ],
+
+      CEBRASPE: [
+        {
+          id: "por-ceb-01",
+          topicId: "compreensao-interpretacao-textos",
+          statement: "A substituição do elemento 'portanto' por 'porquanto' em um texto argumentativo mantém o sentido original de conclusão do enunciado.",
+          options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
+          correctLabel: "B",
+          explanation: "ERRADO. 'Portanto' é uma conjunção conclusiva (expressa consequência/conclusão), enquanto 'porquanto' é uma conjunção explicativa/causal (equivale a 'pois', 'já que'). A substituição altera o sentido sintático e semântico."
         }
       ]
     };
