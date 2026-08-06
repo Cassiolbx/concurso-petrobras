@@ -302,6 +302,15 @@
       gap: 12px;
     }
 
+    #engine-selector {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      #engine-selector {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .tile-card {
       display: flex;
       align-items: flex-start;
@@ -868,21 +877,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (ISO 27001 & LGPD)</p>
+              <p>Certo / Errado (Normas & Incidentes)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Criptografia & Incidentes)</p>
+              <p>Múltipla Escolha (Criptografia & Redes)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Gestão de Acessos & FW)</p>
+              <p>Múltipla Escolha (Gestão de Riscos & ISO)</p>
             </div>
           </label>
         </div>
@@ -1067,28 +1076,28 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "criptografia-assimetrica-simetrica", label: "Criptografia Simétrica, Assimétrica, Encriptação, Hashing (SHA-256) & Assinatura Digital" },
-      { id: "gestao-acessos-autenticacao", label: "Gestão de Identidade e Acesso (IAM), Autenticação Multifator (MFA), RBAC & SSO" },
-      { id: "iso27001-politica-seguranca", label: "Gestão da Segurança da Informação (ISO/IEC 27001, 27002) & Políticas de Segurança" },
-      { id: "malwares-ataques-firewall", label: "Ataques Cibernéticos (Phishing, Ransomware, DDoS), Firewalls, IDS/IPS & SIEM" },
-      { id: "lgpd-privacidade-dados", label: "Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) & Privacidade Industrial" }
+      { id: "criptografia-simetrica-assimetrica-pki", label: "Criptografia Simétrica/Assimétrica, Hashes (SHA-256), Assinatura Digital & PKI-Brasil" },
+      { id: "gestao-acessos-iam-mfa-rbac", label: "Gestão de Identidade e Acessos (IAM), Autenticação Multifator (MFA) & Controle de Acesso (RBAC/ABAC)" },
+      { id: "seguranca-redes-firewall-ips-siem", label: "Segurança de Redes (Firewalls, IDS/IPS, VPN, TLS/SSL) & Monitoramento SIEM" },
+      { id: "normas-iso27001-lgpd-incidentes", label: "Normas ISO/IEC 27001/27002, Gestão de Incidentes de Segurança & LGPD" },
+      { id: "ameacas-malware-ransomware-phishing", label: "Ameaças Cibernéticas (Malware, Ransomware, Phishing, Engenharia Social & Zero-Day)" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
-          id: "seg-ces-01",
-          topicId: "criptografia-assimetrica-simetrica",
-          statement: "Em um ambiente de automação industrial de refinaria, utiliza-se assinatura digital para garantir o não repúdio e a integridade de comandos críticos. Qual elemento é utilizado para ASSINAR DIGITALMENTE uma mensagem?",
+          id: "sec-ces-01",
+          topicId: "criptografia-simetrica-assimetrica-pki",
+          statement: "Uma refinaria da Petrobras precisa garantir que um relatório de inspeção enviado digitalmente por um engenheiro não possa ser alterado no trajeto e que o remetente não possa negar a autoria (não-repúdio). Qual mecanismo de segurança garante simultaneamente a integridade e o não-repúdio?",
           options: [
-            { label: "A", text: "Chave pública do emissor" },
-            { label: "B", text: "Chave privada do emissor" },
-            { label: "C", text: "Chave pública do receptor" },
-            { label: "D", text: "Chave privada do receptor" },
-            { label: "E", text: "Chave simétrica compartilhada de sessão" }
+            { label: "A", text: "Criptografia Simétrica com chave AES-256" },
+            { label: "B", text: "Assinatura Digital utilizando a chave privada do engenheiro e certificado ICP-Brasil" },
+            { label: "C", text: "Conexão VPN com protocolo IPsec" },
+            { label: "D", text: "Apenas a aplicação de uma função de hash SHA-256 sem chave" },
+            { label: "E", text: "Autenticação de dois fatores (MFA) no portal de envio" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. Na assinatura digital, o emissor gera o hash do documento e o encripta usando sua própria CHAVE PRIVADA. O receptor verifica a autenticidade decriptando a assinatura com a CHAVE PÚBLICA do emissor."
+          explanation: "Alternativa B correta. A assinatura digital (baseada em criptografia assimétrica e certificados digitais) fornece integridade (via hash encriptado com chave privada) e não-repúdio (apenas o titular possui a chave privada)."
         }
       ]
     };
@@ -1331,7 +1340,7 @@
         ? "Formato CEBRASPE: Certo ou Errado. Cada questão DEVE ter exatamente 2 opções: A) Certo, B) Errado."
         : `Formato ${banca}: Múltipla Escolha. Cada questão DEVE ter 5 opções marcadas como A, B, C, D, E.`;
 
-      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
+      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras.
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
 - Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
@@ -1770,7 +1779,7 @@ Regras de Formato:
 
           if (imported.wrongQuestions) {
             wrongQuestions = imported.wrongQuestions;
-            saveStorage(KEYS.WRONG, wrongQuestions);
+            saveStorage(KEYS.KEYS || KEYS.WRONG, wrongQuestions);
           }
           if (imported.pastSessions) {
             pastSessions = imported.pastSessions;
