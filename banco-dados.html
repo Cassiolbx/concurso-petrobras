@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<!-- Banco de Dados — Concurso Petrobras v2.0 -->
+<!-- Banco de Dados & Engenharia de Dados — Concurso Petrobras v2.0 -->
 <html lang="pt-BR" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banco de Dados — Concurso Petrobras</title>
+  <title>Banco de Dados & Engenharia de Dados — Concurso Petrobras</title>
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
-      --bg-dark: #09131d;
-      --bg-surface: rgba(18, 32, 47, 0.75);
-      --bg-surface-solid: #12202f;
-      --border-panel: rgba(56, 189, 248, 0.22);
+      --bg-dark: #091a14;
+      --bg-surface: rgba(14, 43, 33, 0.75);
+      --bg-surface-solid: #0e2b21;
+      --border-panel: rgba(16, 185, 129, 0.22);
       --border-subtle: rgba(255, 255, 255, 0.08);
       
-      --accent: #38bdf8;
-      --accent-light: #7dd3fc;
-      --accent-dark: #0284c7;
-      --accent-glow: rgba(56, 189, 248, 0.25);
+      --accent: #10b981;
+      --accent-light: #34d399;
+      --accent-dark: #059669;
+      --accent-glow: rgba(16, 185, 129, 0.25);
       
-      --text-primary: #f0f9ff;
-      --text-secondary: #bae6fd;
+      --text-primary: #ecfdf5;
+      --text-secondary: #a7f3d0;
       --text-muted: #64748b;
       
       --correct: #10b981;
@@ -39,18 +39,18 @@
     }
 
     :root[data-theme="light"] {
-      --bg-dark: #f0f9ff;
+      --bg-dark: #ecfdf5;
       --bg-surface: rgba(255, 255, 255, 0.88);
       --bg-surface-solid: #ffffff;
-      --border-panel: rgba(56, 189, 248, 0.35);
+      --border-panel: rgba(16, 185, 129, 0.35);
       --border-subtle: rgba(0, 0, 0, 0.08);
       
-      --accent: #0284c7;
-      --accent-light: #0369a1;
-      --accent-dark: #075985;
-      --accent-glow: rgba(2, 132, 199, 0.15);
+      --accent: #059669;
+      --accent-light: #047857;
+      --accent-dark: #065f46;
+      --accent-glow: rgba(5, 150, 105, 0.15);
       
-      --text-primary: #0c4a6e;
+      --text-primary: #022c22;
       --text-secondary: #334155;
       --text-muted: #64748b;
       
@@ -62,7 +62,7 @@
       --wrong-bg: rgba(244, 63, 94, 0.14);
       --wrong-border: rgba(244, 63, 94, 0.45);
       
-      --statement-bg: rgba(240, 249, 255, 0.85);
+      --statement-bg: rgba(236, 253, 245, 0.85);
       --card-bg: rgba(255, 255, 255, 0.6);
       --card-hover: rgba(255, 255, 255, 0.95);
       
@@ -79,8 +79,8 @@
       line-height: 1.6;
       transition: background-color 0.3s ease, color 0.3s ease;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 45%),
-        radial-gradient(at 100% 100%, rgba(2, 132, 199, 0.06) 0px, transparent 45%);
+        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 45%),
+        radial-gradient(at 100% 100%, rgba(5, 150, 105, 0.06) 0px, transparent 45%);
     }
 
     .container {
@@ -162,25 +162,6 @@
       font-weight: 700;
     }
 
-    .theme-toggle-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border-panel);
-      color: var(--text-primary);
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-    }
-    .theme-toggle-btn:hover {
-      background: var(--accent-glow);
-      border-color: var(--accent);
-    }
-
     .btn-home {
       background: var(--card-bg);
       border: 1px solid var(--border-subtle);
@@ -246,6 +227,25 @@
       box-shadow: 0 0 0 3px var(--accent-glow);
     }
 
+    .theme-toggle-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-panel);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .theme-toggle-btn:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+    }
+
     /* PANELS */
     .panel {
       background: var(--bg-surface);
@@ -300,6 +300,15 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
+    }
+
+    #engine-selector {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      #engine-selector {
+        grid-template-columns: 1fr;
+      }
     }
 
     .tile-card {
@@ -571,7 +580,7 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(9, 19, 29, 0.82);
+      background: rgba(9, 26, 20, 0.82);
       backdrop-filter: blur(12px);
       z-index: 2000;
       display: flex;
@@ -644,7 +653,7 @@
     .loading-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(9, 19, 29, 0.88);
+      background: rgba(9, 26, 20, 0.88);
       backdrop-filter: blur(12px);
       z-index: 1000;
       display: flex;
@@ -715,10 +724,10 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <div class="brand-badge" title="Banco de Dados">🗄️</div>
+        <div class="brand-badge" title="Banco de Dados & Engenharia de Dados">🛢️</div>
         <div class="brand-title">
-          <h1>Banco de Dados</h1>
-          <p>Concurso Petrobras — Modelagem, SQL, Transações ACID & NoSQL</p>
+          <h1>Banco de Dados & Engenharia de Dados</h1>
+          <p>Concurso Petrobras — SQL Avançado, Modelagem Relacional, NoSQL & Data Warehouse</p>
         </div>
       </div>
 
@@ -868,21 +877,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Modelagem & ACID)</p>
+              <p>Certo / Errado (SQL & Transações)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (SQL Avançado & NoSQL)</p>
+              <p>Múltipla Escolha (Modelagem & Data Warehouse)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Normalização & DW)</p>
+              <p>Múltipla Escolha (NoSQL & Indexação)</p>
             </div>
           </label>
         </div>
@@ -1067,53 +1076,28 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "modelagem-er-normalizacao", label: "Modelagem ER, Relacional & Normalização (1FN a 5FN)" },
-      { id: "linguagem-sql-avancada", label: "Linguagem SQL (DDL, DML, DCL, Window Functions, CTEs & Subqueries)" },
-      { id: "transacoes-acid-concorrencia", label: "Transações, Propriedades ACID, Isolamento & Controle de Concorrência" },
-      { id: "bancos-nosql-bigdata", label: "Bancos NoSQL (Documento, Chave-Valor, Grafos, Colunar) & Big Data" },
-      { id: "data-warehouse-bi", label: "Data Warehouse, Modelagem Dimensional (Star/Snowflake), ETL & BI" }
+      { id: "modelagem-relacional-der-normalizacao", label: "Modelagem Relacional (DER, Entidade-Relacionamento) & Normalização (1FN a 4FN)" },
+      { id: "sql-avançado-joins-window-cte", label: "SQL Avançado (Joins, Window Functions, CTEs, Subqueries, Triggers & Stored Procedures)" },
+      { id: "transações-acid-concorrencia-mvcc", label: "Arquitetura SGBD, Transações (ACID), Controle de Concorrência & Locks/MVCC" },
+      { id: "nosql-mongodb-redis-neo4j-cassandra", label: "Bancos NoSQL (Documentos/MongoDB, Chave-Valor/Redis, Grafos/Neo4j, Colunar/Cassandra)" },
+      { id: "data-warehouse-etl-star-snowflake", label: "Data Warehouse, Data Lake, Processos ETL/ELT & Modelagem Dimensional (Star/Snowflake Schema)" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
-          id: "bd-ces-01",
-          topicId: "modelagem-er-normalizacao",
-          statement: "Em um banco de dados relacional para monitoramento de refinarias, uma tabela 'Manutencao' possui a chave primária composta (ID_Refinaria, ID_Equipamento, Data). O atributo 'Nome_Equipamento' depende apenas de 'ID_Equipamento'. Essa tabela viola qual forma normal?",
+          id: "db-ces-01",
+          topicId: "modelagem-relacional-der-normalizacao",
+          statement: "Em um banco de dados relacional de uma refinaria, uma tabela armazena os campos (ID_Equipamento, Nome_Equipamento, ID_Manutencao, Data_Manutencao, Tecnico_Responsavel). Observa-se que um equipamento pode passar por diversas manutenções e o nome do equipamento se repete a cada registro de manutenção. Para colocar essa tabela na Terceira Forma Normal (3FN), deve-se:",
           options: [
-            { label: "A", text: "Primeira Forma Normal (1FN)" },
-            { label: "B", text: "Segunda Forma Normal (2FN)" },
-            { label: "C", text: "Terceira Forma Normal (3FN)" },
-            { label: "D", text: "Forma Normal de Boyce-Codd (FNBC)" },
-            { label: "E", text: "Quarta Forma Normal (4FN)" }
+            { label: "A", text: "Manter a tabela como está, pois ela já atende a 3FN" },
+            { label: "B", text: "Separar os dados em duas tabelas: Equipamentos (ID_Equipamento, Nome_Equipamento) e Manutencoes (ID_Manutencao, ID_Equipamento, Data_Manutencao, Tecnico_Responsavel)" },
+            { label: "C", text: "Criar uma chave primária composta por todos os campos da tabela" },
+            { label: "D", text: "Converter a tabela para formato NoSQL chave-valor" },
+            { label: "E", text: "Remover o campo Nome_Equipamento e manter o ID_Manutencao como chave única" }
           ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. A 2FN exige que a tabela esteja na 1FN e que todo atributo não-chave dependa TOTALMENTE de toda a chave primária. Como Nome_Equipamento depende apenas de parte da chave (ID_Equipamento), há uma dependência parcial, violando a 2FN."
-        },
-        {
-          id: "bd-ces-02",
-          topicId: "linguagem-sql-avancada",
-          statement: "Considere a necessidade de calcular a média móvel de produção de barris de petróleo dos últimos 3 dias para cada poço. Qual recurso do SQL ANSI é o mais adequado para realizar essa consulta de forma performática?",
-          options: [
-            { label: "A", text: "Subquery correlacionada no WHERE com GROUP BY" },
-            { label: "B", text: "Window Function com a cláusula OVER (PARTITION BY ... ORDER BY ... ROWS BETWEEN)" },
-            { label: "C", text: "CROSS JOIN com tabela temporária de datas" },
-            { label: "D", text: "Cláusula HAVING com contagem agregada" },
-            { label: "E", text: "UNION ALL entre três selects distintos" }
-          ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. As Window Functions (Funções de Janela) com especificação de quadro de linhas (ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) são a ferramenta nativa e mais eficiente do SQL para médias móveis e agregações deslizantes."
-        }
-      ],
-
-      CEBRASPE: [
-        {
-          id: "bd-ceb-01",
-          topicId: "transacoes-acid-concorrencia",
-          statement: "O nível de isolamento 'READ COMMITTED' em SGBDs relacionais impede o fenômeno das leituras sujas (dirty reads), mas permite a ocorrência de leituras não repetíveis.",
-          options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
-          correctLabel: "A",
-          explanation: "CERTO. No nível READ COMMITTED, uma transação só lê dados já commitados (evitando dirty reads). Contudo, se outra transação alterar e commitar o dado durante a execução da primeira, leituras subsequentes da mesma linha retornarão valores diferentes (leituras não repetíveis)."
+          explanation: "Alternativa B correta. A dependência funcional parcial e transitiva exige a divisão em duas entidades (Equipamentos e Manutenções) com relacionamento por chave estrangeira."
         }
       ]
     };
@@ -1356,7 +1340,7 @@
         ? "Formato CEBRASPE: Certo ou Errado. Cada questão DEVE ter exatamente 2 opções: A) Certo, B) Errado."
         : `Formato ${banca}: Múltipla Escolha. Cada questão DEVE ter 5 opções marcadas como A, B, C, D, E.`;
 
-      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras (Analista de Sistemas).
+      const prompt = `Você é um especialista e examinador sênior da banca ${banca} para o concurso Petrobras.
 
 CONFIGURAÇÕES ESTRITAS DA PROVA:
 - Nível de Raciocínio / Thinking: ${thinkingLevel.toUpperCase()} (Low = respostas diretas e concisas; Medium = análise equilibrada; High = raciocínio analítico profundo, rigor conceitual máximo e justificativas minuciosas).
