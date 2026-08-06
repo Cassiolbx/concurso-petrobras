@@ -302,6 +302,15 @@
       gap: 12px;
     }
 
+    #engine-selector {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      #engine-selector {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .tile-card {
       display: flex;
       align-items: flex-start;
@@ -875,14 +884,14 @@
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Vocabulário Técnico & Inferência)</p>
+              <p>Múltipla Escolha (Technical Vocabulary)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Gramática Aplicada)</p>
+              <p>Múltipla Escolha (Grammar & Syntax)</p>
             </div>
           </label>
         </div>
@@ -1067,28 +1076,28 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "text-comprehension-inference", label: "Reading Comprehension, Main Ideas, Specific Details & Inference" },
-      { id: "technical-vocabulary-jargon", label: "Technical Oil & Gas / IT Vocabulary, Terminology, Synonyms & Antonyms" },
-      { id: "grammar-verb-tenses-modals", label: "Grammar: Verb Tenses (Present/Past/Future/Perfect), Modal Verbs & Conditionals" },
-      { id: "cohesion-connectors-transition", label: "Textual Cohesion, Discourse Markers, Connectors & Linking Words" },
-      { id: "passive-voice-relative-clauses", label: "Passive Voice, Relative Clauses, Prepositions & Phrasal Verbs" }
+      { id: "text-comprehension-petroleum-it", label: "Reading Comprehension of Technical Texts (Oil, Gas & Information Technology)" },
+      { id: "technical-vocabulary-jargon", label: "Technical Vocabulary, Jargon, Synonyms & Antonyms" },
+      { id: "grammar-verb-tenses-modals", label: "Grammar: Verb Tenses, Active/Passive Voice & Modal Verbs (Can, Must, Should)" },
+      { id: "connectors-discourse-markers", label: "Connectors, Discourse Markers & Text Cohesion (However, Furthermore, Therefore)" },
+      { id: "reference-words-pronouns", label: "Reference Words, Pronoun Anaphora & Contextual Meaning" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
           id: "ing-ces-01",
-          topicId: "technical-vocabulary-jargon",
-          statement: "In the context of offshore drilling operations, the word 'DECOMMISSIONING' refers to the process of:",
+          topicId: "text-comprehension-petroleum-it",
+          statement: "Read the excerpt from an offshore IT report: 'The automated monitoring system dispatched an urgent alert to the control room, enabling engineers to mitigate the pressure anomaly before any operational disruption occurred.'\nIn the context of the sentence, the word 'mitigate' is closest in meaning to:",
           options: [
-            { label: "A", text: "Increasing crude oil production rates during peak demand." },
-            { label: "B", text: "Safely taking an oil platform out of service and deconstructing its structure." },
-            { label: "C", text: "Installing new automated pipelines in deepwater oilfields." },
-            { label: "D", text: "Refining raw petroleum into high-grade gasoline and diesel." },
-            { label: "E", text: "Hiring new specialized subsea engineering contractors." }
+            { label: "A", text: "alleviate or reduce the severity of" },
+            { label: "B", text: "exaggerate or amplify" },
+            { label: "C", text: "ignore completely" },
+            { label: "D", text: "duplicate" },
+            { label: "E", text: "delay unnecessarily" }
           ],
-          correctLabel: "B",
-          explanation: "Alternativa B correta. 'Decommissioning' no setor petrolífero significa o comissionamento inverso ou descomissionamento, isto é, a desativação, desmonte e remoção segura de instalações operacionais ou plataformas petrolíferas ao final de sua vida útil."
+          correctLabel: "A",
+          explanation: "Alternativa A correta. 'To mitigate' significa atenuar, mitigar ou reduzir a severidade de um problema antes que ele se torne um desastre."
         }
       ]
     };
@@ -1340,7 +1349,7 @@ CONFIGURAÇÕES ESTRITAS DA PROVA:
 
 Regras de Formato:
 1. ${formatDesc}
-2. O enunciado deve ser técnico, bem contextualizado e sem ambiguidade.
+2. O enunciado deve ser técnico em inglês com texto explicativo e pergunta clara.
 3. Forneça uma explicação técnica minuciosa justificando o gabarito.
 4. Retorne EXCLUSIVAMENTE um objeto JSON válido sem Markdown fora do JSON, no seguinte esquema:
 {
