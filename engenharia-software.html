@@ -162,6 +162,71 @@
       font-weight: 700;
     }
 
+    .btn-home {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-home:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Painel de assuntos específicos da IA */
+    .specific-topics-panel {
+      margin-top: 16px;
+      padding: 18px;
+      background: var(--statement-bg);
+      border: 1px dashed var(--accent);
+      border-radius: 14px;
+      animation: fadeIn 0.25s ease;
+    }
+    .specific-topics-panel .stp-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .specific-topics-panel .stp-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .stp-textarea {
+      width: 100%;
+      min-height: 90px;
+      background: var(--statement-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--text-primary);
+      font-family: "Segoe UI Variable Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      resize: vertical;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .stp-textarea::placeholder { color: var(--text-muted); }
+    .stp-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
     .theme-toggle-btn {
       background: var(--card-bg);
       border: 1px solid var(--border-panel);
@@ -235,6 +300,15 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 12px;
+    }
+
+    #engine-selector {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      #engine-selector {
+        grid-template-columns: 1fr;
+      }
     }
 
     .tile-card {
@@ -658,6 +732,7 @@
       </div>
 
       <div class="header-actions">
+        <a href="index.html" class="btn-home" title="Voltar para a tela inicial de matérias">🏠 Início</a>
         <div class="header-stats">
           <div class="stat-pill">Sessões: <strong id="stat-sessions">0</strong></div>
           <div class="stat-pill">Acurácia: <strong id="stat-accuracy">0%</strong></div>
@@ -694,6 +769,13 @@
               <p>Gera questões inéditas em tempo real via IA</p>
             </div>
           </label>
+          <label class="tile-card">
+            <input type="radio" name="engine" value="specific-topics">
+            <div class="tile-content">
+              <strong>🎯 Assuntos Específicos (IA)</strong>
+              <p>Escolha 1 a 3 tópicos — a IA foca exclusivamente neles</p>
+            </div>
+          </label>
         </div>
 
         <!-- Painel da IA -->
@@ -728,6 +810,47 @@
             <button type="button" id="btn-config-key" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.78rem;">🔑 Configurar Chave API</button>
           </div>
         </div>
+
+        <!-- Painel de Assuntos Específicos (3º motor) -->
+        <div id="specific-topics-panel" class="specific-topics-panel hidden">
+          <div class="stp-label">✏️ Descreva o(s) assunto(s) que a IA deve focar:</div>
+          <div class="stp-hint">Digite livremente o tema, tópico ou subtópico que você quer treinar. Ex: "Índices B-Tree e Hash", "MVCC e controle de concorrência", "NoSQL vs SQL".</div>
+          <textarea
+            id="stp-custom-topic"
+            class="stp-textarea"
+            placeholder="Digite aqui o(s) assunto(s) que deseja treinar..."
+            maxlength="400"
+          ></textarea>
+          <!-- Configurações da IA -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border-subtle);">
+            <div>
+              <label class="form-label" style="font-size: 0.78rem;">🤖 Modelo:</label>
+              <select id="stp-model-select" class="input-field" style="cursor: pointer;">
+                <option value="google/gemma-4-31b-it">Gemma 4 31B (Google)</option>
+                <option value="deepseek/deepseek-v4-flash-0731">DeepSeek V4 Flash 0731</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.78rem;">🧠 Nível de Pensamento:</label>
+              <select id="stp-thinking-select" class="input-field" style="cursor: pointer;">
+                <option value="Low">🟢 Low</option>
+                <option value="Medium">🟡 Medium</option>
+                <option value="High" selected>🔴 High</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" style="font-size: 0.78rem;">🎯 Dificuldade:</label>
+              <select id="stp-difficulty-select" class="input-field" style="cursor: pointer;">
+                <option value="Fácil">🟢 Fácil</option>
+                <option value="Médio" selected>🟡 Médio</option>
+                <option value="Difícil">🔴 Difícil</option>
+              </select>
+            </div>
+          </div>
+          <div style="margin-top: 10px; font-size: 0.75rem; color: var(--text-muted); display: flex; justify-content: flex-end;">
+            <button type="button" id="stp-config-key" style="background: none; border: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 0.75rem;">🔑 Configurar Chave API</button>
+          </div>
+        </div>
       </div>
 
       <!-- Assuntos -->
@@ -754,21 +877,21 @@
             <input type="radio" name="banca" value="CEBRASPE">
             <div class="tile-content">
               <strong>CEBRASPE</strong>
-              <p>Certo / Errado (Arquitetura & Código)</p>
+              <p>Certo / Errado (Arquitetura & Testes)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FGV">
             <div class="tile-content">
               <strong>FGV</strong>
-              <p>Múltipla Escolha (Engenharia de Requisitos)</p>
+              <p>Múltipla Escolha (Design Patterns & DevOps)</p>
             </div>
           </label>
           <label class="tile-card">
             <input type="radio" name="banca" value="FCC">
             <div class="tile-content">
               <strong>FCC</strong>
-              <p>Múltipla Escolha (Design Patterns & UML)</p>
+              <p>Múltipla Escolha (UML & Métodos Ágeis)</p>
             </div>
           </label>
         </div>
@@ -953,19 +1076,19 @@
 
     /* TOPICS & QUESTION BANK */
     const TOPICS_CATALOG = [
-      { id: "arquitetura-software-microsservicos", label: "Arquitetura de Software (Microsserviços, Monólito, Event-Driven, REST & GraphQL)" },
-      { id: "padrões-projeto-gof-solid", label: "Design Patterns (GoF Criacionais, Estruturais, Comportamentais) & Princípios SOLID" },
-      { id: "devops-ci-cd-docker", label: "DevOps (CI/CD, Docker, Kubernetes, Git & Observabilidade)" },
-      { id: "metodologias-ageis-scrum-kanban", label: "Metodologias Ágeis (Scrum, Kanban, XP & TDD/BDD)" },
-      { id: "qualidade-software-testes", label: "Engenharia de Requisitos, Testes (Unitário, Integração, E2E) & Qualidade" }
+      { id: "arquitetura-software-microservicos", label: "Arquitetura de Software (Microserviços, Monolito, Event-Driven & Domain-Driven Design)" },
+      { id: "padrões-projeto-gof", label: "Padrões de Projeto GoF (Criacionais, Estruturais e Comportamentais) & SOLID" },
+      { id: "engenharia-requisitos-agil", label: "Engenharia de Requisitos, Métodos Ágeis (Scrum, Kanban) & Histórias de Usuário" },
+      { id: "devops-ci-cd-docker-k8s", label: "DevOps, Integração e Entrega Contínua (CI/CD), Containers (Docker, Kubernetes) & Git" },
+      { id: "qualidade-software-testes", label: "Qualidade de Software, Testes (Unitários, Integração, E2E), TDD & Refatoração" }
     ];
 
     const QUESTION_BANK = {
       CESGRANRIO: [
         {
           id: "es-ces-01",
-          topicId: "padrões-projeto-gof-solid",
-          statement: "Em um sistema de pagamento de combustível na Petrobras, é necessário instanciar diferentes gateways de pagamento (Cartão corporativo, PIX, Faturamento) sem acoplar o código cliente às classes concretas desses gateways. Qual padrão de projeto GoF criacional é o mais indicado para encapsular a criação desses objetos?",
+          topicId: "padrões-projeto-gof",
+          statement: "Em uma plataforma de monitoramento de refinarias, é necessário garantir que apenas UMA ÚNICA instância de um gerenciador de conexões com sensores industriais seja criada e compartilhada por toda a aplicação. Qual padrão de projeto GoF deve ser utilizado?",
           options: [
             { label: "A", text: "Factory Method" },
             { label: "B", text: "Singleton" },
@@ -973,33 +1096,8 @@
             { label: "D", text: "Strategy" },
             { label: "E", text: "Adapter" }
           ],
-          correctLabel: "A",
-          explanation: "Alternativa A correta. O Factory Method encapsula a lógica de instanciação de objetos em subclasses ou métodos de fabricação, permitindo trocar o gateway sem alterar o código cliente."
-        },
-        {
-          id: "es-ces-02",
-          topicId: "arquitetura-software-microsservicos",
-          statement: "Qual princípio da arquitetura de microsserviços assegura que cada serviço possui autonomia sobre seu próprio esquema de armazenamento, evitando o compartilhamento direto de tabelas no banco de dados entre serviços distintos?",
-          options: [
-            { label: "A", text: "Shared Database Pattern" },
-            { label: "B", text: "Database per Service" },
-            { label: "C", text: "API Gateway Aggregation" },
-            { label: "D", text: "Two-Phase Commit Protocol (2PC)" },
-            { label: "E", text: "Event Sourcing Pattern" }
-          ],
           correctLabel: "B",
-          explanation: "Alternativa B correta. O padrão 'Database per Service' garante baixo acoplamento e independência de implantação, fazendo com que o acesso aos dados de um microsserviço seja feito estritamente via API."
-        }
-      ],
-
-      CEBRASPE: [
-        {
-          id: "es-ceb-01",
-          topicId: "devops-ci-cd-docker",
-          statement: "Em contêineres Docker, a instrução COPY copia arquivos do sistema hospedeiro para o sistema de arquivos do contêiner, enquanto a instrução ADD, além de copiar, suporta a extração automática de arquivos compactados e o download via URLs.",
-          options: [{ label: "A", text: "Certo" }, { label: "B", text: "Errado" }],
-          correctLabel: "A",
-          explanation: "CERTO. A instrução ADD possui recursos adicionais como descompactação de tar.gz e download via URL, enquanto COPY é recomendada para cópias simples de arquivos locais."
+          explanation: "Alternativa B correta. O padrão Singleton (Criacional) garante que uma classe tenha apenas uma única instância em todo o ciclo de vida da aplicação e fornece um ponto global de acesso a ela."
         }
       ]
     };
@@ -1048,6 +1146,21 @@
       });
     }
 
+    function loadStorage(key, fallback) {
+      try {
+        const item = localStorage.getItem(key);
+        return item ? JSON.parse(item) : fallback;
+      } catch (e) {
+        return fallback;
+      }
+    }
+
+    function saveStorage(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+      } catch (e) {}
+    }
+
     function updateHeaderStats() {
       document.getElementById("stat-sessions").textContent = pastSessions.length;
       document.getElementById("stat-wrong-count").textContent = wrongQuestions.length;
@@ -1074,12 +1187,12 @@
         radio.addEventListener("change", () => {
           document.querySelectorAll('#engine-selector .tile-card').forEach(rt => rt.classList.remove("tile-selected"));
           parent.classList.add("tile-selected");
-          toggleAiPanel(radio.value === "openrouter");
+          toggleAiPanel(radio.value);
           saveCurrentSettings();
         });
       });
 
-      toggleAiPanel(savedSettings.engine === "openrouter");
+      toggleAiPanel(savedSettings.engine);
 
       const aiModelSelect = document.getElementById("ai-model-select");
       aiModelSelect.value = savedSettings.aiModel || "google/gemma-4-31b-it";
@@ -1098,6 +1211,20 @@
         btnConfigKey.addEventListener("click", () => {
           const currentKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
           const newKey = prompt("Informe sua chave API OpenRouter (salva com segurança no navegador):", currentKey);
+          if (newKey !== null) {
+            savedSettings.apiKey = newKey.trim();
+            localStorage.setItem("openrouter_api_key", newKey.trim());
+            saveCurrentSettings();
+            if (newKey.trim()) alert("Chave API salva com sucesso!");
+          }
+        });
+      }
+
+      const btnStpConfigKey = document.getElementById("stp-config-key");
+      if (btnStpConfigKey) {
+        btnStpConfigKey.addEventListener("click", () => {
+          const currentKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
+          const newKey = prompt("Informe sua chave API OpenRouter:", currentKey);
           if (newKey !== null) {
             savedSettings.apiKey = newKey.trim();
             localStorage.setItem("openrouter_api_key", newKey.trim());
@@ -1159,10 +1286,23 @@
       });
     }
 
-    function toggleAiPanel(show) {
-      const panel = document.getElementById("ai-config-panel");
-      if (show) panel.classList.remove("hidden");
-      else panel.classList.add("hidden");
+    function toggleAiPanel(engineValue) {
+      const aiPanel = document.getElementById("ai-config-panel");
+      const stPanel = document.getElementById("specific-topics-panel");
+      if (engineValue === "openrouter") {
+        aiPanel.classList.remove("hidden");
+        stPanel.classList.add("hidden");
+      } else if (engineValue === "specific-topics") {
+        aiPanel.classList.add("hidden");
+        stPanel.classList.remove("hidden");
+      } else {
+        aiPanel.classList.add("hidden");
+        stPanel.classList.add("hidden");
+      }
+    }
+
+    function getStpCustomTopic() {
+      return (document.getElementById("stp-custom-topic")?.value || "").trim();
     }
 
     function saveCurrentSettings() {
@@ -1192,9 +1332,10 @@
       saveCurrentSettings();
     });
 
-    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio", thinkingLevel = "High") {
-      const topicObjList = TOPICS_CATALOG.filter(t => topics.includes(t.id));
-      const topicLabels = topicObjList.map(t => t.label).join("; ");
+    async function generateQuestionsWithAI(banca, topics, count, model, apiKey, difficulty = "Médio", thinkingLevel = "High", isCustomTopic = false) {
+      const topicLabels = isCustomTopic
+        ? topics[0]
+        : TOPICS_CATALOG.filter(t => topics.includes(t.id)).map(t => t.label).join("; ");
       const formatDesc = banca === "CEBRASPE" 
         ? "Formato CEBRASPE: Certo ou Errado. Cada questão DEVE ter exatamente 2 opções: A) Certo, B) Errado."
         : `Formato ${banca}: Múltipla Escolha. Cada questão DEVE ter 5 opções marcadas como A, B, C, D, E.`;
@@ -1318,6 +1459,46 @@ Regras de Formato:
           } finally {
             loadingOverlay.classList.add("hidden");
           }
+        } else if (savedSettings.engine === "specific-topics") {
+          const customTopic = getStpCustomTopic();
+          if (!customTopic) {
+            alert("Digite o(s) assunto(s) que deseja treinar no campo de texto antes de iniciar.");
+            return;
+          }
+          const stpApiKey = localStorage.getItem("openrouter_api_key") || savedSettings.apiKey || "";
+          if (!stpApiKey) {
+            alert("Informe sua chave API do OpenRouter para usar este motor.");
+            return;
+          }
+          const stpModel = document.getElementById("stp-model-select")?.value || "google/gemma-4-31b-it";
+          const stpThinking = document.getElementById("stp-thinking-select")?.value || "High";
+          const stpDifficulty = document.getElementById("stp-difficulty-select")?.value || "Médio";
+
+          const loadingOverlay = document.getElementById("ai-loading");
+          document.getElementById("ai-loading-text").textContent = `Gerando questões focadas em: "${customTopic}"...`;
+          loadingOverlay.classList.remove("hidden");
+
+          try {
+            const aiQuestions = await generateQuestionsWithAI(
+              savedSettings.banca,
+              [customTopic],
+              savedSettings.count,
+              stpModel,
+              stpApiKey,
+              stpDifficulty,
+              stpThinking,
+              true
+            );
+            currentSession.questions = aiQuestions;
+            currentSession.topicIds = [customTopic];
+          } catch (err) {
+            console.error(err);
+            alert(`Falha ao gerar questões (${err.message}). Tente novamente.`);
+            loadingOverlay.classList.add("hidden");
+            return;
+          } finally {
+            loadingOverlay.classList.add("hidden");
+          }
         } else {
           const pool = (QUESTION_BANK[currentSession.banca] || QUESTION_BANK.CESGRANRIO)
             .filter(q => currentSession.topicIds.includes(q.topicId));
@@ -1334,7 +1515,7 @@ Regras de Formato:
       document.getElementById("ws-banca-badge").textContent = mode === "review" ? "REVISÃO DE ERROS" : currentSession.banca;
       
       const engineBadge = document.getElementById("ws-engine-badge");
-      if (currentSession.engine === "openrouter") {
+      if (currentSession.engine === "openrouter" || currentSession.engine === "specific-topics") {
         engineBadge.textContent = "🤖 IA OpenRouter";
         engineBadge.className = "badge badge-ai";
       } else {
@@ -1342,89 +1523,100 @@ Regras de Formato:
         engineBadge.className = "badge";
       }
 
+      const firstTopicId = currentSession.questions[0].topicId;
+      const topicObj = TOPICS_CATALOG.find(t => t.id === firstTopicId);
+      document.getElementById("ws-topic-badge").textContent = topicObj ? topicObj.label.split("&")[0].split("(")[0].trim() : firstTopicId;
+
       document.getElementById("ws-total-num").textContent = currentSession.questions.length;
+      document.getElementById("ws-current-num").textContent = "1";
 
-      clearInterval(currentSession.timerInterval);
-      currentSession.timerInterval = setInterval(() => {
-        currentSession.secondsElapsed = Math.floor((Date.now() - currentSession.startTime) / 1000);
-        const mins = String(Math.floor(currentSession.secondsElapsed / 60)).padStart(2, '0');
-        const secs = String(currentSession.secondsElapsed % 60).padStart(2, '0');
-        document.getElementById("ws-timer").textContent = `⏱️ ${mins}:${secs}`;
-      }, 1000);
-
-      showView("exercise");
       renderQuestion();
+      showView("exercise");
+      startTimer();
     }
 
     function renderQuestion() {
       const q = currentSession.questions[currentSession.currentIndex];
-      const resp = currentSession.responses[q.id];
-
-      document.getElementById("ws-current-num").textContent = currentSession.currentIndex + 1;
-      
-      const topicObj = TOPICS_CATALOG.find(t => t.id === q.topicId);
-      document.getElementById("ws-topic-badge").textContent = topicObj ? topicObj.label : q.topicId;
-
-      const pct = ((currentSession.currentIndex) / currentSession.questions.length) * 100;
-      document.getElementById("ws-progress-fill").style.width = `${pct}%`;
-
       document.getElementById("ws-statement").textContent = q.statement;
 
-      const optionsContainer = document.getElementById("ws-options-container");
-      optionsContainer.innerHTML = "";
+      const fill = document.getElementById("ws-progress-fill");
+      const pct = Math.round(((currentSession.currentIndex + 1) / currentSession.questions.length) * 100);
+      fill.style.width = `${pct}%`;
+
+      const container = document.getElementById("ws-options-container");
+      container.innerHTML = "";
+
+      const existingResp = currentSession.responses[q.id];
 
       q.options.forEach(opt => {
-        const item = document.createElement("div");
-        item.className = "option-card";
-        item.dataset.label = opt.label;
-        item.innerHTML = `
+        const div = document.createElement("div");
+        div.className = "option-card";
+        div.dataset.label = opt.label;
+
+        if (existingResp) {
+          if (opt.label === q.correctLabel) div.classList.add("option-correct");
+          if (existingResp.selectedLabel === opt.label && !existingResp.isCorrect) div.classList.add("option-wrong");
+        } else {
+          if (currentSession.tempSelected === opt.label) div.classList.add("option-selected");
+        }
+
+        div.innerHTML = `
           <div class="option-tag">${opt.label}</div>
-          <div class="option-text">${opt.text}</div>
+          <div>${opt.text}</div>
         `;
 
-        if (resp) {
-          if (opt.label === resp.selectedLabel) {
-            item.classList.add(resp.isCorrect ? "option-correct" : "option-wrong");
-          }
-          if (opt.label === q.correctLabel && !resp.isCorrect) {
-            item.classList.add("option-correct");
-          }
-        } else {
-          item.addEventListener("click", () => {
-            document.querySelectorAll(".option-card").forEach(oi => oi.classList.remove("option-selected"));
-            item.classList.add("option-selected");
+        if (!existingResp) {
+          div.addEventListener("click", () => {
+            currentSession.tempSelected = opt.label;
+            document.querySelectorAll(".option-card").forEach(c => c.classList.remove("option-selected"));
+            div.classList.add("option-selected");
             document.getElementById("btn-confirm-answer").disabled = false;
           });
         }
 
-        optionsContainer.appendChild(item);
+        container.appendChild(div);
       });
 
-      const btnConfirm = document.getElementById("btn-confirm-answer");
-      const feedbackPanel = document.getElementById("ws-feedback");
+      const feedback = document.getElementById("ws-feedback");
+      const confirmBtn = document.getElementById("btn-confirm-answer");
 
-      if (resp) {
-        btnConfirm.classList.add("hidden");
-        feedbackPanel.classList.remove("hidden");
-        showFeedbackUI(q, resp);
+      if (existingResp) {
+        confirmBtn.style.display = "none";
+        feedback.classList.remove("hidden");
+
+        const fTitle = document.getElementById("feedback-title");
+        const fDetail = document.getElementById("feedback-detail");
+        const fExp = document.getElementById("feedback-explanation");
+
+        if (existingResp.isCorrect) {
+          feedback.className = "feedback-banner feedback-correct";
+          fTitle.innerHTML = "<span>✅ Resposta Correta!</span>";
+          fDetail.textContent = `Você marcou a opção ${existingResp.selectedLabel}. Excelente raciocínio!`;
+        } else {
+          feedback.className = "feedback-banner feedback-wrong";
+          fTitle.innerHTML = "<span>❌ Resposta Incorreta</span>";
+          fDetail.textContent = `Sua resposta foi ${existingResp.selectedLabel}. A opção correta é ${q.correctLabel}.`;
+        }
+
+        fExp.textContent = q.explanation;
       } else {
-        btnConfirm.classList.remove("hidden");
-        btnConfirm.disabled = true;
-        feedbackPanel.classList.add("hidden");
+        confirmBtn.style.display = "inline-flex";
+        confirmBtn.disabled = !currentSession.tempSelected;
+        feedback.classList.add("hidden");
       }
     }
 
     function confirmAnswer() {
-      const selectedItem = document.querySelector(".option-card.option-selected");
-      if (!selectedItem) return;
-
-      const selectedLabel = selectedItem.dataset.label;
       const q = currentSession.questions[currentSession.currentIndex];
-      const isCorrect = (selectedLabel === q.correctLabel);
+      const sel = currentSession.tempSelected;
+      if (!sel) return;
+
+      const isCorrect = (sel === q.correctLabel);
 
       currentSession.responses[q.id] = {
-        selectedLabel,
-        isCorrect
+        selectedLabel: sel,
+        isCorrect: isCorrect,
+        timeTaken: 0
       };
 
       if (!isCorrect) {
@@ -1442,28 +1634,9 @@ Regras de Formato:
         }
       }
 
+      currentSession.tempSelected = null;
       updateHeaderStats();
       renderQuestion();
-    }
-
-    function showFeedbackUI(q, resp) {
-      const panel = document.getElementById("ws-feedback");
-      const title = document.getElementById("feedback-title");
-      const detail = document.getElementById("feedback-detail");
-      const expl = document.getElementById("feedback-explanation");
-
-      panel.className = `feedback-banner ${resp.isCorrect ? 'feedback-correct' : 'feedback-wrong'}`;
-      title.innerHTML = resp.isCorrect ? '✅ CORRETO!' : '❌ INCORRETO!';
-
-      detail.innerHTML = `Sua resposta: <strong>${resp.selectedLabel}</strong> | Gabarito oficial: <strong>${q.correctLabel}</strong>`;
-      expl.innerHTML = `<strong>Resolução Comentada:</strong>\n${q.explanation}`;
-
-      const btnNext = document.getElementById("btn-next-question");
-      if (currentSession.currentIndex === currentSession.questions.length - 1) {
-        btnNext.textContent = "Ver Resultado Final 🏁";
-      } else {
-        btnNext.textContent = "Próxima Questão →";
-      }
     }
 
     document.getElementById("btn-confirm-answer").addEventListener("click", confirmAnswer);
@@ -1471,82 +1644,164 @@ Regras de Formato:
     document.getElementById("btn-next-question").addEventListener("click", () => {
       if (currentSession.currentIndex < currentSession.questions.length - 1) {
         currentSession.currentIndex++;
+        currentSession.tempSelected = null;
+        document.getElementById("ws-current-num").textContent = currentSession.currentIndex + 1;
         renderQuestion();
       } else {
         finishSession();
       }
     });
 
-    function finishSession() {
+    function startTimer() {
       clearInterval(currentSession.timerInterval);
+      const timerEl = document.getElementById("ws-timer");
+      currentSession.timerInterval = setInterval(() => {
+        currentSession.secondsElapsed++;
+        const m = String(Math.floor(currentSession.secondsElapsed / 60)).padStart(2, '0');
+        const s = String(currentSession.secondsElapsed % 60).padStart(2, '0');
+        timerEl.textContent = `⏱️ ${m}:${s}`;
+      }, 1000);
+    }
+
+    function stopTimer() {
+      clearInterval(currentSession.timerInterval);
+    }
+
+    function finishSession() {
+      stopTimer();
 
       let correctCount = 0;
       Object.values(currentSession.responses).forEach(r => {
         if (r.isCorrect) correctCount++;
       });
 
-      const totalQ = currentSession.questions.length;
-      const accuracy = Math.round((correctCount / totalQ) * 100);
-      const mins = String(Math.floor(currentSession.secondsElapsed / 60)).padStart(2, '0');
-      const secs = String(currentSession.secondsElapsed % 60).padStart(2, '0');
+      const total = currentSession.questions.length;
+      const acc = Math.round((correctCount / total) * 100);
 
-      const sessionRecord = {
-        id: `sess-${Date.now()}`,
-        mode: currentSession.mode,
-        engine: currentSession.engine,
-        banca: currentSession.banca,
-        totalQuestions: totalQ,
-        correctCount,
-        accuracy,
-        secondsElapsed: currentSession.secondsElapsed,
-        date: new Date().toISOString()
-      };
+      const m = String(Math.floor(currentSession.secondsElapsed / 60)).padStart(2, '0');
+      const s = String(currentSession.secondsElapsed % 60).padStart(2, '0');
+      const timeStr = `${m}:${s}`;
 
-      pastSessions.push(sessionRecord);
-      saveStorage(KEYS.SESSIONS, pastSessions);
-      updateHeaderStats();
-
-      document.getElementById("res-score").textContent = `${correctCount} / ${totalQ}`;
-      document.getElementById("res-accuracy").textContent = `${accuracy}%`;
-      document.getElementById("res-time").textContent = `${mins}:${secs}`;
-      document.getElementById("res-banca").textContent = `${currentSession.banca} (${currentSession.engine === 'openrouter' ? 'IA' : 'Offline'})`;
+      document.getElementById("res-score").textContent = `${correctCount} / ${total}`;
+      document.getElementById("res-accuracy").textContent = `${acc}%`;
+      document.getElementById("res-time").textContent = timeStr;
+      
+      let engineLabel = currentSession.engine === "openrouter" || currentSession.engine === "specific-topics" ? "Motor IA" : "Banco Offline";
+      document.getElementById("res-banca").textContent = `${currentSession.banca} (${engineLabel})`;
 
       const breakdown = document.getElementById("res-breakdown");
-      breakdown.innerHTML = `<h4 style="margin-bottom: 14px; font-size: 0.95rem; color: var(--text-secondary);">Detalhamento das Questões:</h4>`;
+      breakdown.innerHTML = "<h4 style='font-size: 0.95rem; margin-bottom: 12px; font-weight: 700;'>Detalhamento do Desempenho:</h4>";
 
       currentSession.questions.forEach((q, idx) => {
         const resp = currentSession.responses[q.id];
         const item = document.createElement("div");
-        item.style.cssText = `
-          background: var(--statement-bg);
-          border: 1px solid var(--border-subtle);
-          padding: 14px 18px;
-          border-radius: 10px;
-          margin-bottom: 10px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        `;
+        item.style.cssText = "background: var(--statement-bg); border: 1px solid var(--border-subtle); padding: 14px 18px; border-radius: 12px; margin-bottom: 10px; font-size: 0.88rem;";
+        const ok = resp && resp.isCorrect;
+
         item.innerHTML = `
-          <div>
-            <strong style="color: var(--accent);">Q${idx + 1}.</strong> ${q.statement.substring(0, 85)}...
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <strong style="color: ${ok ? 'var(--correct)' : 'var(--wrong)'};">
+              ${ok ? '✅ Questão ' + (idx + 1) + ' — Correta' : '❌ Questão ' + (idx + 1) + ' — Incorreta'}
+            </strong>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Sua marcação: ${resp ? resp.selectedLabel : '-'} | Gabarito: ${q.correctLabel}</span>
           </div>
-          <div>
-            ${resp.isCorrect ? '<span style="color: var(--correct); font-weight:700;">✅ Correta</span>' : '<span style="color: var(--wrong); font-weight:700;">❌ Errada</span>'}
-          </div>
+          <p style="color: var(--text-secondary); line-height: 1.5;">${q.statement.substring(0, 110)}...</p>
         `;
         breakdown.appendChild(item);
       });
 
+      if (currentSession.mode === "normal") {
+        pastSessions.push({
+          date: new Date().toISOString(),
+          banca: currentSession.banca,
+          engine: currentSession.engine,
+          totalQuestions: total,
+          correctCount: correctCount,
+          timeElapsed: currentSession.secondsElapsed
+        });
+        saveStorage(KEYS.SESSIONS, pastSessions);
+      }
+
+      updateHeaderStats();
       showView("results");
     }
 
     document.getElementById("btn-start-session").addEventListener("click", () => startSession("normal"));
     document.getElementById("btn-start-review").addEventListener("click", () => startSession("review"));
-
-    document.getElementById("btn-res-new").addEventListener("click", () => showView("setup"));
+    document.getElementById("btn-res-new").addEventListener("click", () => {
+      renderSetupUI();
+      showView("setup");
+    });
     document.getElementById("btn-res-review").addEventListener("click", () => startSession("review"));
 
+    /* BACKUP SYSTEM CONTROLLER */
+    const modal = document.getElementById("backup-modal");
+    document.getElementById("btn-open-backup-modal").addEventListener("click", () => modal.classList.remove("hidden"));
+    document.getElementById("btn-close-modal").addEventListener("click", () => modal.classList.add("hidden"));
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.add("hidden");
+    });
+
+    document.getElementById("btn-export-file").addEventListener("click", () => {
+      const data = {
+        version: "2.0",
+        subject: SUBJECT_ID,
+        exportDate: new Date().toISOString(),
+        wrongQuestions: wrongQuestions,
+        pastSessions: pastSessions,
+        savedSettings: savedSettings
+      };
+
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `backup-${SUBJECT_ID}-${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById("btn-import-file").addEventListener("click", () => {
+      document.getElementById("backup-file-input").click();
+    });
+
+    document.getElementById("backup-file-input").addEventListener("change", (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        try {
+          const imported = JSON.parse(evt.target.result);
+          if (imported.subject && imported.subject !== SUBJECT_ID) {
+            if (!confirm(`Este backup pertence à matéria '${imported.subject}'. Deseja importar nesta matéria mesmo assim?`)) return;
+          }
+
+          if (imported.wrongQuestions) {
+            wrongQuestions = imported.wrongQuestions;
+            saveStorage(KEYS.WRONG, wrongQuestions);
+          }
+          if (imported.pastSessions) {
+            pastSessions = imported.pastSessions;
+            saveStorage(KEYS.SESSIONS, pastSessions);
+          }
+          if (imported.savedSettings) {
+            savedSettings = { ...savedSettings, ...imported.savedSettings };
+            saveStorage(KEYS.SETTINGS, savedSettings);
+          }
+
+          updateHeaderStats();
+          renderSetupUI();
+          alert("Backup importado com sucesso!");
+          modal.classList.add("hidden");
+        } catch (err) {
+          alert("Erro ao ler arquivo de backup JSON.");
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    /* KEYBOARD SHORTCUTS */
     document.addEventListener("keydown", (e) => {
       if (views.exercise.classList.contains("hidden")) return;
 
@@ -1579,84 +1834,9 @@ Regras de Formato:
       }
     });
 
-    /* MODAL DE BACKUP / GOOGLE DRIVE */
-    const backupModal = document.getElementById("backup-modal");
-    document.getElementById("btn-open-backup-modal").addEventListener("click", () => {
-      backupModal.classList.remove("hidden");
-    });
-    document.getElementById("btn-close-modal").addEventListener("click", () => {
-      backupModal.classList.add("hidden");
-    });
-
-    // Download / Export File
-    document.getElementById("btn-export-file").addEventListener("click", () => {
-      const dump = {
-        subjectId: SUBJECT_ID,
-        exportedAt: new Date().toISOString(),
-        wrongQuestions,
-        pastSessions,
-        savedSettings
-      };
-      const blob = new Blob([JSON.stringify(dump, null, 2)], { type: "application/json" });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `backup-${SUBJECT_ID}.json`;
-      a.click();
-    });
-
-    // Upload / Import File
-    const fileInput = document.getElementById("backup-file-input");
-    document.getElementById("btn-import-file").addEventListener("click", () => {
-      fileInput.click();
-    });
-
-    fileInput.addEventListener("change", (e) => {
-      const file = e.target.files?.[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        try {
-          const parsed = JSON.parse(event.target.result);
-          if (parsed.subjectId === SUBJECT_ID) {
-            wrongQuestions = parsed.wrongQuestions || [];
-            pastSessions = parsed.pastSessions || [];
-            savedSettings = parsed.savedSettings || savedSettings;
-            saveStorage(KEYS.WRONG, wrongQuestions);
-            saveStorage(KEYS.SESSIONS, pastSessions);
-            saveStorage(KEYS.SETTINGS, savedSettings);
-            updateHeaderStats();
-            renderSetupUI();
-            backupModal.classList.add("hidden");
-            alert("Backup do Google Drive importado com sucesso!");
-          } else {
-            alert("O arquivo selecionado não pertence a esta matéria (Engenharia de Software).");
-          }
-        } catch (err) {
-          alert("Erro ao ler o arquivo JSON de backup.");
-        }
-      };
-      reader.readAsText(file);
-    });
-
-    function loadStorage(key, defVal) {
-      try {
-        const item = localStorage.getItem(key);
-        return item ? JSON.parse(item) : defVal;
-      } catch (e) {
-        return defVal;
-      }
-    }
-
-    function saveStorage(key, val) {
-      try {
-        localStorage.setItem(key, JSON.stringify(val));
-      } catch (e) {}
-    }
-
-    /* INIT */
-    renderSetupUI();
+    /* INITIALIZATION */
     updateHeaderStats();
+    renderSetupUI();
   </script>
 </body>
 </html>
