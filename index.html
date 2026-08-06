@@ -34,7 +34,7 @@
         radial-gradient(at 90% 90%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
     }
 
-    .container { max-width: 1080px; margin: 0 auto; }
+    .container { max-width: 1140px; margin: 0 auto; }
 
     /* HEADER */
     header {
@@ -73,10 +73,23 @@
       margin: 0 auto;
     }
 
+    /* GRID EM 3 COLUNAS PERFEITAS */
     .grid-subjects {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+    }
+
+    @media (max-width: 992px) {
+      .grid-subjects {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid-subjects {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* CARD DE MATÉRIA COM CAPA ILUSTRADA SEM TEXTO */
@@ -237,11 +250,6 @@
           <div class="icon-badge">🛡️</div>
         </div>
         <div class="card-body">
-          <div>
-            <div class="subject-title">Segurança da Informação</div>
-            <div class="subject-desc">Criptografia, Assinatura Digital, Malwares, Firewalls, Redes e Normas ISO 27001/27002.</div>
-          </div>
-          <div class="card-body">
           <div>
             <div class="subject-title">Segurança da Informação</div>
             <div class="subject-desc">Criptografia, Assinatura Digital, Malwares, Firewalls, Redes e Normas ISO 27001/27002.</div>
