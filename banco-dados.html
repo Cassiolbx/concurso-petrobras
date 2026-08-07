@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banco de Dados — Concurso Petrobras</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     /* TEMAS DE CORES (DARK & LIGHT) */
     :root[data-theme="dark"] {
@@ -826,10 +827,10 @@
     <!-- HEADER -->
     <header>
       <div class="brand">
-        <div class="brand-badge" title="Banco de Dados">💾</div>
+        <div class="brand-badge" title="Banco de Dados">🛢️</div>
         <div class="brand-title">
           <h1>Banco de Dados</h1>
-          <p>Concurso Petrobras — Modelagem, SQL, NoSQL, Transações & Normalização</p>
+          <p>Concurso Petrobras — SQL, Modelagem ER, Normalização, Transações ACID & NoSQL</p>
         </div>
       </div>
 
@@ -883,8 +884,8 @@
         <!-- Painel dinâmico para assuntos específicos da IA -->
         <div id="specific-topics-panel" class="specific-topics-panel hidden">
           <div class="stp-label">📌 Digite os assuntos específicos (1 por linha ou separados por vírgula):</div>
-          <div class="stp-hint">Exemplo: "Modelagem Relacional (DER / MER)", "Normalização (1FN, 2FN, 3FN)", "Linguagem SQL (DDL, DML, DCL, DTL)"</div>
-          <textarea id="specific-topics-input" class="stp-textarea" placeholder="Ex: Modelagem Relacional, Normalização, SQL..."></textarea>
+          <div class="stp-hint">Exemplo: "Modelagem ER e Normalização (1FN a 5FN)", "Linguagem SQL (DDL, DML, Window Functions)", "Transações e Propriedades ACID"</div>
+          <textarea id="specific-topics-input" class="stp-textarea" placeholder="Ex: Normalização 3FN, Joins em SQL, Transações ACID..."></textarea>
         </div>
       </div>
 
@@ -930,7 +931,7 @@
     <main id="view-quiz" class="panel hidden">
       <div class="ws-top">
         <div class="badges-group">
-          <span class="badge badge-banca" id="badge-topic">Modelagem</span>
+          <span class="badge badge-banca" id="badge-topic">Banco de Dados</span>
           <span class="badge" id="badge-difficulty">CEBRASPE</span>
           <span class="badge badge-ai" id="badge-engine">📦 Offline</span>
         </div>
@@ -1033,48 +1034,48 @@
     const OFFLINE_QUESTIONS = [
       {
         id: "bd-001",
-        topic: "Modelagem Relacional",
+        topic: "Modelagem ER & SQL",
         banca: "CEBRASPE",
-        statement: "Em um modelo relacional de banco de dados, uma chave primária composta é definida como uma chave que contém dois ou mais atributos que, juntos, identificam de forma unívoca cada tupla em uma tabela.",
+        statement: "Em um banco de dados relacional, uma chave primária composta é constituída por dois ou mais atributos que, juntos, identificam de forma única cada tupla de uma tabela.",
         options: ["Certo", "Errado"],
         correctIndex: 0,
-        explanation: "Correto! A chave primária composta utiliza a combinação de dois ou mais atributos para garantir a unicidade da tupla quando um único atributo não é suficiente."
+        explanation: "Correto! A chave primária composta utiliza a combinação de múltiplos campos para garantir a unicidade do registro."
       },
       {
         id: "bd-002",
         topic: "Normalização",
         banca: "CEBRASPE",
-        statement: "Uma tabela está na Segunda Forma Normal (2FN) se estiver na 1FN e todos os seus atributos não chave forem totalmente dependentes funcionalmente da chave primária (ou seja, não houver dependência parcial).",
+        statement: "Uma tabela está na Terceira Forma Normal (3FN) se estiver na 2FN e se nenhum atributo não chave depender transitivamente da chave primária.",
         options: ["Certo", "Errado"],
         correctIndex: 0,
-        explanation: "Correto! A 2FN exige a eliminação de dependências parciais. Todos os atributos não chave devem depender da totalidade da chave primária."
+        explanation: "Correto! A 3FN elimina dependências transitivas entre atributos não chave."
       },
       {
         id: "bd-003",
-        topic: "Linguagem SQL",
+        topic: "Transações ACID",
         banca: "CEBRASPE",
-        statement: "No comando SQL SELECT, a cláusula HAVING é utilizada para filtrar linhas de dados antes que o agrupamento com GROUP BY seja realizado.",
+        statement: "A propriedade da Durabilidade garante que, uma vez confirmada (committed) uma transação, seus efeitos persistirão no banco de dados mesmo em caso de falha do sistema.",
         options: ["Certo", "Errado"],
-        correctIndex: 1,
-        explanation: "Errado! A cláusula WHERE realiza o filtro antes do agrupamento (nas linhas individuais). A cláusula HAVING filtra os grupos já agregados após a aplicação do GROUP BY."
+        correctIndex: 0,
+        explanation: "Correto! A Durabilidade (D do ACID) assegura a permanência dos dados gravados após o COMMIT."
       },
       {
         id: "bd-004",
-        topic: "Transações & ACID",
+        topic: "Linguagem SQL",
         banca: "CEBRASPE",
-        statement: "A propriedade de Isolamento (Isolation) nas propriedades ACID garante que a execução simultânea de transações resulte em um estado idêntico ao que seria alcançado se fossem executadas de forma serializada.",
+        statement: "Os comandos CREATE TABLE, ALTER TABLE e DROP TABLE pertencem à sublinguagem DML (Data Manipulation Language) da SQL.",
         options: ["Certo", "Errado"],
-        correctIndex: 0,
-        explanation: "Correto! O Isolamento garante que as transações concorrentes não interfiram entre si, mantendo a ilusão de execução serial (serializabilidade)."
+        correctIndex: 1,
+        explanation: "Errado! Comandos de criação e alteração de estrutura pertencem à DDL (Data Definition Language). DML inclui INSERT, UPDATE, DELETE."
       },
       {
         id: "bd-005",
         topic: "NoSQL",
         banca: "CEBRASPE",
-        statement: "O teorema CAP afirma que um sistema distribuído de dados pode garantir simultaneamente e ao mesmo tempo as três propriedades: Consistência (Consistency), Disponibilidade (Availability) e Tolerância a Particionamento (Partition Tolerance).",
+        statement: "Bancos de dados NoSQL orientados a documentos, como o MongoDB, utilizam estruturas flexíveis (como JSON/BSON) em vez de tabelas rígidas com esquemas fixos.",
         options: ["Certo", "Errado"],
-        correctIndex: 1,
-        explanation: "Errado! O teorema CAP estabelece que um sistema distribuído só pode garantir no máximo duas das três propriedades ao mesmo tempo."
+        correctIndex: 0,
+        explanation: "Correto! O modelo de documentos no NoSQL armazena dados em objetos semiestruturados (JSON/BSON) com esquema dinâmico."
       }
     ];
 
