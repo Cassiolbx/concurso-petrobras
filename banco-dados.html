@@ -846,7 +846,592 @@
       </div>
     </header>
 
-    <!-- REST OF BODY -->
+    <!-- VIEW 1: SETUP PANEL -->
+    <main id="view-setup" class="panel">
+      <div class="panel-header">
+        <span class="step-tag">Passo a Passo</span>
+        <h2 class="panel-title">Configuração da Sessão de Estudo</h2>
+      </div>
+
+      <!-- Motor de Geração -->
+      <div class="form-group" style="background: var(--statement-bg); padding: 20px; border-radius: 14px; border: 1px solid var(--border-subtle);">
+        <label class="form-label">⚡ 1. Escolha o Motor de Perguntas:</label>
+        <div class="grid-options" id="engine-selector">
+          <label class="tile-card tile-selected">
+            <input type="radio" name="engine" value="offline" checked>
+            <div class="tile-content">
+              <strong>📦 Banco Interno Offline</strong>
+              <p>40+ Questões prontas no HTML (funciona sem internet)</p>
+            </div>
+          </label>
+          <label class="tile-card">
+            <input type="radio" name="engine" value="ai">
+            <div class="tile-content">
+              <strong>🤖 Motor IA (OpenRouter API)</strong>
+              <p>Gera questões inéditas em tempo real via IA</p>
+            </div>
+          </label>
+          <label class="tile-card">
+            <input type="radio" name="engine" value="ai-specific">
+            <div class="tile-content">
+              <strong>🎯 Assuntos Específicos (IA)</strong>
+              <p>Escolha 1 a 3 tópicos — a IA foca neles</p>
+            </div>
+          </label>
+        </div>
+
+        <!-- Painel dinâmico para assuntos específicos da IA -->
+        <div id="specific-topics-panel" class="specific-topics-panel hidden">
+          <div class="stp-label">📌 Digite os assuntos específicos (1 por linha ou separados por vírgula):</div>
+          <div class="stp-hint">Exemplo: "Modelagem Relacional (DER / MER)", "Normalização (1FN, 2FN, 3FN)", "Linguagem SQL (DDL, DML, DCL, DTL)"</div>
+          <textarea id="specific-topics-input" class="stp-textarea" placeholder="Ex: Modelagem Relacional, Normalização, SQL..."></textarea>
+        </div>
+      </div>
+
+      <!-- Configuração da IA (oculta por padrão) -->
+      <div id="ai-config-box" class="form-group hidden" style="background: var(--statement-bg); padding: 20px; border-radius: 14px; border: 1px solid var(--border-subtle);">
+        <label class="form-label">🔑 Chave de API OpenRouter (Salva no seu navegador):</label>
+        <input type="password" id="api-key-input" class="input-field" placeholder="sk-or-v1-..." style="margin-bottom: 12px;">
+        <label class="form-label">🧠 Modelo de IA:</label>
+        <select id="model-select" class="input-field">
+          <option value="google/gemini-2.0-flash-lite-001">Gemini 2.0 Flash Lite (Rápido e Grátis)</option>
+          <option value="google/gemini-2.0-flash-001">Gemini 2.0 Flash (Recomendado)</option>
+          <option value="deepseek/deepseek-chat">DeepSeek V3 (Excelente Raciocínio)</option>
+          <option value="meta-llama/llama-3.3-70b-instruct">Llama 3.3 70B (Gratuito)</option>
+        </select>
+      </div>
+
+      <!-- Quantidade de Questões -->
+      <div class="form-group">
+        <label class="form-label">🎯 2. Quantidade de Questões na Sessão:</label>
+        <div class="grid-options">
+          <label class="tile-card tile-selected"><input type="radio" name="num-questions" value="5" checked><div class="tile-content"><strong>5 Questões</strong><p>Treino rápido</p></div></label>
+          <label class="tile-card"><input type="radio" name="num-questions" value="10"><div class="tile-content"><strong>10 Questões</strong><p>Sessão padrão</p></div></label>
+          <label class="tile-card"><input type="radio" name="num-questions" value="20"><div class="tile-content"><strong>20 Questões</strong><p>Simulado intensivo</p></div></label>
+        </div>
+      </div>
+
+      <!-- Modo de Resolução -->
+      <div class="form-group">
+        <label class="form-label">⚙️ 3. Modo de Resolução:</label>
+        <div class="grid-options">
+          <label class="tile-card tile-selected"><input type="radio" name="mode" value="all" checked><div class="tile-content"><strong>📚 Banco Completo</strong><p>Todas as matérias e assuntos</p></div></label>
+          <label class="tile-card"><input type="radio" name="mode" value="wrong-only"><div class="tile-content"><strong>🎯 Caderno de Erros</strong><p>Apenas questões que você errou anteriormente</p></div></label>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button type="button" id="btn-start-session" class="btn btn-primary">🚀 Iniciar Sessão de Estudos</button>
+        <button type="button" id="btn-open-backup-modal" class="btn btn-secondary">☁️ Backup Google Drive</button>
+      </div>
+    </main>
+
+    <!-- VIEW 2: QUIZ WORKSPACE -->
+    <main id="view-quiz" class="panel hidden">
+      <div class="ws-top">
+        <div class="badges-group">
+          <span class="badge badge-banca" id="badge-topic">Modelagem</span>
+          <span class="badge" id="badge-difficulty">CEBRASPE</span>
+          <span class="badge badge-ai" id="badge-engine">📦 Offline</span>
+        </div>
+        <div class="badge" id="counter-display">Questão 1 de 5</div>
+      </div>
+
+      <div class="progress-bar-bg">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+
+      <div class="statement-card" id="question-statement">
+        Carregando enunciado da questão...
+      </div>
+
+      <div class="options-grid" id="options-container">
+        <!-- Opções injetadas dinamicamente via JS -->
+      </div>
+
+      <div class="actions-row">
+        <button type="button" id="btn-submit-answer" class="btn btn-primary" disabled>Confirmar Resposta</button>
+        <button type="button" id="btn-next-question" class="btn btn-primary hidden">Próxima Questão ➔</button>
+        <button type="button" id="btn-cancel-session" class="btn btn-secondary">Encerrar Sessão</button>
+      </div>
+
+      <div id="feedback-banner" class="feedback-banner hidden">
+        <div class="feedback-header-title" id="feedback-title">
+          <!-- Título do feedback -->
+        </div>
+        <div class="explanation-callout" id="feedback-explanation">
+          <!-- Explicação detalhada -->
+        </div>
+      </div>
+    </main>
+
+    <!-- VIEW 3: RESULTS SUMMARY -->
+    <main id="view-results" class="panel hidden">
+      <div class="panel-header">
+        <span class="step-tag">Relatório</span>
+        <h2 class="panel-title">Resultado da Sessão</h2>
+      </div>
+
+      <div class="results-grid">
+        <div class="metric-card">
+          <p>Total de Questões</p>
+          <h3 id="res-total">0</h3>
+        </div>
+        <div class="metric-card">
+          <p>Acertos</p>
+          <h3 id="res-correct" style="color: var(--correct);">0</h3>
+        </div>
+        <div class="metric-card">
+          <p>Erros</p>
+          <h3 id="res-wrong" style="color: var(--wrong);">0</h3>
+        </div>
+        <div class="metric-card">
+          <p>Acurácia</p>
+          <h3 id="res-accuracy">0%</h3>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button type="button" id="btn-restart-setup" class="btn btn-primary">🔄 Nova Sessão de Estudos</button>
+        <a href="index.html" class="btn btn-secondary">🏠 Voltar ao Hub Inicial</a>
+      </div>
+    </main>
   </div>
+
+  <!-- BACKUP MODAL -->
+  <div id="backup-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>☁️ Backup & Sincronização</h3>
+        <button type="button" class="modal-close" id="btn-close-modal">&times;</button>
+      </div>
+
+      <div class="backup-option-box">
+        <h4>1. Exportar Backup (Google Drive)</h4>
+        <p>Baixe o arquivo de progresso (.json) e salve na sua pasta do Google Drive para sincronizar no celular ou tablet.</p>
+        <button type="button" id="btn-export-backup" class="btn btn-secondary" style="width:100%;">📥 Salvar Backup (.json)</button>
+      </div>
+
+      <div class="backup-option-box">
+        <h4>2. Importar Backup</h4>
+        <p>Selecione um arquivo de backup (.json) salvo no seu computador ou Google Drive para restaurar seu progresso.</p>
+        <input type="file" id="backup-file-input" accept=".json" class="hidden">
+        <button type="button" id="btn-trigger-import" class="btn btn-secondary" style="width:100%;">📂 Selecionar Arquivo de Backup...</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOADING OVERLAY -->
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="spinner"></div>
+    <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-primary);" id="loading-text">Gerando questões via IA...</div>
+  </div>
+
+  <!-- SCRIPT BASE DA MATÉRIA E BANCO DE QUESTÕES -->
+  <script>
+    // BANCO OFFLINE COMPLETO DA MATÉRIA (BANCO DE DADOS)
+    const OFFLINE_QUESTIONS = [
+      {
+        id: "bd-001",
+        topic: "Modelagem Relacional",
+        banca: "CEBRASPE",
+        statement: "Em um modelo relacional de banco de dados, uma chave primária composta é definida como uma chave que contém dois ou mais atributos que, juntos, identificam de forma unívoca cada tupla em uma tabela.",
+        options: ["Certo", "Errado"],
+        correctIndex: 0,
+        explanation: "Correto! A chave primária composta utiliza a combinação de dois ou mais atributos para garantir a unicidade da tupla quando um único atributo não é suficiente."
+      },
+      {
+        id: "bd-002",
+        topic: "Normalização",
+        banca: "CEBRASPE",
+        statement: "Uma tabela está na Segunda Forma Normal (2FN) se estiver na 1FN e todos os seus atributos não chave forem totalmente dependentes funcionalmente da chave primária (ou seja, não houver dependência parcial).",
+        options: ["Certo", "Errado"],
+        correctIndex: 0,
+        explanation: "Correto! A 2FN exige a eliminação de dependências parciais. Todos os atributos não chave devem depender da totalidade da chave primária."
+      },
+      {
+        id: "bd-003",
+        topic: "Linguagem SQL",
+        banca: "CEBRASPE",
+        statement: "No comando SQL SELECT, a cláusula HAVING é utilizada para filtrar linhas de dados antes que o agrupamento com GROUP BY seja realizado.",
+        options: ["Certo", "Errado"],
+        correctIndex: 1,
+        explanation: "Errado! A cláusula WHERE realiza o filtro antes do agrupamento (nas linhas individuais). A cláusula HAVING filtra os grupos já agregados após a aplicação do GROUP BY."
+      },
+      {
+        id: "bd-004",
+        topic: "Transações & ACID",
+        banca: "CEBRASPE",
+        statement: "A propriedade de Isolamento (Isolation) nas propriedades ACID garante que a execução simultânea de transações resulte em um estado idêntico ao que seria alcançado se fossem executadas de forma serializada.",
+        options: ["Certo", "Errado"],
+        correctIndex: 0,
+        explanation: "Correto! O Isolamento garante que as transações concorrentes não interfiram entre si, mantendo a ilusão de execução serial (serializabilidade)."
+      },
+      {
+        id: "bd-005",
+        topic: "NoSQL",
+        banca: "CEBRASPE",
+        statement: "O teorema CAP afirma que um sistema distribuído de dados pode garantir simultaneamente e ao mesmo tempo as três propriedades: Consistência (Consistency), Disponibilidade (Availability) e Tolerância a Particionamento (Partition Tolerance).",
+        options: ["Certo", "Errado"],
+        correctIndex: 1,
+        explanation: "Errado! O teorema CAP estabelece que um sistema distribuído só pode garantir no máximo duas das três propriedades ao mesmo tempo."
+      }
+    ];
+
+    // ESTADO DA APLICAÇÃO
+    let currentSessionQuestions = [];
+    let currentQuestionIndex = 0;
+    let selectedOptionIndex = null;
+    let sessionAnswers = [];
+    let pastSessions = JSON.parse(localStorage.getItem('petrobras_sessions_bd') || '[]');
+    let wrongQuestions = JSON.parse(localStorage.getItem('petrobras_wrong_bd') || '[]');
+
+    // INICIALIZAÇÃO
+    document.addEventListener("DOMContentLoaded", () => {
+      updateHeaderStats();
+      setupEventListeners();
+    });
+
+    function updateHeaderStats() {
+      document.getElementById("stat-sessions").textContent = pastSessions.length;
+      document.getElementById("stat-wrong-count").textContent = wrongQuestions.length;
+      
+      let totalQ = 0;
+      let totalC = 0;
+      pastSessions.forEach(s => {
+        totalQ += s.total;
+        totalC += s.correct;
+      });
+      const acc = totalQ > 0 ? Math.round((totalC / totalQ) * 100) : 0;
+      document.getElementById("stat-accuracy").textContent = `${acc}%`;
+    }
+
+    function setupEventListeners() {
+      // Alternador de tema
+      document.getElementById("theme-toggle-btn").addEventListener("click", toggleTheme);
+
+      // Seleção do motor
+      const engineRadios = document.querySelectorAll('input[name="engine"]');
+      engineRadios.forEach(radio => {
+        radio.addEventListener("change", (e) => {
+          document.querySelectorAll('#engine-selector .tile-card').forEach(c => c.classList.remove('tile-selected'));
+          e.target.closest('.tile-card').classList.add('tile-selected');
+          
+          const aiConfig = document.getElementById("ai-config-box");
+          const specPanel = document.getElementById("specific-topics-panel");
+          if (e.target.value === "ai" || e.target.value === "ai-specific") {
+            aiConfig.classList.remove("hidden");
+          } else {
+            aiConfig.classList.add("hidden");
+          }
+
+          if (e.target.value === "ai-specific") {
+            specPanel.classList.remove("hidden");
+          } else {
+            specPanel.classList.add("hidden");
+          }
+        });
+      });
+
+      // Seleção de tiles de quantidade e modo
+      setupTileSelection('input[name="num-questions"]');
+      setupTileSelection('input[name="mode"]');
+
+      // Botões principais
+      document.getElementById("btn-start-session").addEventListener("click", startSession);
+      document.getElementById("btn-submit-answer").addEventListener("click", submitAnswer);
+      document.getElementById("btn-next-question").addEventListener("click", nextQuestion);
+      document.getElementById("btn-cancel-session").addEventListener("click", resetToSetup);
+      document.getElementById("btn-restart-setup").addEventListener("click", resetToSetup);
+
+      // Modal de Backup
+      document.getElementById("btn-open-backup-modal").addEventListener("click", () => {
+        document.getElementById("backup-modal").classList.remove("hidden");
+      });
+      document.getElementById("btn-close-modal").addEventListener("click", () => {
+        document.getElementById("backup-modal").classList.add("hidden");
+      });
+      document.getElementById("btn-export-backup").addEventListener("click", exportBackup);
+      document.getElementById("btn-trigger-import").addEventListener("click", () => {
+        document.getElementById("backup-file-input").click();
+      });
+      document.getElementById("backup-file-input").addEventListener("change", importBackup);
+    }
+
+    function setupTileSelection(selector) {
+      document.querySelectorAll(selector).forEach(radio => {
+        radio.addEventListener("change", (e) => {
+          const container = e.target.closest('.grid-options');
+          container.querySelectorAll('.tile-card').forEach(c => c.classList.remove('tile-selected'));
+          e.target.closest('.tile-card').classList.add('tile-selected');
+        });
+      });
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+      
+      document.getElementById("theme-icon").textContent = newTheme === "dark" ? "🌙" : "☀️";
+      document.getElementById("theme-label").textContent = newTheme === "dark" ? "Escuro" : "Claro";
+    }
+
+    function startSession() {
+      const engine = document.querySelector('input[name="engine"]:checked').value;
+      const numQuestions = parseInt(document.querySelector('input[name="num-questions"]:checked').value, 10);
+      const mode = document.querySelector('input[name="mode"]:checked').value;
+
+      if (mode === "wrong-only" && wrongQuestions.length === 0) {
+        alert("Você não possui questões pendentes no Caderno de Erros!");
+        return;
+      }
+
+      if (engine === "offline") {
+        let pool = mode === "wrong-only" ? wrongQuestions : OFFLINE_QUESTIONS;
+        currentSessionQuestions = [...pool].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
+        initQuizView();
+      } else {
+        generateAIQuestions(engine, numQuestions, mode);
+      }
+    }
+
+    function generateAIQuestions(engine, count, mode) {
+      const apiKey = document.getElementById("api-key-input").value.trim();
+      const model = document.getElementById("model-select").value;
+      const specInput = document.getElementById("specific-topics-input").value.trim();
+
+      if (!apiKey) {
+        alert("Por favor, insira sua chave de API OpenRouter para usar o motor de IA.");
+        return;
+      }
+
+      showLoading(true, "Conectando ao Motor de IA...");
+
+      let promptText = `Gere ${count} questões de múltipla escolha inéditas no estilo CEBRASPE sobre Banco de Dados para o concurso da Petrobras.`;
+      if (engine === "ai-specific" && specInput) {
+        promptText += ` Foque exclusivamente nos seguintes tópicos: ${specInput}.`;
+      }
+      promptText += ` Forneça a resposta estritamente no formato JSON como um array de objetos contendo: id, topic, banca, statement, options (array de strings), correctIndex (número), explanation.`;
+
+      fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: model,
+          messages: [{ role: "user", content: promptText }]
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        showLoading(false);
+        try {
+          const rawContent = data.choices[0].message.content;
+          const jsonMatch = rawContent.match(/\[[\s\S]*\]/);
+          if (jsonMatch) {
+            currentSessionQuestions = JSON.parse(jsonMatch[0]);
+            initQuizView();
+          } else {
+            throw new Error("Formato JSON inválido retornado pela IA");
+          }
+        } catch (err) {
+          alert("Erro ao processar resposta da IA: " + err.message);
+        }
+      })
+      .catch(err => {
+        showLoading(false);
+        alert("Erro na requisição para a IA: " + err.message);
+      });
+    }
+
+    function showLoading(show, text = "") {
+      const overlay = document.getElementById("loading-overlay");
+      if (show) {
+        document.getElementById("loading-text").textContent = text;
+        overlay.classList.remove("hidden");
+      } else {
+        overlay.classList.add("hidden");
+      }
+    }
+
+    function initQuizView() {
+      currentQuestionIndex = 0;
+      sessionAnswers = [];
+      document.getElementById("view-setup").classList.add("hidden");
+      document.getElementById("view-results").classList.add("hidden");
+      document.getElementById("view-quiz").classList.remove("hidden");
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      selectedOptionIndex = null;
+      document.getElementById("btn-submit-answer").disabled = true;
+      document.getElementById("btn-submit-answer").classList.remove("hidden");
+      document.getElementById("btn-next-question").classList.add("hidden");
+      document.getElementById("feedback-banner").classList.add("hidden");
+
+      const q = currentSessionQuestions[currentQuestionIndex];
+      document.getElementById("badge-topic").textContent = q.topic || "Banco de Dados";
+      document.getElementById("badge-difficulty").textContent = q.banca || "CEBRASPE";
+      document.getElementById("counter-display").textContent = `Questão ${currentQuestionIndex + 1} de ${currentSessionQuestions.length}`;
+      
+      const pct = ((currentQuestionIndex + 1) / currentSessionQuestions.length) * 100;
+      document.getElementById("progress-bar-fill").style.width = `${pct}%`;
+
+      document.getElementById("question-statement").textContent = q.statement;
+
+      const container = document.getElementById("options-container");
+      container.innerHTML = "";
+      q.options.forEach((opt, idx) => {
+        const card = document.createElement("div");
+        card.className = "option-card";
+        card.innerHTML = `
+          <div class="option-tag">${String.fromCharCode(65 + idx)}</div>
+          <div>${opt}</div>
+        `;
+        card.addEventListener("click", () => selectOption(idx));
+        container.appendChild(card);
+      });
+    }
+
+    function selectOption(idx) {
+      selectedOptionIndex = idx;
+      const cards = document.querySelectorAll("#options-container .option-card");
+      cards.forEach((c, i) => {
+        if (i === idx) c.classList.add("option-selected");
+        else c.classList.remove("option-selected");
+      });
+      document.getElementById("btn-submit-answer").disabled = false;
+    }
+
+    function submitAnswer() {
+      if (selectedOptionIndex === null) return;
+
+      const q = currentSessionQuestions[currentQuestionIndex];
+      const isCorrect = selectedOptionIndex === q.correctIndex;
+
+      sessionAnswers.push({ question: q, selected: selectedOptionIndex, isCorrect });
+
+      const cards = document.querySelectorAll("#options-container .option-card");
+      cards.forEach((c, i) => {
+        c.style.pointerEvents = "none";
+        if (i === q.correctIndex) c.classList.add("option-correct");
+        if (i === selectedOptionIndex && !isCorrect) c.classList.add("option-wrong");
+      });
+
+      // Atualiza Caderno de Erros
+      if (!isCorrect) {
+        if (!wrongQuestions.some(wq => wq.id === q.id)) {
+          wrongQuestions.push(q);
+          localStorage.setItem('petrobras_wrong_bd', JSON.stringify(wrongQuestions));
+        }
+      } else {
+        wrongQuestions = wrongQuestions.filter(wq => wq.id !== q.id);
+        localStorage.setItem('petrobras_wrong_bd', JSON.stringify(wrongQuestions));
+      }
+
+      // Exibe Banner de Feedback
+      const banner = document.getElementById("feedback-banner");
+      const title = document.getElementById("feedback-title");
+      const exp = document.getElementById("feedback-explanation");
+
+      banner.classList.remove("hidden", "feedback-correct", "feedback-wrong");
+      if (isCorrect) {
+        banner.classList.add("feedback-correct");
+        title.innerHTML = "✅ Resposta Correta!";
+      } else {
+        banner.classList.add("feedback-wrong");
+        title.innerHTML = "❌ Resposta Incorreta!";
+      }
+      exp.textContent = q.explanation || "Sem explicação adicional para esta questão.";
+
+      document.getElementById("btn-submit-answer").classList.add("hidden");
+      document.getElementById("btn-next-question").classList.remove("hidden");
+      updateHeaderStats();
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < currentSessionQuestions.length) {
+        renderQuestion();
+      } else {
+        finishSession();
+      }
+    }
+
+    function finishSession() {
+      const correctCount = sessionAnswers.filter(a => a.isCorrect).length;
+      const totalCount = sessionAnswers.length;
+      const accuracy = Math.round((correctCount / totalCount) * 100);
+
+      pastSessions.push({
+        date: new Date().toISOString(),
+        total: totalCount,
+        correct: correctCount,
+        accuracy: accuracy
+      });
+      localStorage.setItem('petrobras_sessions_bd', JSON.stringify(pastSessions));
+      updateHeaderStats();
+
+      document.getElementById("res-total").textContent = totalCount;
+      document.getElementById("res-correct").textContent = correctCount;
+      document.getElementById("res-wrong").textContent = totalCount - correctCount;
+      document.getElementById("res-accuracy").textContent = `${accuracy}%`;
+
+      document.getElementById("view-quiz").classList.add("hidden");
+      document.getElementById("view-results").classList.remove("hidden");
+    }
+
+    function resetToSetup() {
+      document.getElementById("view-quiz").classList.add("hidden");
+      document.getElementById("view-results").classList.add("hidden");
+      document.getElementById("view-setup").classList.remove("hidden");
+    }
+
+    function exportBackup() {
+      const backupData = {
+        materia: "banco-dados",
+        timestamp: new Date().toISOString(),
+        pastSessions: pastSessions,
+        wrongQuestions: wrongQuestions
+      };
+
+      const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `backup-banco-dados-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function importBackup(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const data = JSON.parse(event.target.result);
+          if (data.pastSessions) pastSessions = data.pastSessions;
+          if (data.wrongQuestions) wrongQuestions = data.wrongQuestions;
+
+          localStorage.setItem('petrobras_sessions_bd', JSON.stringify(pastSessions));
+          localStorage.setItem('petrobras_wrong_bd', JSON.stringify(wrongQuestions));
+          
+          updateHeaderStats();
+          alert("Backup importado com sucesso!");
+          document.getElementById("backup-modal").classList.add("hidden");
+        } catch (err) {
+          alert("Erro ao importar backup: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+  </script>
 </body>
 </html>
