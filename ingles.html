@@ -5,7 +5,1433 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Língua Inglesa — Concurso Petrobras</title>
+  <style>
+    /* TEMAS DE CORES (DARK & LIGHT) */
+    :root[data-theme="dark"] {
+      --bg-dark: #091a18;
+      --bg-surface: rgba(18, 43, 39, 0.75);
+      --bg-surface-solid: #122b27;
+      --border-panel: rgba(20, 184, 166, 0.22);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      
+      --accent: #14b8a6;
+      --accent-light: #2dd4bf;
+      --accent-dark: #0d9488;
+      --accent-glow: rgba(20, 184, 166, 0.25);
+      
+      --text-primary: #f0fdfa;
+      --text-secondary: #99f6e4;
+      --text-muted: #64748b;
+      
+      --correct: #10b981;
+      --correct-bg: rgba(16, 185, 129, 0.14);
+      --correct-border: rgba(16, 185, 129, 0.4);
+      
+      --wrong: #f43f5e;
+      --wrong-bg: rgba(244, 63, 94, 0.12);
+      --wrong-border: rgba(244, 63, 94, 0.35);
+      
+      --statement-bg: rgba(0, 0, 0, 0.35);
+      --card-bg: rgba(255, 255, 255, 0.02);
+      --card-hover: rgba(255, 255, 255, 0.05);
+      
+      --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+    }
+
+    :root[data-theme="light"] {
+      --bg-dark: #f0fdfa;
+      --bg-surface: rgba(255, 255, 255, 0.88);
+      --bg-surface-solid: #ffffff;
+      --border-panel: rgba(20, 184, 166, 0.35);
+      --border-subtle: rgba(0, 0, 0, 0.08);
+      
+      --accent: #0d9488;
+      --accent-light: #0f766e;
+      --accent-dark: #115e59;
+      --accent-glow: rgba(13, 148, 136, 0.15);
+      
+      --text-primary: #134e4a;
+      --text-secondary: #334155;
+      --text-muted: #64748b;
+      
+      --correct: #059669;
+      --correct-bg: rgba(16, 185, 129, 0.14);
+      --correct-border: rgba(16, 185, 129, 0.45);
+      
+      --wrong: #e11d48;
+      --wrong-bg: rgba(244, 63, 94, 0.14);
+      --wrong-border: rgba(244, 63, 94, 0.45);
+      
+      --statement-bg: rgba(240, 253, 250, 0.85);
+      --card-bg: rgba(255, 255, 255, 0.6);
+      --card-hover: rgba(255, 255, 255, 0.95);
+      
+      --shadow-premium: 0 15px 35px -10px rgba(0, 0, 0, 0.08), 0 0 1px 1px rgba(0, 0, 0, 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      font-family: "Segoe UI Variable Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(20, 184, 166, 0.12) 0px, transparent 45%),
+        radial-gradient(at 100% 100%, rgba(13, 148, 136, 0.06) 0px, transparent 45%);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, var(--bg-surface-solid) 100%), url('images/cover-ingles.svg') center/cover no-repeat;
+      border: 1px solid var(--border-panel);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 22px 28px;
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      box-shadow: var(--shadow-premium);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px var(--accent-glow);
+      position: relative;
+      overflow: hidden;
+      font-size: 1.5rem;
+    }
+
+    .brand-title h1 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .brand-title p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .header-stats {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-label {
+      color: var(--text-secondary);
+    }
+    .stat-label::after {
+      content: ":";
+    }
+    .stat-pill strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .theme-toggle-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-panel);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .theme-toggle-btn:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+    }
+
+    .btn-home {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-home:hover {
+      background: var(--accent-glow);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Painel de assuntos específicos da IA */
+    .specific-topics-panel {
+      margin-top: 16px;
+      padding: 18px;
+      background: var(--statement-bg);
+      border: 1px dashed var(--accent);
+      border-radius: 14px;
+      animation: fadeIn 0.25s ease;
+    }
+    .specific-topics-panel .stp-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .specific-topics-panel .stp-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .stp-textarea {
+      width: 100%;
+      min-height: 90px;
+      background: var(--statement-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--text-primary);
+      font-family: "Segoe UI Variable Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      resize: vertical;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .stp-textarea::placeholder { color: var(--text-muted); }
+    .stp-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    /* PANELS */
+    .panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-panel);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-premium);
+      animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .step-tag {
+      background: var(--accent-glow);
+      color: var(--accent);
+      border: 1px solid var(--border-panel);
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .panel-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .form-group { margin-bottom: 28px; }
+    .form-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grid-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    #engine-selector {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 768px) {
+      #engine-selector {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tile-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .tile-card:hover {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .tile-card input {
+      accent-color: var(--accent);
+      width: 17px;
+      height: 17px;
+      margin-top: 2px;
+    }
+
+    .tile-selected {
+      background: var(--accent-glow) !important;
+      border-color: var(--accent) !important;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .tile-selected strong { color: var(--accent) !important; }
+
+    .tile-content strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+    .tile-content p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .input-field {
+      width: 100%;
+      background: var(--statement-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 14px;
+      color: var(--text-primary);
+      font-family: "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+      font-size: 0.85rem;
+    }
+    .input-field:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    /* BUTTONS */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+    }
+    .btn-secondary:hover {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .actions-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    /* WORKSPACE */
+    .ws-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .badges-group { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    
+    .badge {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+    .badge-banca {
+      background: var(--accent-glow);
+      color: var(--accent);
+      border-color: var(--border-panel);
+    }
+    .badge-ai {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--correct);
+      border-color: var(--correct-border);
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 6px;
+      background: var(--border-subtle);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    .statement-card {
+      background: var(--statement-bg);
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--accent);
+      padding: 24px;
+      border-radius: 14px;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      margin-bottom: 28px;
+      white-space: pre-line;
+    }
+
+    .options-grid { display: grid; gap: 12px; margin-bottom: 28px; }
+
+    .option-card {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      align-items: center;
+      gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 20px;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .option-card:hover {
+      background: var(--card-hover);
+      border-color: var(--accent);
+      transform: translateX(2px);
+    }
+
+    .option-tag {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--statement-bg);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .option-selected {
+      border-color: var(--accent) !important;
+      background: var(--accent-glow) !important;
+    }
+    .option-selected .option-tag {
+      background: var(--accent) !important;
+      color: #ffffff !important;
+    }
+
+    .option-correct {
+      border-color: var(--correct) !important;
+      background: var(--correct-bg) !important;
+    }
+    .option-correct .option-tag {
+      background: var(--correct) !important;
+      color: #ffffff !important;
+    }
+
+    .option-wrong {
+      border-color: var(--wrong) !important;
+      background: var(--wrong-bg) !important;
+    }
+    .option-wrong .option-tag {
+      background: var(--wrong) !important;
+      color: #ffffff !important;
+    }
+
+    .feedback-banner {
+      margin-top: 28px;
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      animation: slideUp 0.3s ease;
+    }
+    .feedback-correct { background: var(--correct-bg); border-color: var(--correct-border); }
+    .feedback-wrong { background: var(--wrong-bg); border-color: var(--wrong-border); }
+
+    .feedback-header-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .explanation-callout {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      white-space: pre-line;
+      background: var(--statement-bg);
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-top: 14px;
+      border-left: 3px solid var(--border-panel);
+    }
+
+    /* BACKUP MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 26, 24, 0.82);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-card {
+      background: var(--bg-surface-solid);
+      border: 1px solid var(--border-panel);
+      border-radius: 20px;
+      max-width: 520px;
+      width: 100%;
+      padding: 28px;
+      box-shadow: var(--shadow-premium);
+      animation: fadeIn 0.25s ease;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .modal-header h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .modal-close:hover { color: var(--text-primary); }
+
+    .backup-option-box {
+      background: var(--statement-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .backup-option-box h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .backup-option-box p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(9, 26, 24, 0.88);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+    .spinner {
+      width: 52px;
+      height: 52px;
+      border: 4px solid var(--border-panel);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s infinite linear;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .metric-card {
+      background: var(--statement-bg);
+      border: 1px solid var(--border-subtle);
+      padding: 20px;
+      border-radius: 14px;
+      text-align: center;
+    }
+    .metric-card p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .metric-card h3 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .hidden { display: none !important; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px 16px;
+        gap: 16px;
+      }
+
+      .brand {
+        width: 100%;
+        gap: 12px;
+      }
+
+      .brand-badge {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        font-size: 1.3rem;
+      }
+
+      .brand-title h1 {
+        font-size: 1.15rem;
+        line-height: 1.3;
+      }
+
+      .brand-title p {
+        font-size: 0.78rem;
+        line-height: 1.3;
+      }
+
+      .header-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .btn-home {
+        grid-row: 1;
+        grid-column: 1;
+        justify-content: center;
+        text-align: center;
+        padding: 9px 10px;
+        font-size: 0.82rem;
+        width: 100%;
+      }
+
+      .theme-toggle-btn {
+        grid-row: 1;
+        grid-column: 2;
+        justify-content: center;
+        text-align: center;
+        padding: 9px 10px;
+        font-size: 0.82rem;
+        width: 100%;
+      }
+
+      .header-stats {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        width: 100%;
+      }
+
+      .stat-pill {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: 8px 4px;
+        gap: 2px;
+        border-radius: 12px;
+        width: 100%;
+      }
+
+      .stat-label {
+        font-size: 0.68rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: var(--text-muted);
+        line-height: 1.2;
+      }
+
+      .stat-label::after {
+        content: "";
+      }
+
+      .stat-pill strong {
+        font-size: 1.05rem;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .panel { padding: 20px; }
+      .grid-options { grid-template-columns: 1fr; }
+      .btn { width: 100%; }
+      .actions-row { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <div class="brand-badge" title="Língua Inglesa">🌐</div>
+        <div class="brand-title">
+          <h1>Língua Inglesa</h1>
+          <p>Concurso Petrobras — Compreensão de Textos Técnicos de TI & Gramática Aplicada</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <a href="index.html" class="btn-home" title="Voltar para a tela inicial de matérias">🏠 Início</a>
+        <div class="header-stats">
+          <div class="stat-pill"><span class="stat-label">Sessões</span> <strong id="stat-sessions">0</strong></div>
+          <div class="stat-pill"><span class="stat-label">Acurácia</span> <strong id="stat-accuracy">0%</strong></div>
+          <div class="stat-pill"><span class="stat-label">Erros Pendentes</span> <strong id="stat-wrong-count">0</strong></div>
+        </div>
+        <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" title="Alternar entre modo escuro e modo claro">
+          <span id="theme-icon">🌙</span> <span id="theme-label">Escuro</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- VIEW 1: SETUP PANEL -->
+    <main id="view-setup" class="panel">
+      <div class="panel-header">
+        <span class="step-tag">Passo a Passo</span>
+        <h2 class="panel-title">Configuração da Sessão de Estudo</h2>
+      </div>
+
+      <!-- Motor de Geração -->
+      <div class="form-group" style="background: var(--statement-bg); padding: 20px; border-radius: 14px; border: 1px solid var(--border-subtle);">
+        <label class="form-label">⚡ 1. Escolha o Motor de Perguntas:</label>
+        <div class="grid-options" id="engine-selector">
+          <label class="tile-card tile-selected">
+            <input type="radio" name="engine" value="offline" checked>
+            <div class="tile-content">
+              <strong>📦 Banco Interno Offline</strong>
+              <p>40+ Questões prontas no HTML (funciona sem internet)</p>
+            </div>
+          </label>
+          <label class="tile-card">
+            <input type="radio" name="engine" value="ai">
+            <div class="tile-content">
+              <strong>🤖 Motor IA (OpenRouter API)</strong>
+              <p>Gera questões inéditas em tempo real via IA</p>
+            </div>
+          </label>
+          <label class="tile-card">
+            <input type="radio" name="engine" value="ai-specific">
+            <div class="tile-content">
+              <strong>🎯 Assuntos Específicos (IA)</strong>
+              <p>Escolha 1 a 3 tópicos — a IA foca neles</p>
+            </div>
+          </label>
+        </div>
+
+        <!-- Painel dinâmico para assuntos específicos da IA -->
+        <div id="specific-topics-panel" class="specific-topics-panel hidden">
+          <div class="stp-label">📌 Digite os assuntos específicos (1 por linha ou separados por vírgula):</div>
+          <div class="stp-hint">Exemplo: "Technical Vocabulary (Cloud, Security)", "Reading Comprehension of IT Manuals", "False Cognates & Connectors"</div>
+          <textarea id="specific-topics-input" class="stp-textarea" placeholder="Ex: Cloud computing vocabulary, Connectors, Passive voice..."></textarea>
+        </div>
+      </div>
+
+      <!-- Configuração da IA (oculta por padrão) -->
+      <div id="ai-config-box" class="form-group hidden" style="background: var(--statement-bg); padding: 20px; border-radius: 14px; border: 1px solid var(--border-subtle);">
+        <label class="form-label">🔑 Chave de API OpenRouter (Salva no seu navegador):</label>
+        <input type="password" id="api-key-input" class="input-field" placeholder="sk-or-v1-..." style="margin-bottom: 12px;">
+        <label class="form-label">🧠 Modelo de IA:</label>
+        <select id="model-select" class="input-field">
+          <option value="google/gemini-2.0-flash-lite-001">Gemini 2.0 Flash Lite (Rápido e Grátis)</option>
+          <option value="google/gemini-2.0-flash-001">Gemini 2.0 Flash (Recomendado)</option>
+          <option value="deepseek/deepseek-chat">DeepSeek V3 (Excelente Raciocínio)</option>
+          <option value="meta-llama/llama-3.3-70b-instruct">Llama 3.3 70B (Gratuito)</option>
+        </select>
+      </div>
+
+      <!-- Quantidade de Questões -->
+      <div class="form-group">
+        <label class="form-label">🎯 2. Quantidade de Questões na Sessão:</label>
+        <div class="grid-options">
+          <label class="tile-card tile-selected"><input type="radio" name="num-questions" value="5" checked><div class="tile-content"><strong>5 Questões</strong><p>Treino rápido</p></div></label>
+          <label class="tile-card"><input type="radio" name="num-questions" value="10"><div class="tile-content"><strong>10 Questões</strong><p>Sessão padrão</p></div></label>
+          <label class="tile-card"><input type="radio" name="num-questions" value="20"><div class="tile-content"><strong>20 Questões</strong><p>Simulado intensivo</p></div></label>
+        </div>
+      </div>
+
+      <!-- Modo de Resolução -->
+      <div class="form-group">
+        <label class="form-label">⚙️ 3. Modo de Resolução:</label>
+        <div class="grid-options">
+          <label class="tile-card tile-selected"><input type="radio" name="mode" value="all" checked><div class="tile-content"><strong>📚 Banco Completo</strong><p>Todas as matérias e assuntos</p></div></label>
+          <label class="tile-card"><input type="radio" name="mode" value="wrong-only"><div class="tile-content"><strong>🎯 Caderno de Erros</strong><p>Apenas questões que você errou anteriormente</p></div></label>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button type="button" id="btn-start-session" class="btn btn-primary">🚀 Iniciar Sessão de Estudos</button>
+        <button type="button" id="btn-open-backup-modal" class="btn btn-secondary">☁️ Backup Google Drive</button>
+      </div>
+    </main>
+
+    <!-- VIEW 2: QUIZ WORKSPACE -->
+    <main id="view-quiz" class="panel hidden">
+      <div class="ws-top">
+        <div class="badges-group">
+          <span class="badge badge-banca" id="badge-topic">Língua Inglesa</span>
+          <span class="badge" id="badge-difficulty">CEBRASPE</span>
+          <span class="badge badge-ai" id="badge-engine">📦 Offline</span>
+        </div>
+        <div class="badge" id="counter-display">Questão 1 de 5</div>
+      </div>
+
+      <div class="progress-bar-bg">
+        <div id="progress-bar-fill" class="progress-bar-fill"></div>
+      </div>
+
+      <div class="statement-card" id="question-statement">
+        Carregando enunciado da questão...
+      </div>
+
+      <div class="options-grid" id="options-container">
+        <!-- Opções injetadas dinamicamente via JS -->
+      </div>
+
+      <div class="actions-row">
+        <button type="button" id="btn-submit-answer" class="btn btn-primary" disabled>Confirmar Resposta</button>
+        <button type="button" id="btn-next-question" class="btn btn-primary hidden">Próxima Questão ➔</button>
+        <button type="button" id="btn-cancel-session" class="btn btn-secondary">Encerrar Sessão</button>
+      </div>
+
+      <div id="feedback-banner" class="feedback-banner hidden">
+        <div class="feedback-header-title" id="feedback-title">
+          <!-- Título do feedback -->
+        </div>
+        <div class="explanation-callout" id="feedback-explanation">
+          <!-- Explicação detalhada -->
+        </div>
+      </div>
+    </main>
+
+    <!-- VIEW 3: RESULTS SUMMARY -->
+    <main id="view-results" class="panel hidden">
+      <div class="panel-header">
+        <span class="step-tag">Relatório</span>
+        <h2 class="panel-title">Resultado da Sessão</h2>
+      </div>
+
+      <div class="results-grid">
+        <div class="metric-card">
+          <p>Total de Questões</p>
+          <h3 id="res-total">0</h3>
+        </div>
+        <div class="metric-card">
+          <p>Acertos</p>
+          <h3 id="res-correct" style="color: var(--correct);">0</h3>
+        </div>
+        <div class="metric-card">
+          <p>Erros</p>
+          <h3 id="res-wrong" style="color: var(--wrong);">0</h3>
+        </div>
+        <div class="metric-card">
+          <p>Acurácia</p>
+          <h3 id="res-accuracy">0%</h3>
+        </div>
+      </div>
+
+      <div class="actions-row">
+        <button type="button" id="btn-restart-setup" class="btn btn-primary">🔄 Nova Sessão de Estudos</button>
+        <a href="index.html" class="btn btn-secondary">🏠 Voltar ao Hub Inicial</a>
+      </div>
+    </main>
+  </div>
+
+  <!-- BACKUP MODAL -->
+  <div id="backup-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>☁️ Backup & Sincronização</h3>
+        <button type="button" class="modal-close" id="btn-close-modal">&times;</button>
+      </div>
+
+      <div class="backup-option-box">
+        <h4>1. Exportar Backup (Google Drive)</h4>
+        <p>Baixe o arquivo de progresso (.json) e salve na sua pasta do Google Drive para sincronizar no celular ou tablet.</p>
+        <button type="button" id="btn-export-backup" class="btn btn-secondary" style="width:100%;">📥 Salvar Backup (.json)</button>
+      </div>
+
+      <div class="backup-option-box">
+        <h4>2. Importar Backup</h4>
+        <p>Selecione um arquivo de backup (.json) salvo no seu computador ou Google Drive para restaurar seu progresso.</p>
+        <input type="file" id="backup-file-input" accept=".json" class="hidden">
+        <button type="button" id="btn-trigger-import" class="btn btn-secondary" style="width:100%;">📂 Selecionar Arquivo de Backup...</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOADING OVERLAY -->
+  <div id="loading-overlay" class="loading-overlay hidden">
+    <div class="spinner"></div>
+    <div style="font-weight: 700; font-size: 1.1rem; color: var(--text-primary);" id="loading-text">Gerando questões via IA...</div>
+  </div>
+
+  <!-- SCRIPT BASE DA MATÉRIA E BANCO DE QUESTÕES -->
+  <script>
+    // BANCO OFFLINE COMPLETO DA MATÉRIA (LÍNGUA INGLESA)
+    const OFFLINE_QUESTIONS = [
+      {
+        id: "ing-001",
+        topic: "Vocabulário Técnico",
+        banca: "CEBRASPE",
+        statement: "In technical IT contexts, the term 'deprecated' describes a feature or software component that is recommended to be avoided and will likely be removed in future versions.",
+        options: ["Certo", "Errado"],
+        correctIndex: 0,
+        explanation: "Correto! 'Deprecated' significa descontinuado/obsoleto em programação e tecnologia."
+      },
+      {
+        id: "ing-002",
+        topic: "Conectores & Gramática",
+        banca: "CEBRASPE",
+        statement: "In the sentence 'Although cloud services offer high scalability, security measures must be strictly enforced', the word 'Although' expresses a relationship of cause and effect.",
+        options: ["Certo", "Errado"],
+        correctIndex: 1,
+        explanation: "Errado! 'Although' expressa contraste/concessão ('Embora'), e não causa/efeito."
+      },
+      {
+        id: "ing-003",
+        topic: "Compreensão de Texto",
+        banca: "CEBRASPE",
+        statement: "In software engineering documentation, the expression 'out of the box' indicates a feature that requires extensive custom development before it can be used.",
+        options: ["Certo", "Errado"],
+        correctIndex: 1,
+        explanation: "Errado! 'Out of the box' significa que a funcionalidade vem pronta para uso imediatamente, sem necessidade de configuração ou desenvolvimento adicional."
+      },
+      {
+        id: "ing-004",
+        topic: "Vocabulário de Rede & Nuvem",
+        banca: "CEBRASPE",
+        statement: "The term 'throughput' refers to the rate of successful data delivery over a communication channel per unit of time.",
+        options: ["Certo", "Errado"],
+        correctIndex: 0,
+        explanation: "Correto! 'Throughput' é a taxa de vazão ou transferência efetiva de dados em uma rede."
+      },
+      {
+        id: "ing-005",
+        topic: "Falsos Cognatos",
+        banca: "CEBRASPE",
+        statement: "In IT manuals, the English word 'eventually' has the exact same meaning as the Portuguese word 'eventualmente' (meaning 'occasionally' or 'by chance').",
+        options: ["Certo", "Errado"],
+        correctIndex: 1,
+        explanation: "Errado! 'Eventually' em inglês significa 'finalmente' / 'ao final' (com o tempo), enquanto 'eventualmente' em português indica algo casual/ocasional."
+      }
+    ];
+
+    // ESTADO DA APLICAÇÃO
+    let currentSessionQuestions = [];
+    let currentQuestionIndex = 0;
+    let selectedOptionIndex = null;
+    let sessionAnswers = [];
+    let pastSessions = JSON.parse(localStorage.getItem('petrobras_sessions_ing') || '[]');
+    let wrongQuestions = JSON.parse(localStorage.getItem('petrobras_wrong_ing') || '[]');
+
+    // INICIALIZAÇÃO
+    document.addEventListener("DOMContentLoaded", () => {
+      updateHeaderStats();
+      setupEventListeners();
+    });
+
+    function updateHeaderStats() {
+      document.getElementById("stat-sessions").textContent = pastSessions.length;
+      document.getElementById("stat-wrong-count").textContent = wrongQuestions.length;
+      
+      let totalQ = 0;
+      let totalC = 0;
+      pastSessions.forEach(s => {
+        totalQ += s.total;
+        totalC += s.correct;
+      });
+      const acc = totalQ > 0 ? Math.round((totalC / totalQ) * 100) : 0;
+      document.getElementById("stat-accuracy").textContent = `${acc}%`;
+    }
+
+    function setupEventListeners() {
+      // Alternador de tema
+      document.getElementById("theme-toggle-btn").addEventListener("click", toggleTheme);
+
+      // Seleção do motor
+      const engineRadios = document.querySelectorAll('input[name="engine"]');
+      engineRadios.forEach(radio => {
+        radio.addEventListener("change", (e) => {
+          document.querySelectorAll('#engine-selector .tile-card').forEach(c => c.classList.remove('tile-selected'));
+          e.target.closest('.tile-card').classList.add('tile-selected');
+          
+          const aiConfig = document.getElementById("ai-config-box");
+          const specPanel = document.getElementById("specific-topics-panel");
+          if (e.target.value === "ai" || e.target.value === "ai-specific") {
+            aiConfig.classList.remove("hidden");
+          } else {
+            aiConfig.classList.add("hidden");
+          }
+
+          if (e.target.value === "ai-specific") {
+            specPanel.classList.remove("hidden");
+          } else {
+            specPanel.classList.add("hidden");
+          }
+        });
+      });
+
+      // Seleção de tiles de quantidade e modo
+      setupTileSelection('input[name="num-questions"]');
+      setupTileSelection('input[name="mode"]');
+
+      // Botões principais
+      document.getElementById("btn-start-session").addEventListener("click", startSession);
+      document.getElementById("btn-submit-answer").addEventListener("click", submitAnswer);
+      document.getElementById("btn-next-question").addEventListener("click", nextQuestion);
+      document.getElementById("btn-cancel-session").addEventListener("click", resetToSetup);
+      document.getElementById("btn-restart-setup").addEventListener("click", resetToSetup);
+
+      // Modal de Backup
+      document.getElementById("btn-open-backup-modal").addEventListener("click", () => {
+        document.getElementById("backup-modal").classList.remove("hidden");
+      });
+      document.getElementById("btn-close-modal").addEventListener("click", () => {
+        document.getElementById("backup-modal").classList.add("hidden");
+      });
+      document.getElementById("btn-export-backup").addEventListener("click", exportBackup);
+      document.getElementById("btn-trigger-import").addEventListener("click", () => {
+        document.getElementById("backup-file-input").click();
+      });
+      document.getElementById("backup-file-input").addEventListener("change", importBackup);
+    }
+
+    function setupTileSelection(selector) {
+      document.querySelectorAll(selector).forEach(radio => {
+        radio.addEventListener("change", (e) => {
+          const container = e.target.closest('.grid-options');
+          container.querySelectorAll('.tile-card').forEach(c => c.classList.remove('tile-selected'));
+          e.target.closest('.tile-card').classList.add('tile-selected');
+        });
+      });
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", newTheme);
+      
+      document.getElementById("theme-icon").textContent = newTheme === "dark" ? "🌙" : "☀️";
+      document.getElementById("theme-label").textContent = newTheme === "dark" ? "Escuro" : "Claro";
+    }
+
+    function startSession() {
+      const engine = document.querySelector('input[name="engine"]:checked').value;
+      const numQuestions = parseInt(document.querySelector('input[name="num-questions"]:checked').value, 10);
+      const mode = document.querySelector('input[name="mode"]:checked').value;
+
+      if (mode === "wrong-only" && wrongQuestions.length === 0) {
+        alert("Você não possui questões pendentes no Caderno de Erros!");
+        return;
+      }
+
+      if (engine === "offline") {
+        let pool = mode === "wrong-only" ? wrongQuestions : OFFLINE_QUESTIONS;
+        currentSessionQuestions = [...pool].sort(() => 0.5 - Math.random()).slice(0, numQuestions);
+        initQuizView();
+      } else {
+        generateAIQuestions(engine, numQuestions, mode);
+      }
+    }
+
+    function generateAIQuestions(engine, count, mode) {
+      const apiKey = document.getElementById("api-key-input").value.trim();
+      const model = document.getElementById("model-select").value;
+      const specInput = document.getElementById("specific-topics-input").value.trim();
+
+      if (!apiKey) {
+        alert("Por favor, insira sua chave de API OpenRouter para usar o motor de IA.");
+        return;
+      }
+
+      showLoading(true, "Conectando ao Motor de IA...");
+
+      let promptText = `Gere ${count} questões de múltipla escolha inéditas no estilo CEBRASPE sobre Língua Inglesa aplicada à TI para o concurso da Petrobras.`;
+      if (engine === "ai-specific" && specInput) {
+        promptText += ` Foque exclusivamente nos seguintes tópicos: ${specInput}.`;
+      }
+      promptText += ` Forneça a resposta estritamente no formato JSON como um array de objetos contendo: id, topic, banca, statement, options (array de strings), correctIndex (número), explanation.`;
+
+      fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${apiKey}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: model,
+          messages: [{ role: "user", content: promptText }]
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        showLoading(false);
+        try {
+          const rawContent = data.choices[0].message.content;
+          const jsonMatch = rawContent.match(/\[[\s\S]*\]/);
+          if (jsonMatch) {
+            currentSessionQuestions = JSON.parse(jsonMatch[0]);
+            initQuizView();
+          } else {
+            throw new Error("Formato JSON inválido retornado pela IA");
+          }
+        } catch (err) {
+          alert("Erro ao processar resposta da IA: " + err.message);
+        }
+      })
+      .catch(err => {
+        showLoading(false);
+        alert("Erro na requisição para a IA: " + err.message);
+      });
+    }
+
+    function showLoading(show, text = "") {
+      const overlay = document.getElementById("loading-overlay");
+      if (show) {
+        document.getElementById("loading-text").textContent = text;
+        overlay.classList.remove("hidden");
+      } else {
+        overlay.classList.add("hidden");
+      }
+    }
+
+    function initQuizView() {
+      currentQuestionIndex = 0;
+      sessionAnswers = [];
+      document.getElementById("view-setup").classList.add("hidden");
+      document.getElementById("view-results").classList.add("hidden");
+      document.getElementById("view-quiz").classList.remove("hidden");
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      selectedOptionIndex = null;
+      document.getElementById("btn-submit-answer").disabled = true;
+      document.getElementById("btn-submit-answer").classList.remove("hidden");
+      document.getElementById("btn-next-question").classList.add("hidden");
+      document.getElementById("feedback-banner").classList.add("hidden");
+
+      const q = currentSessionQuestions[currentQuestionIndex];
+      document.getElementById("badge-topic").textContent = q.topic || "Língua Inglesa";
+      document.getElementById("badge-difficulty").textContent = q.banca || "CEBRASPE";
+      document.getElementById("counter-display").textContent = `Questão ${currentQuestionIndex + 1} de ${currentSessionQuestions.length}`;
+      
+      const pct = ((currentQuestionIndex + 1) / currentSessionQuestions.length) * 100;
+      document.getElementById("progress-bar-fill").style.width = `${pct}%`;
+
+      document.getElementById("question-statement").textContent = q.statement;
+
+      const container = document.getElementById("options-container");
+      container.innerHTML = "";
+      q.options.forEach((opt, idx) => {
+        const card = document.createElement("div");
+        card.className = "option-card";
+        card.innerHTML = `
+          <div class="option-tag">${String.fromCharCode(65 + idx)}</div>
+          <div>${opt}</div>
+        `;
+        card.addEventListener("click", () => selectOption(idx));
+        container.appendChild(card);
+      });
+    }
+
+    function selectOption(idx) {
+      selectedOptionIndex = idx;
+      const cards = document.querySelectorAll("#options-container .option-card");
+      cards.forEach((c, i) => {
+        if (i === idx) c.classList.add("option-selected");
+        else c.classList.remove("option-selected");
+      });
+      document.getElementById("btn-submit-answer").disabled = false;
+    }
+
+    function submitAnswer() {
+      if (selectedOptionIndex === null) return;
+
+      const q = currentSessionQuestions[currentQuestionIndex];
+      const isCorrect = selectedOptionIndex === q.correctIndex;
+
+      sessionAnswers.push({ question: q, selected: selectedOptionIndex, isCorrect });
+
+      const cards = document.querySelectorAll("#options-container .option-card");
+      cards.forEach((c, i) => {
+        c.style.pointerEvents = "none";
+        if (i === q.correctIndex) c.classList.add("option-correct");
+        if (i === selectedOptionIndex && !isCorrect) c.classList.add("option-wrong");
+      });
+
+      // Atualiza Caderno de Erros
+      if (!isCorrect) {
+        if (!wrongQuestions.some(wq => wq.id === q.id)) {
+          wrongQuestions.push(q);
+          localStorage.setItem('petrobras_wrong_ing', JSON.stringify(wrongQuestions));
+        }
+      } else {
+        wrongQuestions = wrongQuestions.filter(wq => wq.id !== q.id);
+        localStorage.setItem('petrobras_wrong_ing', JSON.stringify(wrongQuestions));
+      }
+
+      // Exibe Banner de Feedback
+      const banner = document.getElementById("feedback-banner");
+      const title = document.getElementById("feedback-title");
+      const exp = document.getElementById("feedback-explanation");
+
+      banner.classList.remove("hidden", "feedback-correct", "feedback-wrong");
+      if (isCorrect) {
+        banner.classList.add("feedback-correct");
+        title.innerHTML = "✅ Resposta Correta!";
+      } else {
+        banner.classList.add("feedback-wrong");
+        title.innerHTML = "❌ Resposta Incorreta!";
+      }
+      exp.textContent = q.explanation || "Sem explicação adicional para esta questão.";
+
+      document.getElementById("btn-submit-answer").classList.add("hidden");
+      document.getElementById("btn-next-question").classList.remove("hidden");
+      updateHeaderStats();
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < currentSessionQuestions.length) {
+        renderQuestion();
+      } else {
+        finishSession();
+      }
+    }
+
+    function finishSession() {
+      const correctCount = sessionAnswers.filter(a => a.isCorrect).length;
+      const totalCount = sessionAnswers.length;
+      const accuracy = Math.round((correctCount / totalCount) * 100);
+
+      pastSessions.push({
+        date: new Date().toISOString(),
+        total: totalCount,
+        correct: correctCount,
+        accuracy: accuracy
+      });
+      localStorage.setItem('petrobras_sessions_ing', JSON.stringify(pastSessions));
+      updateHeaderStats();
+
+      document.getElementById("res-total").textContent = totalCount;
+      document.getElementById("res-correct").textContent = correctCount;
+      document.getElementById("res-wrong").textContent = totalCount - correctCount;
+      document.getElementById("res-accuracy").textContent = `${accuracy}%`;
+
+      document.getElementById("view-quiz").classList.add("hidden");
+      document.getElementById("view-results").classList.remove("hidden");
+    }
+
+    function resetToSetup() {
+      document.getElementById("view-quiz").classList.add("hidden");
+      document.getElementById("view-results").classList.add("hidden");
+      document.getElementById("view-setup").classList.remove("hidden");
+    }
+
+    function exportBackup() {
+      const backupData = {
+        materia: "ingles",
+        timestamp: new Date().toISOString(),
+        pastSessions: pastSessions,
+        wrongQuestions: wrongQuestions
+      };
+
+      const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `backup-ingles-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function importBackup(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const data = JSON.parse(event.target.result);
+          if (data.pastSessions) pastSessions = data.pastSessions;
+          if (data.wrongQuestions) wrongQuestions = data.wrongQuestions;
+
+          localStorage.setItem('petrobras_sessions_ing', JSON.stringify(pastSessions));
+          localStorage.setItem('petrobras_wrong_ing', JSON.stringify(wrongQuestions));
+          
+          updateHeaderStats();
+          alert("Backup importado com sucesso!");
+          document.getElementById("backup-modal").classList.add("hidden");
+        } catch (err) {
+          alert("Erro ao importar backup: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+  </script>
 </body>
 </html>
