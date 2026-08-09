@@ -3,7 +3,19 @@
 > **Cargo**: Analista de Sistemas — Processos de Negócios  
 > **Acesso Online (GitHub Pages)**: [https://cassiolbx.github.io/concurso-petrobras/](https://cassiolbx.github.io/concurso-petrobras/)
 
-Plataforma de estudos composta por **7 aplicações HTML5 autocontidas** (1 por matéria do edital) equipadas com **Motor Duplo de Perguntas** (Banco Offline + IA OpenRouter), **Sincronização & Backup no Google Drive**, **Modo Escuro / Claro** e suporte às 4 bancas examinadoras (**CEBRASPE, CESGRANRIO, FGV e FCC**).
+Plataforma de estudos composta por **7 páginas HTML** (1 por matéria do edital), com banco offline, núcleo local compartilhado, geração via OpenRouter, backup e sincronização versionada em JSON com o Google Drive, modo escuro/claro e suporte às 4 bancas examinadoras (**Fundação Cesgranrio, CEBRASPE, FGV e FCC**).
+
+## 📚 Documentação em ordem de leitura
+
+1. [Visão geral](01-documentacao/01-visao-geral.md)
+2. [Fontes e inventário dos PDFs](01-documentacao/02-fontes-e-inventario.md)
+3. [Processamento e banco offline](01-documentacao/03-processamento-e-banco-offline.md)
+4. [Arquitetura e código](01-documentacao/04-arquitetura-e-codigo.md)
+5. [Motor de IA e bancas](01-documentacao/05-motor-ia-e-bancas.md)
+6. [Backup e sincronização](01-documentacao/06-backup-e-sincronizacao.md)
+7. [Testes e qualidade](01-documentacao/07-testes-e-qualidade.md)
+8. [Histórico de desenvolvimento](01-documentacao/08-historico-de-desenvolvimento.md)
+9. [Deploy, GitHub Pages e Backup Google Drive](01-documentacao/09-deploy-e-github-pages.md) — revisar somente quando a publicação for retomada.
 
 ---
 
@@ -23,7 +35,11 @@ Plataforma de estudos composta por **7 aplicações HTML5 autocontidas** (1 por 
 
 ## ⚡ Recursos Principais
 
-- **📦 Banco Interno Offline**: Questões prontas pré-carregadas para estudo imediato sem internet.
-- **🤖 Motor IA (OpenRouter API)**: Geração de questões inéditas em tempo real via `google/gemma-4-31b-it` ou `deepseek/deepseek-v4-flash-0731`.
-- **☁️ Backup no Google Drive**: Conectado à pasta oficial do Google Drive para sincronizar seu progresso no Celular, Tablet e PC.
+- **📦 Banco Interno Offline**: Questões pré-carregadas para estudo imediato sem internet.
+- **🤖 Motor IA (OpenRouter API)**: Geração de quantidade exata de questões via `google/gemma-4-31b-it`, `deepseek/deepseek-v4-flash-0731` ou `xiaomi/mimo-v2.5`, com seleção de um ou mais PDFs-base.
+- **📄 Contexto dos PDFs**: A IA recebe tópicos, trechos estruturados e exemplos de questões dos PDFs selecionados; o campo de assunto específico serve apenas para o foco digitado pelo estudante.
+- **🏛️ Perfil de Banca**: Prompts específicos para Fundação Cesgranrio, CEBRASPE, FGV e FCC.
+- **⏱️ Sessões completas**: Timer, gabarito, explicação geral e análise direta de todas as alternativas.
+- **☁️ Backup e sincronização no Google Drive**: Usa a pasta oficial `Concurso Petrobras — Backups` para sincronizar o progresso no celular, tablet e PC, com backup manual, automático opcional e proteção contra conflitos.
 - **🎨 Design System Responsivo**: Ícones vetoriais SVG exclusivos e alternador de tema Claro / Escuro.
+
