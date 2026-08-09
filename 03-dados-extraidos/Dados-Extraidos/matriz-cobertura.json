@@ -1,0 +1,703 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-07T20:22:13.359188+00:00",
+  "policy": "A coluna offlineEligible só considera questões únicas com alternativas ou julgamento, resposta detectada e explicação mínima.",
+  "subjects": [
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdfs": 11,
+      "pages": 1204,
+      "textPages": 1193,
+      "lowTextPages": 11,
+      "topicCandidates": 2543,
+      "topicsDeduplicated": 1488,
+      "questionCandidates": 1126,
+      "uniqueQuestionCandidates": 912,
+      "duplicateQuestionCandidates": 214,
+      "offlineEligible": 262,
+      "reviewQueue": 650
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdfs": 10,
+      "pages": 594,
+      "textPages": 584,
+      "lowTextPages": 10,
+      "topicCandidates": 331,
+      "topicsDeduplicated": 190,
+      "questionCandidates": 577,
+      "uniqueQuestionCandidates": 294,
+      "duplicateQuestionCandidates": 283,
+      "offlineEligible": 203,
+      "reviewQueue": 91
+    },
+    {
+      "subjectId": "gov",
+      "subjectName": "Governança de TI",
+      "pdfs": 3,
+      "pages": 502,
+      "textPages": 499,
+      "lowTextPages": 3,
+      "topicCandidates": 177,
+      "topicsDeduplicated": 111,
+      "questionCandidates": 550,
+      "uniqueQuestionCandidates": 319,
+      "duplicateQuestionCandidates": 231,
+      "offlineEligible": 250,
+      "reviewQueue": 69
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdfs": 8,
+      "pages": 459,
+      "textPages": 451,
+      "lowTextPages": 8,
+      "topicCandidates": 329,
+      "topicsDeduplicated": 292,
+      "questionCandidates": 558,
+      "uniqueQuestionCandidates": 488,
+      "duplicateQuestionCandidates": 70,
+      "offlineEligible": 40,
+      "reviewQueue": 448
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdfs": 15,
+      "pages": 981,
+      "textPages": 966,
+      "lowTextPages": 15,
+      "topicCandidates": 688,
+      "topicsDeduplicated": 486,
+      "questionCandidates": 94,
+      "uniqueQuestionCandidates": 93,
+      "duplicateQuestionCandidates": 1,
+      "offlineEligible": 26,
+      "reviewQueue": 67
+    },
+    {
+      "subjectId": "rl",
+      "subjectName": "Raciocínio Lógico-Matemático",
+      "pdfs": 5,
+      "pages": 493,
+      "textPages": 488,
+      "lowTextPages": 5,
+      "topicCandidates": 119,
+      "topicsDeduplicated": 103,
+      "questionCandidates": 453,
+      "uniqueQuestionCandidates": 361,
+      "duplicateQuestionCandidates": 92,
+      "offlineEligible": 126,
+      "reviewQueue": 235
+    },
+    {
+      "subjectId": "sec",
+      "subjectName": "Segurança da Informação",
+      "pdfs": 6,
+      "pages": 732,
+      "textPages": 726,
+      "lowTextPages": 6,
+      "topicCandidates": 522,
+      "topicsDeduplicated": 394,
+      "questionCandidates": 680,
+      "uniqueQuestionCandidates": 484,
+      "duplicateQuestionCandidates": 196,
+      "offlineEligible": 126,
+      "reviewQueue": 358
+    }
+  ],
+  "pdfs": [
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "1 - Conceito Básico de Banco de Dados.pdf",
+      "pages": 76,
+      "textPages": 75,
+      "lowTextPages": 1,
+      "topicCandidates": 120,
+      "questionCandidates": 80
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "10 - Análise de Dados e Informações.pdf",
+      "pages": 52,
+      "textPages": 51,
+      "lowTextPages": 1,
+      "topicCandidates": 57,
+      "questionCandidates": 64
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "11 - Conceito de OLAP e sua Operações.pdf",
+      "pages": 58,
+      "textPages": 57,
+      "lowTextPages": 1,
+      "topicCandidates": 83,
+      "questionCandidates": 59
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "2 - Modelagem Conceitual.pdf",
+      "pages": 121,
+      "textPages": 120,
+      "lowTextPages": 1,
+      "topicCandidates": 118,
+      "questionCandidates": 82
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "3 - Abordagem Relacional.pdf",
+      "pages": 135,
+      "textPages": 134,
+      "lowTextPages": 1,
+      "topicCandidates": 309,
+      "questionCandidates": 144
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "4 - SQL.pdf",
+      "pages": 197,
+      "textPages": 196,
+      "lowTextPages": 1,
+      "topicCandidates": 1079,
+      "questionCandidates": 200
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "5 - Transações de Banco de Dados.pdf",
+      "pages": 77,
+      "textPages": 76,
+      "lowTextPages": 1,
+      "topicCandidates": 173,
+      "questionCandidates": 62
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "6 - Melhoria de Performance de Banco de Dados.pdf",
+      "pages": 57,
+      "textPages": 56,
+      "lowTextPages": 1,
+      "topicCandidates": 96,
+      "questionCandidates": 73
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "7 - Business Intelligence.pdf",
+      "pages": 204,
+      "textPages": 203,
+      "lowTextPages": 1,
+      "topicCandidates": 288,
+      "questionCandidates": 158
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "8 - Big Data.pdf",
+      "pages": 159,
+      "textPages": 158,
+      "lowTextPages": 1,
+      "topicCandidates": 158,
+      "questionCandidates": 170
+    },
+    {
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "pdf": "9 - Integração de Dados.pdf",
+      "pages": 68,
+      "textPages": 67,
+      "lowTextPages": 1,
+      "topicCandidates": 62,
+      "questionCandidates": 34
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "1 - Engenharia de Software I.pdf",
+      "pages": 58,
+      "textPages": 57,
+      "lowTextPages": 1,
+      "topicCandidates": 18,
+      "questionCandidates": 73
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "10 - Gerenciamento de Projetos e Produtos - Scrum e Kanban.pdf",
+      "pages": 105,
+      "textPages": 104,
+      "lowTextPages": 1,
+      "topicCandidates": 34,
+      "questionCandidates": 104
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "2 - Engenharia de Software II.pdf",
+      "pages": 42,
+      "textPages": 41,
+      "lowTextPages": 1,
+      "topicCandidates": 7,
+      "questionCandidates": 40
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "3 - Levantamento - Análise e Gerenciamento de Requisitos.pdf",
+      "pages": 65,
+      "textPages": 64,
+      "lowTextPages": 1,
+      "topicCandidates": 86,
+      "questionCandidates": 69
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "4 - Paradigma Orientado a Objetos.pdf",
+      "pages": 45,
+      "textPages": 44,
+      "lowTextPages": 1,
+      "topicCandidates": 21,
+      "questionCandidates": 50
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "5 - Verificação - Validação e Teste.pdf",
+      "pages": 51,
+      "textPages": 50,
+      "lowTextPages": 1,
+      "topicCandidates": 11,
+      "questionCandidates": 40
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "6 - Conceito de Acessibilidade e Usabilidade.pdf",
+      "pages": 45,
+      "textPages": 44,
+      "lowTextPages": 1,
+      "topicCandidates": 60,
+      "questionCandidates": 45
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "7 - User Experience - UX.pdf",
+      "pages": 45,
+      "textPages": 44,
+      "lowTextPages": 1,
+      "topicCandidates": 30,
+      "questionCandidates": 38
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "8 - Storytelling com Dados e Design Thinking.pdf",
+      "pages": 87,
+      "textPages": 86,
+      "lowTextPages": 1,
+      "topicCandidates": 30,
+      "questionCandidates": 80
+    },
+    {
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "pdf": "9 - Metodologia Ágeis - Conceitos Básicos.pdf",
+      "pages": 51,
+      "textPages": 50,
+      "lowTextPages": 1,
+      "topicCandidates": 34,
+      "questionCandidates": 38
+    },
+    {
+      "subjectId": "gov",
+      "subjectName": "Governança de TI",
+      "pdf": "1 - PMBOK 6 .pdf",
+      "pages": 270,
+      "textPages": 269,
+      "lowTextPages": 1,
+      "topicCandidates": 98,
+      "questionCandidates": 205
+    },
+    {
+      "subjectId": "gov",
+      "subjectName": "Governança de TI",
+      "pdf": "2 - Legislações - LGPD.pdf",
+      "pages": 74,
+      "textPages": 73,
+      "lowTextPages": 1,
+      "topicCandidates": 52,
+      "questionCandidates": 20
+    },
+    {
+      "subjectId": "gov",
+      "subjectName": "Governança de TI",
+      "pdf": "3 - Disciplina - Técnica e Ferramentas de Gerenciamento de Serviços de TI.pdf",
+      "pages": 158,
+      "textPages": 157,
+      "lowTextPages": 1,
+      "topicCandidates": 27,
+      "questionCandidates": 325
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdf": "Curso 00.pdf",
+      "pages": 39,
+      "textPages": 38,
+      "lowTextPages": 1,
+      "topicCandidates": 32,
+      "questionCandidates": 34
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdf": "Curso 01.pdf",
+      "pages": 41,
+      "textPages": 40,
+      "lowTextPages": 1,
+      "topicCandidates": 37,
+      "questionCandidates": 39
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdf": "Curso 02.pdf",
+      "pages": 56,
+      "textPages": 55,
+      "lowTextPages": 1,
+      "topicCandidates": 42,
+      "questionCandidates": 81
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdf": "Curso 03.pdf",
+      "pages": 73,
+      "textPages": 72,
+      "lowTextPages": 1,
+      "topicCandidates": 47,
+      "questionCandidates": 83
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdf": "Curso 04.pdf",
+      "pages": 54,
+      "textPages": 53,
+      "lowTextPages": 1,
+      "topicCandidates": 70,
+      "questionCandidates": 89
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdf": "Curso 05.pdf",
+      "pages": 65,
+      "textPages": 64,
+      "lowTextPages": 1,
+      "topicCandidates": 53,
+      "questionCandidates": 84
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdf": "Curso 06.pdf",
+      "pages": 52,
+      "textPages": 51,
+      "lowTextPages": 1,
+      "topicCandidates": 34,
+      "questionCandidates": 62
+    },
+    {
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "pdf": "Curso 07.pdf",
+      "pages": 79,
+      "textPages": 78,
+      "lowTextPages": 1,
+      "topicCandidates": 14,
+      "questionCandidates": 86
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "01 - Ortografia Oficial Acentuação Gráfica.pdf",
+      "pages": 88,
+      "textPages": 87,
+      "lowTextPages": 1,
+      "topicCandidates": 75,
+      "questionCandidates": 6
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "02 - Classes de Palavras I Substantivo Adjetivo Advérbio Artigo Numeral e Interjeição.pdf",
+      "pages": 57,
+      "textPages": 56,
+      "lowTextPages": 1,
+      "topicCandidates": 43,
+      "questionCandidates": 1
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "03 - Classes de Palavras II Preposição e Conjunção.pdf",
+      "pages": 67,
+      "textPages": 66,
+      "lowTextPages": 1,
+      "topicCandidates": 32,
+      "questionCandidates": 0
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "04 - Classes de Palavras III Pronome.pdf",
+      "pages": 51,
+      "textPages": 50,
+      "lowTextPages": 1,
+      "topicCandidates": 29,
+      "questionCandidates": 1
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "05 - Classes de Palavras IV Verbos.pdf",
+      "pages": 90,
+      "textPages": 89,
+      "lowTextPages": 1,
+      "topicCandidates": 93,
+      "questionCandidates": 5
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "06 - Correlação e Vozes Verbais.pdf",
+      "pages": 26,
+      "textPages": 25,
+      "lowTextPages": 1,
+      "topicCandidates": 25,
+      "questionCandidates": 1
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "07 - Sintaxe da Oração.pdf",
+      "pages": 46,
+      "textPages": 45,
+      "lowTextPages": 1,
+      "topicCandidates": 34,
+      "questionCandidates": 3
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "08 - Relações de Coordenação entre Orações e Entre Termos da Oração.pdf",
+      "pages": 62,
+      "textPages": 61,
+      "lowTextPages": 1,
+      "topicCandidates": 50,
+      "questionCandidates": 7
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "09 - Pontuação.pdf",
+      "pages": 84,
+      "textPages": 83,
+      "lowTextPages": 1,
+      "topicCandidates": 52,
+      "questionCandidates": 7
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "10 - Concordância Verbal e Nominal.pdf",
+      "pages": 73,
+      "textPages": 72,
+      "lowTextPages": 1,
+      "topicCandidates": 51,
+      "questionCandidates": 6
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "11 - Regência Verbal e Nominal - Crase.pdf",
+      "pages": 64,
+      "textPages": 63,
+      "lowTextPages": 1,
+      "topicCandidates": 50,
+      "questionCandidates": 10
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "12 - Semântica Significação das Palavras.pdf",
+      "pages": 45,
+      "textPages": 44,
+      "lowTextPages": 1,
+      "topicCandidates": 32,
+      "questionCandidates": 19
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "13 - Domínio dos Mecanismo de Coesão Textual.pdf",
+      "pages": 62,
+      "textPages": 61,
+      "lowTextPages": 1,
+      "topicCandidates": 20,
+      "questionCandidates": 6
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "14 - Compreensão e Interpretação de Texto.pdf",
+      "pages": 97,
+      "textPages": 96,
+      "lowTextPages": 1,
+      "topicCandidates": 48,
+      "questionCandidates": 22
+    },
+    {
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "pdf": "15 - Resumo.pdf",
+      "pages": 69,
+      "textPages": 68,
+      "lowTextPages": 1,
+      "topicCandidates": 54,
+      "questionCandidates": 0
+    },
+    {
+      "subjectId": "rl",
+      "subjectName": "Raciocínio Lógico-Matemático",
+      "pdf": "01 - Estrutura Lógica.pdf",
+      "pages": 147,
+      "textPages": 146,
+      "lowTextPages": 1,
+      "topicCandidates": 62,
+      "questionCandidates": 167
+    },
+    {
+      "subjectId": "rl",
+      "subjectName": "Raciocínio Lógico-Matemático",
+      "pdf": "02 - Equivalência Lógica.pdf",
+      "pages": 47,
+      "textPages": 46,
+      "lowTextPages": 1,
+      "topicCandidates": 11,
+      "questionCandidates": 42
+    },
+    {
+      "subjectId": "rl",
+      "subjectName": "Raciocínio Lógico-Matemático",
+      "pdf": "03 - Diagrama Lógico.pdf",
+      "pages": 34,
+      "textPages": 33,
+      "lowTextPages": 1,
+      "topicCandidates": 12,
+      "questionCandidates": 43
+    },
+    {
+      "subjectId": "rl",
+      "subjectName": "Raciocínio Lógico-Matemático",
+      "pdf": "04 - Lógica de Primeira Ordem.pdf",
+      "pages": 114,
+      "textPages": 113,
+      "lowTextPages": 1,
+      "topicCandidates": 5,
+      "questionCandidates": 65
+    },
+    {
+      "subjectId": "rl",
+      "subjectName": "Raciocínio Lógico-Matemático",
+      "pdf": "05 - Lógica de Argumentação.pdf",
+      "pages": 151,
+      "textPages": 150,
+      "lowTextPages": 1,
+      "topicCandidates": 29,
+      "questionCandidates": 136
+    },
+    {
+      "subjectId": "sec",
+      "subjectName": "Segurança da Informação",
+      "pdf": "1 - Princípios de Segurança.pdf",
+      "pages": 129,
+      "textPages": 128,
+      "lowTextPages": 1,
+      "topicCandidates": 68,
+      "questionCandidates": 127
+    },
+    {
+      "subjectId": "sec",
+      "subjectName": "Segurança da Informação",
+      "pdf": "2 - Firewall IDS-IPS.pdf",
+      "pages": 138,
+      "textPages": 137,
+      "lowTextPages": 1,
+      "topicCandidates": 145,
+      "questionCandidates": 91
+    },
+    {
+      "subjectId": "sec",
+      "subjectName": "Segurança da Informação",
+      "pdf": "3 - SSL-TLS - IPSEC - VPN.pdf",
+      "pages": 136,
+      "textPages": 135,
+      "lowTextPages": 1,
+      "topicCandidates": 142,
+      "questionCandidates": 131
+    },
+    {
+      "subjectId": "sec",
+      "subjectName": "Segurança da Informação",
+      "pdf": "4 - Ataques a Redes.pdf",
+      "pages": 140,
+      "textPages": 139,
+      "lowTextPages": 1,
+      "topicCandidates": 65,
+      "questionCandidates": 104
+    },
+    {
+      "subjectId": "sec",
+      "subjectName": "Segurança da Informação",
+      "pdf": "5 - Criptografia I.pdf",
+      "pages": 123,
+      "textPages": 122,
+      "lowTextPages": 1,
+      "topicCandidates": 60,
+      "questionCandidates": 141
+    },
+    {
+      "subjectId": "sec",
+      "subjectName": "Segurança da Informação",
+      "pdf": "6 - Criptografia II - Assinatura Digital CD.pdf",
+      "pages": 66,
+      "textPages": 65,
+      "lowTextPages": 1,
+      "topicCandidates": 42,
+      "questionCandidates": 86
+    }
+  ],
+  "totals": {
+    "pdfs": 58,
+    "pages": 4965,
+    "textPages": 4907,
+    "questionCandidates": 4038,
+    "uniqueQuestionCandidates": 2951,
+    "offlineEligible": 1033,
+    "reviewQueue": 1918
+  }
+}
