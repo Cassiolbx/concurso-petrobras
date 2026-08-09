@@ -689,7 +689,53 @@
     }
 
     .modal-header h3 {
-      font-size: 1.1…400 tokens truncated…-error { border-color: var(--wrong-border); color: var(--wrong); }
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .modal-close:hover { color: var(--text-primary); }
+
+    .backup-option-box {
+      background: var(--statement-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .backup-option-box h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .backup-option-box p {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .drive-config-box { margin-bottom: 14px; padding: 12px; border: 1px solid var(--border-subtle); border-radius: 10px; background: color-mix(in srgb, var(--statement-bg) 82%, transparent); }
+    .drive-config-box p { margin: 8px 0 10px; color: var(--text-muted); font-size: 0.76rem; line-height: 1.4; }
+    .drive-sync-status { min-height: 20px; margin: 12px 0; padding: 10px 12px; border: 1px solid var(--border-subtle); border-radius: 10px; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.45; }
+    .drive-sync-status:empty { display: none; }
+    .drive-status-success { border-color: var(--correct-border); color: var(--correct); }
+    .drive-status-warning, .drive-status-loading { border-color: var(--accent); color: var(--text-primary); }
+    .drive-status-error { border-color: var(--wrong-border); color: var(--wrong); }
     .drive-sync-meta { margin: 0 0 14px; color: var(--text-muted); font-size: 0.78rem; }
     .drive-sync-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .drive-sync-auto { display: flex; align-items: flex-start; gap: 9px; margin-top: 14px; color: var(--text-secondary); font-size: 0.82rem; line-height: 1.4; cursor: pointer; }
@@ -1119,4 +1165,3 @@
   <script src="04-codigo-fonte/js/app-core.js"></script>
 </body>
 </html>
-
