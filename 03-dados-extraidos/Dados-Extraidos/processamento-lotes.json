@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-07T20:20:44.283967+00:00",
+  "batchSize": 1,
+  "batches": [
+    {
+      "batch": 1,
+      "subjectId": "bd",
+      "subjectName": "Banco de Dados",
+      "status": "completed",
+      "pdfs": 11,
+      "offlineEligible": 262,
+      "reviewQueue": 650,
+      "manifest": "03-dados-extraidos/Dados-Extraidos/Banco de Dados/manifest.json"
+    },
+    {
+      "batch": 2,
+      "subjectId": "es",
+      "subjectName": "Engenharia de Software",
+      "status": "completed",
+      "pdfs": 10,
+      "offlineEligible": 203,
+      "reviewQueue": 91,
+      "manifest": "03-dados-extraidos/Dados-Extraidos/Engenharia-Software/manifest.json"
+    },
+    {
+      "batch": 3,
+      "subjectId": "gov",
+      "subjectName": "Governança de TI",
+      "status": "completed",
+      "pdfs": 3,
+      "offlineEligible": 250,
+      "reviewQueue": 69,
+      "manifest": "03-dados-extraidos/Dados-Extraidos/Governanca-Ti/manifest.json"
+    },
+    {
+      "batch": 4,
+      "subjectId": "ing",
+      "subjectName": "Língua Inglesa",
+      "status": "completed",
+      "pdfs": 8,
+      "offlineEligible": 40,
+      "reviewQueue": 448,
+      "manifest": "03-dados-extraidos/Dados-Extraidos/Ingles/manifest.json"
+    },
+    {
+      "batch": 5,
+      "subjectId": "por",
+      "subjectName": "Língua Portuguesa",
+      "status": "completed",
+      "pdfs": 15,
+      "offlineEligible": 26,
+      "reviewQueue": 67,
+      "manifest": "03-dados-extraidos/Dados-Extraidos/Portugues/manifest.json"
+    },
+    {
+      "batch": 6,
+      "subjectId": "rl",
+      "subjectName": "Raciocínio Lógico-Matemático",
+      "status": "completed",
+      "pdfs": 5,
+      "offlineEligible": 126,
+      "reviewQueue": 235,
+      "manifest": "03-dados-extraidos/Dados-Extraidos/Raciocinio-Logico/manifest.json"
+    },
+    {
+      "batch": 7,
+      "subjectId": "sec",
+      "subjectName": "Segurança da Informação",
+      "status": "completed",
+      "pdfs": 6,
+      "offlineEligible": 126,
+      "reviewQueue": 358,
+      "manifest": "03-dados-extraidos/Dados-Extraidos/Seguranca-Informacao/manifest.json"
+    }
+  ],
+  "totals": {
+    "batches": 7,
+    "pdfs": 58,
+    "pages": 4965,
+    "offlineEligible": 1033,
+    "reviewQueue": 1918
+  }
+}
