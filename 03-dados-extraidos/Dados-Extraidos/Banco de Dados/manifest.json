@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "1.0",
+  "batch": 1,
+  "generatedAt": "2026-08-07T20:21:06.801337+00:00",
+  "startedAt": "2026-08-07T20:20:44.284751+00:00",
+  "subjectId": "bd",
+  "subjectName": "Banco de Dados",
+  "sourceFolder": "02-fontes-pdf/PDFs/Banco de Dados",
+  "documents": [
+    {
+      "file": "1 - Conceito Básico de Banco de Dados.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/1 - Conceito Básico de Banco de Dados.pdf",
+      "pages": 76,
+      "text_pages": 75,
+      "empty_or_low_text_pages": [
+        76
+      ],
+      "raw_chars": 171640,
+      "topic_candidates": 120,
+      "exercise_candidates": 80
+    },
+    {
+      "file": "10 - Análise de Dados e Informações.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/10 - Análise de Dados e Informações.pdf",
+      "pages": 52,
+      "text_pages": 51,
+      "empty_or_low_text_pages": [
+        52
+      ],
+      "raw_chars": 126936,
+      "topic_candidates": 57,
+      "exercise_candidates": 64
+    },
+    {
+      "file": "11 - Conceito de OLAP e sua Operações.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/11 - Conceito de OLAP e sua Operações.pdf",
+      "pages": 58,
+      "text_pages": 57,
+      "empty_or_low_text_pages": [
+        58
+      ],
+      "raw_chars": 128399,
+      "topic_candidates": 83,
+      "exercise_candidates": 59
+    },
+    {
+      "file": "2 - Modelagem Conceitual.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/2 - Modelagem Conceitual.pdf",
+      "pages": 121,
+      "text_pages": 120,
+      "empty_or_low_text_pages": [
+        121
+      ],
+      "raw_chars": 186544,
+      "topic_candidates": 118,
+      "exercise_candidates": 82
+    },
+    {
+      "file": "3 - Abordagem Relacional.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/3 - Abordagem Relacional.pdf",
+      "pages": 135,
+      "text_pages": 134,
+      "empty_or_low_text_pages": [
+        135
+      ],
+      "raw_chars": 284210,
+      "topic_candidates": 309,
+      "exercise_candidates": 144
+    },
+    {
+      "file": "4 - SQL.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/4 - SQL.pdf",
+      "pages": 197,
+      "text_pages": 196,
+      "empty_or_low_text_pages": [
+        197
+      ],
+      "raw_chars": 391422,
+      "topic_candidates": 1079,
+      "exercise_candidates": 200
+    },
+    {
+      "file": "5 - Transações de Banco de Dados.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/5 - Transações de Banco de Dados.pdf",
+      "pages": 77,
+      "text_pages": 76,
+      "empty_or_low_text_pages": [
+        77
+      ],
+      "raw_chars": 173179,
+      "topic_candidates": 173,
+      "exercise_candidates": 62
+    },
+    {
+      "file": "6 - Melhoria de Performance de Banco de Dados.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/6 - Melhoria de Performance de Banco de Dados.pdf",
+      "pages": 57,
+      "text_pages": 56,
+      "empty_or_low_text_pages": [
+        57
+      ],
+      "raw_chars": 120161,
+      "topic_candidates": 96,
+      "exercise_candidates": 73
+    },
+    {
+      "file": "7 - Business Intelligence.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/7 - Business Intelligence.pdf",
+      "pages": 204,
+      "text_pages": 203,
+      "empty_or_low_text_pages": [
+        204
+      ],
+      "raw_chars": 488435,
+      "topic_candidates": 288,
+      "exercise_candidates": 158
+    },
+    {
+      "file": "8 - Big Data.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/8 - Big Data.pdf",
+      "pages": 159,
+      "text_pages": 158,
+      "empty_or_low_text_pages": [
+        159
+      ],
+      "raw_chars": 382399,
+      "topic_candidates": 158,
+      "exercise_candidates": 170
+    },
+    {
+      "file": "9 - Integração de Dados.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/9 - Integração de Dados.pdf",
+      "pages": 68,
+      "text_pages": 67,
+      "empty_or_low_text_pages": [
+        68
+      ],
+      "raw_chars": 166822,
+      "topic_candidates": 62,
+      "exercise_candidates": 34
+    }
+  ],
+  "totals": {
+    "pdfs": 11,
+    "pages": 1204,
+    "textPages": 1193,
+    "lowTextPages": 11,
+    "topicCandidates": 2543,
+    "topicsDeduplicated": 1488,
+    "questionCandidates": 1126,
+    "uniqueQuestionCandidates": 912,
+    "duplicateQuestionCandidates": 214,
+    "offlineEligible": 262,
+    "reviewQueue": 650
+  },
+  "offlineBancaCounts": {
+    "AOCP": 5,
+    "CEBRASPE": 83,
+    "CESGRANRIO": 23,
+    "Diversas": 79,
+    "FCC": 35,
+    "FGV": 18,
+    "FUNDATEC": 3,
+    "IADES": 2,
+    "IBFC": 2,
+    "IDECAN": 1,
+    "VUNESP": 11
+  },
+  "reviewReasonCounts": {
+    "answer-not-detected": 511,
+    "explanation-too-short": 384,
+    "multiple-correct-options-detected": 1,
+    "unsupported-option-count": 127
+  },
+  "files": {
+    "pages": "03-dados-extraidos/Dados-Extraidos/Banco de Dados/paginas.jsonl",
+    "topics": "03-dados-extraidos/Dados-Extraidos/Banco de Dados/topicos-resumidos.json",
+    "candidates": "03-dados-extraidos/Dados-Extraidos/Banco de Dados/questoes-candidatas.json",
+    "review": "03-dados-extraidos/Dados-Extraidos/Banco de Dados/questoes-revisao.json",
+    "offlineBank": "03-dados-extraidos/Dados-Extraidos/Banco de Dados/banco-offline.json"
+  }
+}
