@@ -1,0 +1,1222 @@
+{
+  "generated_at": "2026-08-07T19:32:16.944615+00:00",
+  "pdf_root": "PDFs",
+  "totals": {
+    "pdfs": 58,
+    "pages": 4965,
+    "size_mb": 208.02
+  },
+  "by_subject": {
+    "Banco de Dados": {
+      "pdfs": 11,
+      "pages": 1204,
+      "size_mb": 55.67,
+      "text_pdfs": 11,
+      "scan_or_mixed_pdfs": 0
+    },
+    "Engenharia-Software": {
+      "pdfs": 10,
+      "pages": 594,
+      "size_mb": 28.1,
+      "text_pdfs": 10,
+      "scan_or_mixed_pdfs": 0
+    },
+    "Governanca-Ti": {
+      "pdfs": 3,
+      "pages": 502,
+      "size_mb": 24.52,
+      "text_pdfs": 3,
+      "scan_or_mixed_pdfs": 0
+    },
+    "Ingles": {
+      "pdfs": 8,
+      "pages": 459,
+      "size_mb": 9.49,
+      "text_pdfs": 8,
+      "scan_or_mixed_pdfs": 0
+    },
+    "Portugues": {
+      "pdfs": 15,
+      "pages": 981,
+      "size_mb": 50.48,
+      "text_pdfs": 15,
+      "scan_or_mixed_pdfs": 0
+    },
+    "Raciocinio-Logico": {
+      "pdfs": 5,
+      "pages": 493,
+      "size_mb": 16.75,
+      "text_pdfs": 5,
+      "scan_or_mixed_pdfs": 0
+    },
+    "Seguranca-Informacao": {
+      "pdfs": 6,
+      "pages": 732,
+      "size_mb": 23.01,
+      "text_pdfs": 6,
+      "scan_or_mixed_pdfs": 0
+    }
+  },
+  "files": [
+    {
+      "file": "1 - Conceito Básico de Banco de Dados.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/1 - Conceito Básico de Banco de Dados.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 4059006,
+      "size_mb": 3.87,
+      "pages": 76,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 00\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                       Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                        20 de Setembro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "10 - Análise de Dados e Informações.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/10 - Análise de Dados e Informações.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 2870122,
+      "size_mb": 2.74,
+      "pages": 52,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 09\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                      Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                          02 de Junho de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "11 - Conceito de OLAP e sua Operações.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/11 - Conceito de OLAP e sua Operações.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 2916955,
+      "size_mb": 2.78,
+      "pages": 58,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 10\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                     Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                         11 de Março de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "2 - Modelagem Conceitual.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/2 - Modelagem Conceitual.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 6573237,
+      "size_mb": 6.27,
+      "pages": 121,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 01\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                      Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                          12 de Julho de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "3 - Abordagem Relacional.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/3 - Abordagem Relacional.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 7479276,
+      "size_mb": 7.13,
+      "pages": 135,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 02\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                      Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                          06 de Julho de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "4 - SQL.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/4 - SQL.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 8205476,
+      "size_mb": 7.83,
+      "pages": 197,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 03\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                      Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                          06 de Julho de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "5 - Transações de Banco de Dados.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/5 - Transações de Banco de Dados.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 4584108,
+      "size_mb": 4.37,
+      "pages": 77,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 04\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                     Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                         11 de Março de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "6 - Melhoria de Performance de Banco de Dados.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/6 - Melhoria de Performance de Banco de Dados.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 3382495,
+      "size_mb": 3.23,
+      "pages": 57,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 05\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                     Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                         11 de Março de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "7 - Business Intelligence.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/7 - Business Intelligence.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 10086102,
+      "size_mb": 9.62,
+      "pages": 204,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 06\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                      Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                         13 de Agosto de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "8 - Big Data.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/8 - Big Data.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 5503000,
+      "size_mb": 5.25,
+      "pages": 159,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 07\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                      Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                         08 de Agosto de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "9 - Integração de Dados.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Banco de Dados/9 - Integração de Dados.pdf",
+      "subject_folder": "Banco de Dados",
+      "size_bytes": 2709597,
+      "size_mb": 2.58,
+      "pages": 68,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 08\n                     PETROBRAS (Analista de Sistemas -\n                  Processos de Negócio) Banco de dados\n\n\n\n\n                                                      Autor:\n                               Thiago Rodrigues Cavalcanti\n\n\n\n\n                                          06 de Julho de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "1 - Engenharia de Software I.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/1 - Engenharia de Software I.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 2483464,
+      "size_mb": 2.37,
+      "pages": 58,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 00\n                     PETROBRAS (Analista de Sistemas -\n                    Processos de Negócio) Engenharia de\n                                                    Software\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, Diego\n                               Carvalho, Fernando Pedrosa\n                                                      Lopes\n\n                                        20 de Setembro de 2024\n\n\n\n\n021075095",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "10 - Gerenciamento de Projetos e Produtos - Scrum e Kanban.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/10 - Gerenciamento de Projetos e Produtos - Scrum e Kanban.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 3320884,
+      "size_mb": 3.17,
+      "pages": 105,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula Extra\n                      PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Engenharia de\n                                                      Software\n\n\n\n                                                         Autor:\n                             Equipe Informática e TI, Diego\n                                Carvalho, Fernando Pedrosa\n                                                        Lopes\n\n                                         08 de Fevereiro de 2026",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "2 - Engenharia de Software II.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/2 - Engenharia de Software II.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 2247103,
+      "size_mb": 2.14,
+      "pages": 42,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 01\n                     PETROBRAS (Analista de Sistemas -\n                    Processos de Negócio) Engenharia de\n                                                    Software\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, Diego\n                               Carvalho, Fernando Pedrosa\n                                                      Lopes\n\n                                        20 de Setembro de 2024\n\n\n\n\n021075095",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "3 - Levantamento - Análise e Gerenciamento de Requisitos.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/3 - Levantamento - Análise e Gerenciamento de Requisitos.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 6794519,
+      "size_mb": 6.48,
+      "pages": 65,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 02\n                     PETROBRAS (Analista de Sistemas -\n                    Processos de Negócio) Engenharia de\n                                                    Software\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, Diego\n                               Carvalho, Fernando Pedrosa\n                                                      Lopes\n\n                                        20 de Setembro de 2024\n\n\n\n\n021075095",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "4 - Paradigma Orientado a Objetos.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/4 - Paradigma Orientado a Objetos.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 2581177,
+      "size_mb": 2.46,
+      "pages": 45,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 03\n                      PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Engenharia de\n                                                   Software\n\n\n\n                                                      Autor:\n                             Equipe Informática e TI, Diego\n                                Carvalho, Fernando Pedrosa\n                                                     Lopes\n\n                                         06 de Agosto de 2025\n\n\n\n\n0340711655",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "5 - Verificação - Validação e Teste.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/5 - Verificação - Validação e Teste.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 2575927,
+      "size_mb": 2.46,
+      "pages": 51,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 04\n                     PETROBRAS (Analista de Sistemas -\n                    Processos de Negócio) Engenharia de\n                                                    Software\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, Diego\n                               Carvalho, Fernando Pedrosa\n                                                      Lopes\n\n                                        20 de Setembro de 2024\n\n\n\n\n021075095",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "6 - Conceito de Acessibilidade e Usabilidade.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/6 - Conceito de Acessibilidade e Usabilidade.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 1839323,
+      "size_mb": 1.75,
+      "pages": 45,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 05\n                     PETROBRAS (Analista de Sistemas -\n                    Processos de Negócio) Engenharia de\n                                                    Software\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, Diego\n                               Carvalho, Fernando Pedrosa\n                                                      Lopes\n\n                                        20 de Setembro de 2024\n\n\n\n\n021075095",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "7 - User Experience - UX.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/7 - User Experience - UX.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 2132651,
+      "size_mb": 2.03,
+      "pages": 45,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula Extra\n                     PETROBRAS (Analista de Sistemas -\n                    Processos de Negócio) Engenharia de\n                                                    Software\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, Diego\n                               Carvalho, Fernando Pedrosa\n                                                      Lopes\n\n                                        20 de Setembro de 2024\n\n\n\n\n021075",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "8 - Storytelling com Dados e Design Thinking.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/8 - Storytelling com Dados e Design Thinking.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 3403311,
+      "size_mb": 3.25,
+      "pages": 87,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula Extra\n                     PETROBRAS (Analista de Sistemas -\n                    Processos de Negócio) Engenharia de\n                                                    Software\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, Diego\n                               Carvalho, Fernando Pedrosa\n                                                      Lopes\n\n                                        20 de Setembro de 2024\n\n\n\n\n021075",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "9 - Metodologia Ágeis - Conceitos Básicos.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Engenharia-Software/9 - Metodologia Ágeis - Conceitos Básicos.pdf",
+      "subject_folder": "Engenharia-Software",
+      "size_bytes": 2087021,
+      "size_mb": 1.99,
+      "pages": 51,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula Extra\n                      PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Engenharia de\n                                                      Software\n\n\n\n                                                         Autor:\n                             Equipe Informática e TI, Diego\n                                Carvalho, Fernando Pedrosa\n                                                        Lopes\n\n                                         08 de Fevereiro de 2026",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "1 - PMBOK 6 .pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Governanca-Ti/1 - PMBOK 6 .pdf",
+      "subject_folder": "Governanca-Ti",
+      "size_bytes": 19367758,
+      "size_mb": 18.47,
+      "pages": 270,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 01\n                     PETROBRAS (Analista de Sistemas -\n                   Processos de Negócio) Governança de\n                                                           TI\n\n\n\n                                                       Autor:\n                            Equipe Informática e TI, Paolla\n                       Ramos, Fernando Pedrosa Lopes\n\n\n                                        20 de Setembro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "2 - Legislações - LGPD.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Governanca-Ti/2 - Legislações - LGPD.pdf",
+      "subject_folder": "Governanca-Ti",
+      "size_bytes": 2634203,
+      "size_mb": 2.51,
+      "pages": 74,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 02\n                     PETROBRAS (Analista de Sistemas -\n                   Processos de Negócio) Governança de\n                                                         TI\n\n\n\n                                                     Autor:\n                            Equipe Informática e TI, Paolla\n                       Ramos, Fernando Pedrosa Lopes\n\n\n                                         07 de Março de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "3 - Disciplina - Técnica e Ferramentas de Gerenciamento de Serviços de TI.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Governanca-Ti/3 - Disciplina - Técnica e Ferramentas de Gerenciamento de Serviços de TI.pdf",
+      "subject_folder": "Governanca-Ti",
+      "size_bytes": 3714903,
+      "size_mb": 3.54,
+      "pages": 158,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 03\n                      PETROBRAS (Analista de Sistemas -\n                   Processos de Negócio) Governança de\n                                                             TI\n\n\n\n                                                         Autor:\n                             Equipe Informática e TI, Paolla\n                        Ramos, Fernando Pedrosa Lopes\n\n\n                                         23 de Fevereiro de 2026\n\n\n\n\n03407116551 - Tamires da Silva Pereira",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "Curso 00.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Ingles/Curso 00.pdf",
+      "subject_folder": "Ingles",
+      "size_bytes": 1225680,
+      "size_mb": 1.17,
+      "pages": 39,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 00\n                      PETROBRAS (Nível Superior) Inglês\n\n\n\n\n                                                     Autor:\n                                                Ena Smith\n\n\n\n\n                                        14 de Agosto de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "Curso 01.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Ingles/Curso 01.pdf",
+      "subject_folder": "Ingles",
+      "size_bytes": 1008331,
+      "size_mb": 0.96,
+      "pages": 41,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 01\n                      PETROBRAS (Nível Superior) Inglês\n\n\n\n\n                                                    Autor:\n                                               Ena Smith\n\n\n\n\n                                        27 de Março de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "Curso 02.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Ingles/Curso 02.pdf",
+      "subject_folder": "Ingles",
+      "size_bytes": 1295936,
+      "size_mb": 1.24,
+      "pages": 56,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 02\n                      PETROBRAS (Nível Superior) Inglês\n\n\n\n\n                                                    Autor:\n                                              Ena Smith\n\n\n\n\n                                        16 de Abril de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "Curso 03.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Ingles/Curso 03.pdf",
+      "subject_folder": "Ingles",
+      "size_bytes": 1458445,
+      "size_mb": 1.39,
+      "pages": 73,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 03\n                      PETROBRAS (Nível Superior) Inglês\n\n\n\n\n                                                   Autor:\n                                              Ena Smith\n\n\n\n\n                                        20 de Maio de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "Curso 04.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Ingles/Curso 04.pdf",
+      "subject_folder": "Ingles",
+      "size_bytes": 1230671,
+      "size_mb": 1.17,
+      "pages": 54,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 04\n                      PETROBRAS (Nível Superior) Inglês\n\n\n\n\n                                                        Autor:\n                                                   Ena Smith\n\n\n\n\n                                        02 de Fevereiro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "Curso 05.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Ingles/Curso 05.pdf",
+      "subject_folder": "Ingles",
+      "size_bytes": 1238942,
+      "size_mb": 1.18,
+      "pages": 65,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 05\n                      PETROBRAS (Nível Superior) Inglês\n\n\n\n\n                                                      Autor:\n                                                 Ena Smith\n\n\n\n\n                                        04 de Janeiro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "Curso 06.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Ingles/Curso 06.pdf",
+      "subject_folder": "Ingles",
+      "size_bytes": 1094807,
+      "size_mb": 1.04,
+      "pages": 52,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 06\n                      PETROBRAS (Nível Superior) Inglês\n\n\n\n\n                                                      Autor:\n                                                 Ena Smith\n\n\n\n\n                                        17 de Janeiro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "Curso 07.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Ingles/Curso 07.pdf",
+      "subject_folder": "Ingles",
+      "size_bytes": 1404910,
+      "size_mb": 1.34,
+      "pages": 79,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Questões Comentadas\n                               e Textos Traduzidos\n                                            CESPE\n                      PETROBRAS (Nível Superior) Inglês\n\n\n                                                   Autor:\n                                              Ena Smith\n\n\n\n\n                                        14 de Maio de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "01 - Ortografia Oficial Acentuação Gráfica.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/01 - Ortografia Oficial Acentuação Gráfica.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 3933470,
+      "size_mb": 3.75,
+      "pages": 88,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 00\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                       Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                         02 de Outubro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "02 - Classes de Palavras I Substantivo Adjetivo Advérbio Artigo Numeral e Interjeição.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/02 - Classes de Palavras I Substantivo Adjetivo Advérbio Artigo Numeral e Interjeição.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 3550764,
+      "size_mb": 3.39,
+      "pages": 57,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 01\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                       Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        18 de Setembro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "03 - Classes de Palavras II Preposição e Conjunção.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/03 - Classes de Palavras II Preposição e Conjunção.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 2019457,
+      "size_mb": 1.93,
+      "pages": 67,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 02\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                          10 de Janeiro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "04 - Classes de Palavras III Pronome.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/04 - Classes de Palavras III Pronome.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 2255071,
+      "size_mb": 2.15,
+      "pages": 51,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 03\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                       Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        16 de Setembro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "05 - Classes de Palavras IV Verbos.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/05 - Classes de Palavras IV Verbos.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 4119620,
+      "size_mb": 3.93,
+      "pages": 90,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 04\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                       Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        18 de Setembro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "06 - Correlação e Vozes Verbais.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/06 - Correlação e Vozes Verbais.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 1806683,
+      "size_mb": 1.72,
+      "pages": 26,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 05\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                            24 de Abril de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "07 - Sintaxe da Oração.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/07 - Sintaxe da Oração.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 1410622,
+      "size_mb": 1.35,
+      "pages": 46,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 06\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                       Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                          21 de Agosto de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "08 - Relações de Coordenação entre Orações e Entre Termos da Oração.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/08 - Relações de Coordenação entre Orações e Entre Termos da Oração.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 7006166,
+      "size_mb": 6.68,
+      "pages": 62,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 07\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                       Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                           11 de Março de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "09 - Pontuação.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/09 - Pontuação.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 3851954,
+      "size_mb": 3.67,
+      "pages": 84,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 08\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                            24 de Abril de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "10 - Concordância Verbal e Nominal.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/10 - Concordância Verbal e Nominal.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 3605336,
+      "size_mb": 3.44,
+      "pages": 73,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 09\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        01 de Fevereiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "11 - Regência Verbal e Nominal - Crase.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/11 - Regência Verbal e Nominal - Crase.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 3445462,
+      "size_mb": 3.29,
+      "pages": 64,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 10\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        20 de Fevereiro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "12 - Semântica Significação das Palavras.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/12 - Semântica Significação das Palavras.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 1828502,
+      "size_mb": 1.74,
+      "pages": 45,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 11\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        01 de Fevereiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "13 - Domínio dos Mecanismo de Coesão Textual.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/13 - Domínio dos Mecanismo de Coesão Textual.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 4492457,
+      "size_mb": 4.28,
+      "pages": 62,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 12\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        01 de Fevereiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "14 - Compreensão e Interpretação de Texto.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/14 - Compreensão e Interpretação de Texto.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 4095539,
+      "size_mb": 3.91,
+      "pages": 97,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 13\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        10 de Fevereiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "15 - Resumo.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Portugues/15 - Resumo.pdf",
+      "subject_folder": "Portugues",
+      "size_bytes": 5502000,
+      "size_mb": 5.25,
+      "pages": 69,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 14 -\n                                 Exclusivamente PDF\n                PETROBRAS (Nível Superior) Português\n\n\n\n\n                                                        Autor:\n                               Equipe Português Estratégia\n                                   Concursos, Felipe Luccas\n\n\n                                        10 de Fevereiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "01 - Estrutura Lógica.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Raciocinio-Logico/01 - Estrutura Lógica.pdf",
+      "subject_folder": "Raciocinio-Logico",
+      "size_bytes": 3556094,
+      "size_mb": 3.39,
+      "pages": 147,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 01\n                     PETROBRAS (Analista de Sistemas -\n                        Processos de Negócios) Raciocínio\n                                                           Lógico\n\n\n\n                                                            Autor:\n                                        Equipe Exatas Estratégia\n                                                      Concursos\n\n\n                                                30 de Julho de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "02 - Equivalência Lógica.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Raciocinio-Logico/02 - Equivalência Lógica.pdf",
+      "subject_folder": "Raciocinio-Logico",
+      "size_bytes": 2984387,
+      "size_mb": 2.85,
+      "pages": 47,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 02\n                     PETROBRAS (Analista de Sistemas -\n                        Processos de Negócios) Raciocínio\n                                                           Lógico\n\n\n\n                                                           Autor:\n                                        Equipe Exatas Estratégia\n                                                     Concursos\n\n\n                                              26 de Agosto de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "03 - Diagrama Lógico.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Raciocinio-Logico/03 - Diagrama Lógico.pdf",
+      "subject_folder": "Raciocinio-Logico",
+      "size_bytes": 1800396,
+      "size_mb": 1.72,
+      "pages": 34,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 03\n                     PETROBRAS (Analista de Sistemas -\n                        Processos de Negócios) Raciocínio\n                                                           Lógico\n\n\n\n                                                            Autor:\n                                        Equipe Exatas Estratégia\n                                                      Concursos\n\n\n                                              24 de Janeiro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "04 - Lógica de Primeira Ordem.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Raciocinio-Logico/04 - Lógica de Primeira Ordem.pdf",
+      "subject_folder": "Raciocinio-Logico",
+      "size_bytes": 3855309,
+      "size_mb": 3.68,
+      "pages": 114,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 04\n                     PETROBRAS (Analista de Sistemas -\n                        Processos de Negócios) Raciocínio\n                                                           Lógico\n\n\n\n                                                           Autor:\n                                        Equipe Exatas Estratégia\n                                                     Concursos\n\n\n                                                14 de Maio de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "05 - Lógica de Argumentação.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Raciocinio-Logico/05 - Lógica de Argumentação.pdf",
+      "subject_folder": "Raciocinio-Logico",
+      "size_bytes": 5357435,
+      "size_mb": 5.11,
+      "pages": 151,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 00\n                     PETROBRAS (Analista de Sistemas -\n                        Processos de Negócios) Raciocínio\n                                                           Lógico\n\n\n\n                                                            Autor:\n                                        Equipe Exatas Estratégia\n                                                      Concursos\n\n\n                                                30 de Julho de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "1 - Princípios de Segurança.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Seguranca-Informacao/1 - Princípios de Segurança.pdf",
+      "subject_folder": "Seguranca-Informacao",
+      "size_bytes": 2516096,
+      "size_mb": 2.4,
+      "pages": 129,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 00\n                     PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Segurança da\n                                                 Informação\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, André\n                                                      Castro\n\n\n                                         12 de Janeiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "2 - Firewall IDS-IPS.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Seguranca-Informacao/2 - Firewall IDS-IPS.pdf",
+      "subject_folder": "Seguranca-Informacao",
+      "size_bytes": 3776372,
+      "size_mb": 3.6,
+      "pages": 138,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 01\n                     PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Segurança da\n                                                 Informação\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, André\n                                                      Castro\n\n\n                                         19 de Janeiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "3 - SSL-TLS - IPSEC - VPN.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Seguranca-Informacao/3 - SSL-TLS - IPSEC - VPN.pdf",
+      "subject_folder": "Seguranca-Informacao",
+      "size_bytes": 10565575,
+      "size_mb": 10.08,
+      "pages": 136,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 02\n                     PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Segurança da\n                                                  Informação\n\n\n\n                                                       Autor:\n                             Equipe Informática e TI, André\n                                                      Castro\n\n\n                                        22 de Setembro de 2024\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "4 - Ataques a Redes.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Seguranca-Informacao/4 - Ataques a Redes.pdf",
+      "subject_folder": "Seguranca-Informacao",
+      "size_bytes": 3195348,
+      "size_mb": 3.05,
+      "pages": 140,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 03\n                     PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Segurança da\n                                                  Informação\n\n\n\n                                                        Autor:\n                             Equipe Informática e TI, André\n                                                       Castro\n\n\n                                        02 de Fevereiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "5 - Criptografia I.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Seguranca-Informacao/5 - Criptografia I.pdf",
+      "subject_folder": "Seguranca-Informacao",
+      "size_bytes": 2398986,
+      "size_mb": 2.29,
+      "pages": 123,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 04\n                     PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Segurança da\n                                                  Informação\n\n\n\n                                                        Autor:\n                             Equipe Informática e TI, André\n                                                       Castro\n\n\n                                        09 de Fevereiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    },
+    {
+      "file": "6 - Criptografia II - Assinatura Digital CD.pdf",
+      "relative_path": "02-fontes-pdf/PDFs/Seguranca-Informacao/6 - Criptografia II - Assinatura Digital CD.pdf",
+      "subject_folder": "Seguranca-Informacao",
+      "size_bytes": 1669680,
+      "size_mb": 1.59,
+      "pages": 66,
+      "text_pages": null,
+      "low_text_pages": [],
+      "content_type": "text-sample",
+      "sample_error": "",
+      "text_chars": null,
+      "page_chars_min": null,
+      "page_chars_max": null,
+      "page_chars_median": null,
+      "first_text_sample": "Aula 05\n                     PETROBRAS (Analista de Sistemas -\n                     Processos de Negócio) Segurança da\n                                                  Informação\n\n\n\n                                                        Autor:\n                             Equipe Informática e TI, André\n                                                       Castro\n\n\n                                        16 de Fevereiro de 2023\n\n\n\n\n02107509522 - lisia maria de Sá sousa",
+      "metadata": {
+        "producer": "FPDF 1.86"
+      }
+    }
+  ]
+}
