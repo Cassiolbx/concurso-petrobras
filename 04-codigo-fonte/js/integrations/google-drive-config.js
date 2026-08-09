@@ -5,4 +5,3 @@ window.PETROBRAS_GOOGLE_DRIVE_CONFIG = Object.freeze({
   scope: "https://www.googleapis.com/auth/drive.file",
   appName: "Concurso Petrobras"
 });
-
