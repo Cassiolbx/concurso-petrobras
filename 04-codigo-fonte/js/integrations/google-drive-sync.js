@@ -325,4 +325,3 @@
   globalThis.PetrobrasDriveSync = { connect, backupNow: () => syncToDrive({ snapshot: true }), restoreNow: () => syncToDrive({ restore: true }), downloadLocal, importData: applyState, setAutoBackup, markDirty, updateLastSyncUi };
   document.addEventListener("DOMContentLoaded", bind);
 })();
-
